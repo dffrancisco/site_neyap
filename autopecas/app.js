@@ -3,7 +3,7 @@ import './autopecas.css';
 // Numero unico do WhatsApp comercial do Neyap.
 const WHATSAPP = '556120994303';
 // PENDENTE: webhook n8n do funil Vyzo
-const WEBHOOK_URL = '';
+const WEBHOOK_URL = 'https://n8n.vyzar.com.br/webhook/neyap-site-lead';
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'];
 
 const reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -99,7 +99,7 @@ form.addEventListener('submit', (ev) => {
       fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome: n, whatsapp: zap.value, interesse, pagina: window.location.href, ...utms }),
+        body: JSON.stringify({ nome: n, whatsapp: zap.value, interesse, pagina: window.location.href, utms }),
         keepalive: true,
       }).catch(() => {});
     } catch (e) { /* nao bloqueia */ }
