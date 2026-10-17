@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://neyap.com.br/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://neyap.com.br/</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://neyap.com.br/autopecas/</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://neyap.com.br/blog/</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://neyap.com.br/blog/cliente-pediu-orcamento-e-sumiu/</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://neyap.com.br/blog/relatorio-de-vendas-whatsapp/</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://neyap.com.br/blog/relatorio-de-vendas-por-vendedor-whatsapp/</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://neyap.com.br/blog/whatsapp-oficial-para-empresa/</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://neyap.com.br/privacidade/</loc><lastmod>2026-10-17</lastmod></url>
 </urlset>

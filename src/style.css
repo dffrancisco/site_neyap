@@ -79,13 +79,13 @@
   }
 
   .btn-primary {
-    @apply text-white shadow-[0_1px_0_rgba(255,255,255,0.2)_inset,0_10px_24px_-8px_rgba(0,200,83,0.55)];
-    background: linear-gradient(180deg, #00d65c 0%, var(--color-neyap-brand) 55%, var(--color-neyap-brand-dark) 100%);
+    @apply text-white shadow-[0_1px_0_rgba(255,255,255,0.2)_inset,0_10px_24px_-8px_rgba(38,125,143,0.55)];
+    background: linear-gradient(180deg, #2f95a8 0%, var(--color-neyap-brand) 55%, var(--color-neyap-brand-dark) 100%);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 32px -10px rgba(0, 200, 83, 0.6);
+    box-shadow: 0 16px 32px -10px rgba(38,125,143, 0.6);
   }
 
   .btn-primary:active {
@@ -170,7 +170,7 @@
   }
 
   .pulse-dot {
-    box-shadow: 0 0 0 4px rgba(0, 200, 83, 0.15);
+    box-shadow: 0 0 0 4px rgba(38,125,143, 0.15);
   }
 
   /* ---- Accordion (FAQ) -------------------------------------------------- */
@@ -226,21 +226,21 @@
 
   .bg-mesh-dark {
     background:
-      radial-gradient(60% 50% at 15% 10%, rgba(0, 200, 83, 0.22), transparent 60%),
-      radial-gradient(45% 40% at 90% 30%, rgba(0, 200, 83, 0.12), transparent 60%),
-      radial-gradient(60% 60% at 50% 100%, rgba(0, 168, 68, 0.15), transparent 60%),
+      radial-gradient(60% 50% at 15% 10%, rgba(38,125,143, 0.22), transparent 60%),
+      radial-gradient(45% 40% at 90% 30%, rgba(38,125,143, 0.12), transparent 60%),
+      radial-gradient(60% 60% at 50% 100%, rgba(31,104,120, 0.15), transparent 60%),
       #111827;
   }
 
   .bg-mesh-cta {
     background:
       radial-gradient(65% 80% at 20% 0%, rgba(255, 255, 255, 0.16), transparent 60%),
-      radial-gradient(60% 70% at 100% 100%, rgba(0, 122, 60, 0.5), transparent 60%),
-      linear-gradient(135deg, #00d65c 0%, #267d8f 45%, #1f6878 100%);
+      radial-gradient(60% 70% at 100% 100%, rgba(21,76,88, 0.5), transparent 60%),
+      linear-gradient(135deg, #2f95a8 0%, #267d8f 45%, #1f6878 100%);
   }
 
-  .text-gradient-green {
-    background: linear-gradient(90deg, #00e06a, #1f6878);
+  .text-gradient-brand {
+    background: linear-gradient(90deg, #3aa3b6, #1f6878);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -259,9 +259,9 @@
 }
 
 @keyframes pulse-dot {
-  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.4); }
-  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); }
-  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(38,125,143, 0.4); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(38,125,143, 0); }
+  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(38,125,143, 0); }
 }
 
 @keyframes panel-in {
@@ -287,3 +287,18 @@
     animation: none !important;
   }
 }
+
+/* ---- Artigos do blog (gerados por scripts/gerar-blog.py) ---------------- */
+.artigo h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.15; font-weight: 700; color: var(--color-neyap-ink); margin: 0 0 1.25rem; }
+.artigo h2 { font-family: var(--font-display); font-size: 1.6rem; line-height: 1.25; font-weight: 700; color: var(--color-neyap-ink); margin: 2.5rem 0 0.75rem; }
+.artigo h3 { font-size: 1.2rem; font-weight: 600; color: var(--color-neyap-ink); margin: 1.75rem 0 0.5rem; }
+.artigo p, .artigo li { font-size: 1.075rem; line-height: 1.75; }
+.artigo p { margin: 0 0 1.1rem; }
+.artigo ul, .artigo ol { margin: 0 0 1.2rem 1.4rem; }
+.artigo ul { list-style: disc; } .artigo ol { list-style: decimal; }
+.artigo li { margin-bottom: 0.4rem; }
+.artigo a { color: var(--color-neyap-brand); text-decoration: underline; text-underline-offset: 3px; }
+.artigo strong { color: var(--color-neyap-ink); }
+.artigo blockquote { border-left: 4px solid var(--color-neyap-brand); background: var(--color-neyap-brand-tint); padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+.artigo table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+.artigo th, .artigo td { border: 1px solid var(--color-neyap-border); padding: 0.6rem 0.75rem; text-align: left; }
