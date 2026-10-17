@@ -1,5 +1,6 @@
 import './style.css';
 import './motion.js';
+import './demo-form.js';
 
 /* ---------------------------------------------------------------------- */
 /* Sticky nav                                                              */
@@ -14,6 +15,24 @@ function updateNavOnScroll() {
 }
 updateNavOnScroll();
 window.addEventListener('scroll', updateNavOnScroll, { passive: true });
+
+/* ---------------------------------------------------------------------- */
+/* Botão flutuante de WhatsApp: aparece depois de rolar além do hero       */
+/* ---------------------------------------------------------------------- */
+const waFloat = document.querySelector('[data-wa-float]');
+if (waFloat) {
+  const hero = document.querySelector('main section, section');
+  const limite = () => Math.max(600, hero ? hero.offsetHeight : 0);
+  const atualizaFloat = () => {
+    const show = window.scrollY > limite();
+    waFloat.classList.toggle('opacity-0', !show);
+    waFloat.classList.toggle('translate-y-4', !show);
+    waFloat.classList.toggle('invisible', !show);
+    waFloat.classList.toggle('pointer-events-none', !show);
+  };
+  atualizaFloat();
+  window.addEventListener('scroll', atualizaFloat, { passive: true });
+}
 
 /* ---------------------------------------------------------------------- */
 /* Mobile menu                                                             */
