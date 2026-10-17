@@ -7,11 +7,11 @@
 
 @theme {
   /* ---- Color tokens -------------------------------------------------- */
-  --color-neyap-green: #00c853;
-  --color-neyap-green-dark: #00a844;
-  --color-neyap-green-deep: #027a3c;
-  --color-neyap-green-tint: #e7fbef;
-  --color-neyap-green-tint-2: #d3f5e2;
+  --color-neyap-brand: #267d8f;
+  --color-neyap-brand-dark: #1f6878;
+  --color-neyap-brand-deep: #154c58;
+  --color-neyap-brand-tint: #e8f3f5;
+  --color-neyap-brand-tint-2: #d2e8ec;
   --color-neyap-ink: #111827;
   --color-neyap-ink-soft: #1f2937;
   --color-neyap-body: #374151;
@@ -51,12 +51,12 @@
   }
 
   ::selection {
-    background: var(--color-neyap-green);
+    background: var(--color-neyap-brand);
     color: #fff;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-neyap-green);
+    outline: 2px solid var(--color-neyap-brand);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -69,7 +69,7 @@
 
   .eyebrow {
     font-family: var(--font-mono);
-    @apply inline-flex items-center gap-2 text-[12px] font-medium tracking-[0.14em] uppercase text-neyap-green-deep;
+    @apply inline-flex items-center gap-2 text-[12px] font-medium tracking-[0.14em] uppercase text-neyap-brand-deep;
   }
 
   .btn-primary,
@@ -80,7 +80,7 @@
 
   .btn-primary {
     @apply text-white shadow-[0_1px_0_rgba(255,255,255,0.2)_inset,0_10px_24px_-8px_rgba(0,200,83,0.55)];
-    background: linear-gradient(180deg, #00d65c 0%, var(--color-neyap-green) 55%, var(--color-neyap-green-dark) 100%);
+    background: linear-gradient(180deg, #00d65c 0%, var(--color-neyap-brand) 55%, var(--color-neyap-brand-dark) 100%);
   }
 
   .btn-primary:hover {
@@ -105,7 +105,7 @@
   }
 
   .card-hover {
-    @apply hover:-translate-y-1 hover:border-neyap-green/30 hover:shadow-[0_20px_40px_-24px_rgba(17,24,39,0.25)];
+    @apply hover:-translate-y-1 hover:border-neyap-brand/30 hover:shadow-[0_20px_40px_-24px_rgba(17,24,39,0.25)];
   }
 
   .chip {
@@ -114,7 +114,7 @@
   }
 
   .icon-tile {
-    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-[12px] bg-neyap-green-tint text-neyap-green-deep;
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-[12px] bg-neyap-brand-tint text-neyap-brand-deep;
   }
 
   /* ---- Scroll reveal -------------------------------------------------- */
@@ -150,7 +150,7 @@
   .flow-line::before {
     content: "";
     position: absolute;
-    background: linear-gradient(90deg, transparent, var(--color-neyap-green) 15%, var(--color-neyap-green) 85%, transparent);
+    background: linear-gradient(90deg, transparent, var(--color-neyap-brand) 15%, var(--color-neyap-brand) 85%, transparent);
     opacity: 0.35;
   }
 
@@ -166,7 +166,7 @@
     bottom: 0;
     left: 50%;
     width: 1px;
-    background: linear-gradient(180deg, transparent, var(--color-neyap-green) 15%, var(--color-neyap-green) 85%, transparent);
+    background: linear-gradient(180deg, transparent, var(--color-neyap-brand) 15%, var(--color-neyap-brand) 85%, transparent);
   }
 
   .pulse-dot {
@@ -236,11 +236,11 @@
     background:
       radial-gradient(65% 80% at 20% 0%, rgba(255, 255, 255, 0.16), transparent 60%),
       radial-gradient(60% 70% at 100% 100%, rgba(0, 122, 60, 0.5), transparent 60%),
-      linear-gradient(135deg, #00d65c 0%, #00c853 45%, #00a844 100%);
+      linear-gradient(135deg, #00d65c 0%, #267d8f 45%, #1f6878 100%);
   }
 
   .text-gradient-green {
-    background: linear-gradient(90deg, #00e06a, #00a844);
+    background: linear-gradient(90deg, #00e06a, #1f6878);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
