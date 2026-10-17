@@ -117,31 +117,6 @@
     @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-[12px] bg-neyap-brand-tint text-neyap-brand-deep;
   }
 
-  /* ---- Scroll reveal -------------------------------------------------- */
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-  }
-
-  .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .reveal-scale {
-    opacity: 0;
-    transform: scale(0.96);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-  }
-
-  .reveal-scale.is-visible {
-    opacity: 1;
-    transform: scale(1);
-  }
-
   /* ---- Flow / pipeline connective line signature ---------------------- */
   .flow-line {
     position: relative;
@@ -274,12 +249,6 @@
     scroll-behavior: auto;
   }
 
-  .reveal,
-  .reveal-scale {
-    transition: opacity 0.3s ease;
-    transform: none !important;
-  }
-
   .animate-float-slow,
   .animate-float-med,
   .animate-blob,
@@ -379,4 +348,25 @@
   .painel-rolo:has(img[src*="ins-ranking"]), .painel-rolo:has(img[src*="ins-listas"]) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .painel-rolo img[src*="ins-ranking"], .painel-rolo img[src*="ins-listas"] { width: 760px; max-width: none; min-width: 760px; }
   .rolo-dica { display: block; margin: 0; padding: 6px 12px 8px; font-size: 12px; color: #5b6b72; text-align: center; background: #fff; }
+}
+
+/* ---- Motion (GSAP, src/motion.js) ------------------------------------------
+   html.mo só existe quando o motion vai rodar (script inline no <head>).
+   Sem JS ou com movimento reduzido, nada fica escondido. */
+.mo [data-m-hero] { visibility: hidden; }
+.m-w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.m-wi { display: inline-block; will-change: transform; }
+.m-run, .m-run * { transition: none !important; }
+
+.bg-hero {
+  background:
+    radial-gradient(55% 60% at 88% 18%, rgba(58,163,182,0.32), transparent 62%),
+    radial-gradient(50% 60% at 0% 100%, rgba(8,24,28,0.6), transparent 65%),
+    linear-gradient(160deg, #175663 0%, #12434e 45%, #0b2a31 100%);
+}
+.preco-plano { position: relative; overflow: hidden; isolation: isolate; }
+.preco-brilho {
+  position: absolute; inset: -20% auto -20% 0; width: 40%; z-index: 1; pointer-events: none;
+  background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.16) 50%, transparent 100%);
+  visibility: hidden;
 }

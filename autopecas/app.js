@@ -25,38 +25,6 @@ function lerUtms() {
 }
 const utms = lerUtms();
 
-// reveal ao rolar
-const alvos = document.querySelectorAll('.ap .dor, .ap .dor-foto, .ap .passos li, .ap .num, .ap .painel, .ap .ins-nums div, .ap .oficial-lista li, .ap .leia-lista li');
-if ('IntersectionObserver' in window && !reduz) {
-  alvos.forEach((el) => el.classList.add('js-rv'));
-  const io = new IntersectionObserver((es) => {
-    es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  alvos.forEach((el) => io.observe(el));
-}
-
-// contagem dos numeros da prova
-const fmt = new Intl.NumberFormat('pt-BR');
-function contar(el) {
-  const fim = parseInt(el.dataset.count, 10);
-  let t0 = null;
-  const dur = 1100;
-  function passo(t) {
-    if (t0 === null) t0 = t;
-    const p = Math.min((t - t0) / dur, 1);
-    el.textContent = fmt.format(Math.round(fim * (1 - Math.pow(1 - p, 3))));
-    if (p < 1) requestAnimationFrame(passo);
-  }
-  requestAnimationFrame(passo);
-}
-const contados = document.querySelectorAll('.ap [data-count]');
-if ('IntersectionObserver' in window && !reduz) {
-  const io2 = new IntersectionObserver((es) => {
-    es.forEach((e) => { if (e.isIntersecting) { contar(e.target); io2.unobserve(e.target); } });
-  }, { threshold: 0.6 });
-  contados.forEach((el) => { el.textContent = '0'; io2.observe(el); });
-}
-
 // abas do Insights
 const abas = Array.from(document.querySelectorAll('.ap .aba'));
 function abrir(aba) {
