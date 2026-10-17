@@ -110,7 +110,7 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 /* ---- Medição com consentimento (LGPD) ------------------------------------
    PENDENTE: preencher os IDs quando a conta de anúncios da Vyzo existir.
    Sem ID preenchido, nada é carregado e o banner não aparece. */
-const META_PIXEL_ID = '';
+const META_PIXEL_ID = '2172709736997376';
 const GOOGLE_TAG_ID = ''; // ex.: AW-XXXXXXXXX ou G-XXXXXXX
 const GOOGLE_LEAD_SEND_TO = ''; // ex.: AW-XXXXXXXXX/rotulo
 
@@ -144,6 +144,16 @@ window.neyapTrack = (evento, dados = {}) => {
   if (window.fbq) window.fbq('track', evento, dados);
   if (window.gtag && GOOGLE_LEAD_SEND_TO && evento === 'Lead') window.gtag('event', 'conversion', { send_to: GOOGLE_LEAD_SEND_TO });
 };
+
+// Contact: clique em qualquer link de WhatsApp (delegação, cobre links gerados por JS)
+document.addEventListener('click', (e) => {
+  const a = e.target?.closest?.('a[href]');
+  if (!a) return;
+  const h = a.getAttribute('href') || '';
+  if (/^https?:\/\/(wa\.me|api\.whatsapp\.com)(\/|\?|$)/i.test(h)) {
+    try { window.neyapTrack?.('Contact'); } catch { /* sem rastreio */ }
+  }
+}, true);
 
 if (META_PIXEL_ID || GOOGLE_TAG_ID) {
   const c = readConsent();

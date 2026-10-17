@@ -25,6 +25,19 @@ function lerUtms() {
 }
 const utms = lerUtms();
 
+function fbIds() {
+  const out = {};
+  try {
+    const ck = (n) => { const m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : ''; };
+    const fbp = ck('_fbp');
+    let fbc = ck('_fbc');
+    if (!fbc && utms.fbclid) fbc = 'fb.1.' + Date.now() + '.' + utms.fbclid;
+    if (fbp) out.fbp = fbp;
+    if (fbc) out.fbc = fbc;
+  } catch (e) { /* sem cookie */ }
+  return out;
+}
+
 // abas do Insights
 const abas = Array.from(document.querySelectorAll('.ap .aba'));
 function abrir(aba) {
@@ -99,7 +112,7 @@ form.addEventListener('submit', (ev) => {
       fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome: n, whatsapp: zap.value, interesse, pagina: window.location.href, utms }),
+        body: JSON.stringify({ nome: n, whatsapp: zap.value, interesse, pagina: window.location.href, utms, ...fbIds() }),
         keepalive: true,
       }).catch(() => {});
     } catch (e) { /* nao bloqueia */ }

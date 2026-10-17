@@ -21,6 +21,19 @@ function lerUtms() {
 }
 const utms = lerUtms();
 
+function fbIds() {
+  const out = {};
+  try {
+    const ck = (n) => { const m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : ''; };
+    const fbp = ck('_fbp');
+    let fbc = ck('_fbc');
+    if (!fbc && utms.fbclid) fbc = 'fb.1.' + Date.now() + '.' + utms.fbclid;
+    if (fbp) out.fbp = fbp;
+    if (fbc) out.fbc = fbc;
+  } catch (e) { /* sem cookie */ }
+  return out;
+}
+
 const campo = 'mt-1.5 w-full rounded-xl border border-neyap-border bg-white px-4 py-3 text-[15px] text-neyap-ink outline-none transition focus:border-neyap-brand focus:ring-2 focus:ring-neyap-brand/20';
 const rotulo = 'block text-[13.5px] font-semibold text-neyap-ink';
 const erroCls = 'mt-1 text-[13px] text-red-700';
@@ -162,7 +175,7 @@ form.addEventListener('submit', (ev) => {
       fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, whatsapp: zapEl.value, empresa, segmento, interesse: 'demonstracao', pagina: window.location.href, utms }),
+        body: JSON.stringify({ nome, whatsapp: zapEl.value, empresa, segmento, interesse: 'demonstracao', pagina: window.location.href, utms, ...fbIds() }),
         keepalive: true,
       }).catch(() => {});
     } catch (e) { /* nao bloqueia */ }
