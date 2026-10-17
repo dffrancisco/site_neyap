@@ -10,10 +10,8 @@ const navShell = document.getElementById('nav-shell');
 
 function updateNavOnScroll() {
   const scrolled = window.scrollY > 12;
-  navShell.classList.toggle('bg-white/80', scrolled);
-  navShell.classList.toggle('backdrop-blur-xl', scrolled);
   navShell.classList.toggle('border-neyap-border', scrolled);
-  navShell.classList.toggle('shadow-[0_8px_30px_-15px_rgba(17,24,39,0.15)]', scrolled);
+  navShell.classList.toggle('border-white/60', !scrolled);
 }
 updateNavOnScroll();
 window.addEventListener('scroll', updateNavOnScroll, { passive: true });

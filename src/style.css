@@ -186,6 +186,13 @@
 
   .faq-panel > .faq-inner {
     overflow: hidden;
+    min-height: 0;
+  }
+
+  .faq-panel > .faq-inner::after {
+    content: "";
+    display: block;
+    height: 20px;
   }
 
   .faq-icon {
@@ -217,13 +224,6 @@
 }
 
 @layer utilities {
-  .bg-grid {
-    background-image:
-      linear-gradient(to right, rgba(17, 24, 39, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(17, 24, 39, 0.05) 1px, transparent 1px);
-    background-size: 44px 44px;
-  }
-
   .bg-mesh-dark {
     background:
       radial-gradient(60% 50% at 15% 10%, rgba(38,125,143, 0.22), transparent 60%),
@@ -288,6 +288,77 @@
   }
 }
 
+
+/* ---- Linguagem visual v3: fotos, molduras e campos de cor ---------------- */
+.bg-noite {
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgba(38,125,143,0.38), transparent 60%),
+    radial-gradient(50% 70% at 0% 100%, rgba(21,76,88,0.55), transparent 65%),
+    #0b1e23;
+}
+.bg-petroleo {
+  background:
+    radial-gradient(60% 60% at 85% 15%, rgba(58,163,182,0.28), transparent 60%),
+    linear-gradient(165deg, #1a5a68 0%, #154c58 45%, #0e353e 100%);
+}
+.bg-tinta {
+  background: linear-gradient(180deg, #e8f3f5 0%, #dcecef 100%);
+}
+.browser {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 40px 80px -30px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,0,0,0.06);
+}
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #eef1f3;
+  border-bottom: 1px solid #e2e6e9;
+}
+.browser-bar i { width: 10px; height: 10px; border-radius: 99px; background: #cfd5da; display: block; }
+.browser-bar i:nth-child(1) { background: #f26b5b; }
+.browser-bar i:nth-child(2) { background: #f5bf4f; }
+.browser-bar i:nth-child(3) { background: #5cc06b; }
+.browser-bar span {
+  margin-left: 10px;
+  flex: 1;
+  max-width: 260px;
+  border-radius: 6px;
+  background: #fff;
+  padding: 3px 10px;
+  font: 500 11px/1.4 var(--font-mono);
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.browser img { display: block; width: 100%; height: auto; }
+.foto-escura::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,24,28,0.55) 0%, rgba(8,24,28,0.78) 55%, rgba(8,24,28,0.92) 100%);
+}
+.num-gigante {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+.lift { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1); }
+.lift:hover { transform: translateY(-4px); box-shadow: 0 28px 50px -28px rgba(17,24,39,0.45); }
+.zoom-img { overflow: hidden; }
+.zoom-img img { transition: transform 1.2s cubic-bezier(0.16,1,0.3,1); }
+.zoom-img:hover img { transform: scale(1.04); }
+@media (prefers-reduced-motion: reduce) {
+  .lift, .zoom-img img { transition: none; }
+  .lift:hover, .zoom-img:hover img { transform: none; }
+}
+
 /* ---- Artigos do blog (gerados por scripts/gerar-blog.py) ---------------- */
 .artigo h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.15; font-weight: 700; color: var(--color-neyap-ink); margin: 0 0 1.25rem; }
 .artigo h2 { font-family: var(--font-display); font-size: 1.6rem; line-height: 1.25; font-weight: 700; color: var(--color-neyap-ink); margin: 2.5rem 0 0.75rem; }
@@ -302,3 +373,10 @@
 .artigo blockquote { border-left: 4px solid var(--color-neyap-brand); background: var(--color-neyap-brand-tint); padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
 .artigo table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
 .artigo th, .artigo td { border: 1px solid var(--color-neyap-border); padding: 0.6rem 0.75rem; text-align: left; }
+
+.rolo-dica { display: none; }
+@media (max-width: 639px) {
+  .painel-rolo:has(img[src*="ins-ranking"]), .painel-rolo:has(img[src*="ins-listas"]) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .painel-rolo img[src*="ins-ranking"], .painel-rolo img[src*="ins-listas"] { width: 760px; max-width: none; min-width: 760px; }
+  .rolo-dica { display: block; margin: 0; padding: 6px 12px 8px; font-size: 12px; color: #5b6b72; text-align: center; background: #fff; }
+}

@@ -1,6 +1,6 @@
 import './autopecas.css';
 
-// Numero unico do WhatsApp comercial da Neyap.
+// Numero unico do WhatsApp comercial do Neyap.
 const WHATSAPP = '556120994303';
 // PENDENTE: webhook n8n do funil Vyzo
 const WEBHOOK_URL = '';
@@ -26,7 +26,7 @@ function lerUtms() {
 const utms = lerUtms();
 
 // reveal ao rolar
-const alvos = document.querySelectorAll('.ap .dor, .ap .passos li, .ap .num, .ap .painel, .ap .oficial-lista li, .ap .tela');
+const alvos = document.querySelectorAll('.ap .dor, .ap .dor-foto, .ap .passos li, .ap .num, .ap .painel, .ap .ins-nums div, .ap .oficial-lista li, .ap .leia-lista li');
 if ('IntersectionObserver' in window && !reduz) {
   alvos.forEach((el) => el.classList.add('js-rv'));
   const io = new IntersectionObserver((es) => {

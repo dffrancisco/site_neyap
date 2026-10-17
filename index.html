@@ -62,232 +62,315 @@
   <!-- @include partials/header.html -->
 
   <main id="conteudo">
-    <!-- HERO -->
-    <section id="inicio" class="relative overflow-hidden bg-white pt-40 pb-20 md:pt-48 md:pb-24">
-      <div class="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_20%,transparent_75%)]"></div>
-      <div class="pointer-events-none absolute -top-40 right-[-10%] h-[520px] w-[520px] rounded-full bg-neyap-brand/15 blur-[110px]"></div>
-      <div class="container-xl relative max-w-4xl text-center">
-        <span class="reveal eyebrow justify-center">CRM para WhatsApp</span>
-        <h1 class="reveal mt-5 text-[40px] font-extrabold leading-[1.08] tracking-tight text-neyap-ink sm:text-[52px] lg:text-[58px]" style="--reveal-delay:80ms">
-          CRM para WhatsApp que mostra <span class="text-gradient-brand">o que sua equipe vendeu.</span>
-        </h1>
-        <p class="reveal mx-auto mt-6 max-w-2xl text-[18px] leading-relaxed text-neyap-muted" style="--reveal-delay:160ms">
-          Você sabe quanto o WhatsApp da sua empresa vendeu no mês? E quanto perdeu, e por quê? O Neyap reúne os atendimentos da equipe, organiza as vendas em funil e, com o Insights, mostra venda e perda de cada vendedor e de cada loja.
-        </p>
-        <div class="reveal mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row" style="--reveal-delay:240ms">
-          <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="btn-primary">
-            <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="currentColor"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.75L3 21l5.4-1.6A8.5 8.5 0 1 0 12 3Z"/></svg>
-            Falar no WhatsApp
-          </a>
-          <a href="/neyap.exe" class="btn-ghost">Baixar o app</a>
-        </div>
-        <p class="reveal mt-5 text-[13px] text-neyap-muted" style="--reveal-delay:300ms">Planos a partir de R$500/mês, com o Insights incluso.</p>
-      </div>
-    </section>
-
-    <!-- INSIGHTS -->
-    <section id="insights" class="bg-neyap-surface py-24 md:py-28">
-      <div id="diferenciais" class="container-xl">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <span class="eyebrow justify-center">Neyap Insights</span>
-          <h2 class="mt-4 text-[32px] font-extrabold leading-tight text-neyap-ink sm:text-[40px]">Venda, perda e motivo de cada atendimento.</h2>
-          <p class="mt-4 text-[17px] leading-relaxed text-neyap-muted">O Insights lê o funil do Neyap e entrega o resultado por vendedor e por loja. Sem planilha e sem pedir relatório para a equipe. As telas abaixo usam dados de exemplo.</p>
-        </div>
-        <div class="reveal mt-12">
-          <img src="/img/insights/ins-kpis.webp" width="2296" height="664" loading="lazy" decoding="async" alt="Painel do Neyap Insights com atendimentos, vendas, perdas e taxa de conversão do período" class="w-full h-auto rounded-xl border border-neyap-border bg-white " />
-        </div>
-        <div class="mt-6 grid gap-6 lg:grid-cols-[1.6fr_1fr]">
-          <div class="reveal">
-            <p class="mb-3 text-[14px] font-semibold text-neyap-ink">Ranking por vendedor</p>
-            <img src="/img/insights/ins-ranking.webp" width="2296" height="960" loading="lazy" decoding="async" alt="Ranking de vendedores no Neyap Insights, com vendas e perdas de cada um" class="w-full h-auto rounded-xl border border-neyap-border bg-white " />
+    <!-- HERO: fundo noite, foto real e tela do Insights sobreposta -->
+    <section id="inicio" class="relative overflow-hidden bg-noite pt-32 pb-20 md:pt-40 lg:pb-28">
+      <div class="container-xl relative grid items-center gap-14 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
+        <div>
+          <span class="reveal eyebrow !text-[#8fd3df]">CRM para WhatsApp</span>
+          <h1 class="reveal mt-5 text-[40px] font-extrabold leading-[1.04] tracking-tight !text-white sm:text-[54px] lg:text-[62px]" style="--reveal-delay:80ms">
+            CRM para WhatsApp que mostra <span class="text-[#7fd0de]">o que sua equipe vendeu.</span>
+          </h1>
+          <p class="reveal mt-6 max-w-xl text-[18px] leading-relaxed text-white/75" style="--reveal-delay:160ms">
+            Você sabe quanto o WhatsApp da sua empresa vendeu no mês? E quanto perdeu, e por quê? O Neyap reúne os atendimentos da equipe, organiza as vendas em funil e, com o Insights, mostra venda e perda de cada vendedor e de cada loja.
+          </p>
+          <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row" style="--reveal-delay:240ms">
+            <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="btn-primary">
+              <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="currentColor"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.75L3 21l5.4-1.6A8.5 8.5 0 1 0 12 3Z"/></svg>
+              Falar no WhatsApp
+            </a>
+            <a href="/neyap.exe" class="btn-ghost-dark">Baixar o app</a>
           </div>
-          <div class="reveal" style="--reveal-delay:80ms">
-            <p class="mb-3 text-[14px] font-semibold text-neyap-ink">Por que o cliente não comprou</p>
-            <img src="/img/insights/ins-motivos.webp" width="1136" height="560" loading="lazy" decoding="async" alt="Motivos de perda dos atendimentos no Neyap Insights" class="w-full h-auto rounded-xl border border-neyap-border bg-white " />
+          <p class="reveal mt-6 text-[13.5px] text-white/55" style="--reveal-delay:300ms">Planos a partir de R$500/mês, com o Insights incluso.</p>
+        </div>
+
+        <div class="reveal-scale relative pb-24 sm:pb-28 lg:pb-0" style="--reveal-delay:120ms">
+          <div class="relative aspect-square overflow-hidden rounded-[22px] sm:aspect-[4/3] lg:ml-6 lg:aspect-[5/6]">
+            <img src="/img/fotos/home-lojista-tablet-960.webp" srcset="/img/fotos/home-lojista-tablet-960.webp 960w, /img/fotos/home-lojista-tablet.webp 1920w" sizes="(min-width: 1024px) 44vw, 100vw" width="1920" height="1282" fetchpriority="high" decoding="async" alt="Lojista sorrindo dentro de uma loja de roupas, ao lado das araras" class="absolute inset-0 h-full w-full object-cover object-[50%_35%]" />
+            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0b1e23]/70 to-transparent"></div>
+          </div>
+          <figure class="browser absolute bottom-0 left-3 w-[80%] sm:left-6 sm:w-[72%] lg:-left-12 lg:bottom-12 lg:w-[74%]">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>neyap insights</span></div>
+            <img src="/img/insights/ins-kpis-esq.webp" width="1148" height="664" decoding="async" alt="Neyap Insights com atendimentos, vendas ganhas, não resolvidas e valor vendido (dados de exemplo)" />
+          </figure>
+          <div class="absolute right-6 top-6 hidden rounded-2xl bg-[#0b1e23]/85 px-4 py-3 text-white shadow-xl backdrop-blur sm:block lg:-right-3 lg:top-10">
+            <p class="font-display text-[26px] font-extrabold leading-none text-[#7fd0de]">28,6%</p>
+            <p class="mt-1 text-[12px] text-white/70">conversão do melhor vendedor</p>
           </div>
         </div>
-        <div class="reveal mt-6">
-          <p class="mb-3 text-[14px] font-semibold text-neyap-ink">Listas para agir</p>
-          <img src="/img/insights/ins-listas.webp" width="2296" height="980" loading="lazy" decoding="async" alt="Listas de atendimentos do Neyap Insights, com clientes que pararam de responder" class="w-full h-auto rounded-xl border border-neyap-border bg-white " />
+      </div>
+    </section>
+
+    <!-- PROBLEMA: foto + card escuro sobreposto -->
+    <section class="bg-tinta py-24 md:py-28">
+      <div class="container-xl grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+        <div class="reveal relative lg:col-span-7">
+          <div class="zoom-img relative aspect-[4/3] overflow-hidden rounded-[24px]">
+            <img src="/img/fotos/home-dono-balcao.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Comerciante anotando um pedido no balcão da loja, cercado de mercadorias" class="absolute inset-0 h-full w-full object-cover" />
+          </div>
+          <div class="relative -mt-16 ml-4 mr-4 rounded-[20px] bg-neyap-ink p-7 text-white shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)] sm:ml-10 sm:mr-0 sm:max-w-md lg:absolute lg:-bottom-10 lg:-right-8 lg:m-0">
+            <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-[#8fd3df]">Hoje, no WhatsApp da loja</p>
+            <p class="mt-3 font-display text-[22px] font-bold leading-snug">Quanto vendeu ontem? Quem respondeu o cliente? Quem sumiu depois do orçamento?</p>
+          </div>
+        </div>
+        <div class="lg:col-span-5 lg:pl-6">
+          <span class="reveal eyebrow">O que ninguém vê</span>
+          <h2 class="reveal mt-4 text-[32px] font-extrabold leading-tight sm:text-[40px]">A venda acontece no WhatsApp. O resultado fica escondido nele.</h2>
+          <ol class="mt-9 space-y-7">
+            <li class="reveal flex gap-5"><span class="num-gigante text-[44px] text-neyap-brand">01</span><div><h3 class="text-[18px] font-bold">Conversas espalhadas</h3><p class="mt-1 text-[15px] leading-relaxed text-neyap-body">Cada vendedor no seu celular. Quando ele sai, o histórico vai junto.</p></div></li>
+            <li class="reveal flex gap-5" style="--reveal-delay:80ms"><span class="num-gigante text-[44px] text-neyap-brand">02</span><div><h3 class="text-[18px] font-bold">Perda sem motivo</h3><p class="mt-1 text-[15px] leading-relaxed text-neyap-body">Preço, falta de produto ou concorrente. Sem registro, o erro se repete.</p></div></li>
+            <li class="reveal flex gap-5" style="--reveal-delay:160ms"><span class="num-gigante text-[44px] text-neyap-brand">03</span><div><h3 class="text-[18px] font-bold">Resultado no palpite</h3><p class="mt-1 text-[15px] leading-relaxed text-neyap-body">Sem número por vendedor, o dono não sabe quem vende mais.</p></div></li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <!-- RECURSOS -->
-    <section class="py-24 md:py-28">
+    <!-- INSIGHTS: telas reais sobre petróleo profundo -->
+    <section id="insights" class="relative overflow-hidden bg-petroleo py-24 text-white md:py-32">
+      <div id="diferenciais" class="container-xl relative">
+        <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div class="reveal lg:col-span-7">
+            <span class="eyebrow !text-[#8fd3df]">Neyap Insights</span>
+            <h2 class="mt-4 text-[34px] font-extrabold leading-[1.08] !text-white sm:text-[46px]">Venda, perda e motivo de cada atendimento.</h2>
+          </div>
+          <p class="reveal text-[17px] leading-relaxed text-white/75 lg:col-span-5" style="--reveal-delay:80ms">O Insights lê o funil do Neyap e entrega o resultado por vendedor e por loja. Sem planilha e sem pedir relatório para a equipe.</p>
+        </div>
+
+        <div class="mt-14 grid gap-8 lg:grid-cols-12 lg:gap-10">
+          <figure class="reveal browser lg:col-span-8">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Ranking por vendedor</span></div>
+            <div class="painel-rolo"><img src="/img/insights/ins-ranking.webp" width="2296" height="960" loading="lazy" decoding="async" alt="Ranking de vendedores no Neyap Insights, com vendas e perdas de cada um" /></div><p class="rolo-dica" aria-hidden="true">Arraste para o lado</p>
+          </figure>
+          <div class="grid gap-px overflow-hidden rounded-[18px] bg-white/15 sm:grid-cols-3 lg:col-span-4 lg:grid-cols-1">
+            <div class="reveal bg-[#123f49] p-6"><p class="num-gigante text-[52px] text-[#7fd0de]">8 de 17</p><p class="mt-2 text-[14.5px] text-white/75">perdas foram por preço alto</p></div>
+            <div class="reveal bg-[#123f49] p-6" style="--reveal-delay:80ms"><p class="num-gigante text-[52px] text-white">3min46s</p><p class="mt-2 text-[14.5px] text-white/75">tempo médio da primeira resposta</p></div>
+            <div class="reveal bg-[#123f49] p-6" style="--reveal-delay:160ms"><p class="num-gigante text-[52px] text-[#f4b46a]">13 dias</p><p class="mt-2 text-[14.5px] text-white/75">da conversa parada mais antiga</p></div>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-12 lg:gap-10">
+          <figure class="reveal browser self-start lg:col-span-5">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Por que o cliente não comprou</span></div>
+            <img src="/img/insights/ins-motivos.webp" width="1136" height="560" loading="lazy" decoding="async" alt="Motivos de perda dos atendimentos no Neyap Insights" />
+          </figure>
+          <figure class="reveal browser lg:col-span-7" style="--reveal-delay:80ms">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Listas para agir</span></div>
+            <div class="painel-rolo"><img src="/img/insights/ins-listas.webp" width="2296" height="980" loading="lazy" decoding="async" alt="Listas de atendimentos do Neyap Insights, com clientes que pararam de responder" /></div><p class="rolo-dica" aria-hidden="true">Arraste para o lado</p>
+          </figure>
+        </div>
+        <p class="mt-6 text-[13px] text-white/50">Telas reais do Insights, com dados de exemplo.</p>
+      </div>
+    </section>
+
+    <!-- PROVA: números gigantes sobre foto -->
+    <section class="relative isolate overflow-hidden py-28 text-white md:py-36">
+      <div class="foto-escura absolute inset-0 -z-10">
+        <img src="/img/fotos/home-estoque-equipe.webp" width="1920" height="1280" loading="lazy" decoding="async" alt="Equipe de três pessoas no corredor do estoque, uma delas com um tablet" class="h-full w-full object-cover object-[50%_40%]" />
+      </div>
       <div class="container-xl">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <span class="eyebrow justify-center">Recursos</span>
-          <h2 class="mt-4 text-[32px] font-extrabold leading-tight text-neyap-ink sm:text-[40px]">Tudo o que a equipe usa no dia a dia.</h2>
+        <span class="reveal eyebrow !text-[#8fd3df]">Na prática</span>
+        <h2 class="reveal mt-4 max-w-3xl text-[30px] font-extrabold leading-tight !text-white sm:text-[42px]">Em 3 semanas, uma loja de autopeças registrou:</h2>
+        <div class="mt-14 grid gap-12 sm:grid-cols-3 sm:gap-6">
+          <div class="reveal border-t-2 border-white/30 pt-6"><p class="num-gigante text-[88px] sm:text-[100px] lg:text-[148px]"><span class="counter" data-target="770">770</span></p><p class="mt-3 text-[17px] text-white/80">atendimentos no WhatsApp</p></div>
+          <div class="reveal border-t-2 border-[#7fd0de] pt-6" style="--reveal-delay:100ms"><p class="num-gigante text-[88px] text-[#7fd0de] sm:text-[100px] lg:text-[148px]"><span class="counter" data-target="91">91</span></p><p class="mt-3 text-[17px] text-white/80">vendas registradas</p></div>
+          <div class="reveal border-t-2 border-[#f4b46a] pt-6" style="--reveal-delay:200ms"><p class="num-gigante text-[88px] text-[#f4b46a] sm:text-[100px] lg:text-[148px]"><span class="counter" data-target="280">280</span></p><p class="mt-3 text-[17px] text-white/80">clientes que pararam de responder</p></div>
         </div>
-        <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        <div id="recursos" class="card card-hover reveal p-7" style="--reveal-delay:0ms">
-          <span class="icon-tile"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4V5Z"/></svg></span>
-          <h3 class="mt-5 text-[19px] font-bold text-neyap-ink">Atendimento</h3>
-          <ul class="mt-4 space-y-2.5 text-[14.5px] leading-relaxed text-neyap-muted"><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Caixa única com WhatsApp, Instagram, Facebook, e-mail e chat do site</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Vários atendentes e distribuição automática dos atendimentos</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Etiquetas, respostas prontas e transferência entre atendentes</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Chat interno da equipe</span></li></ul>
-        </div>
-        <div class="card card-hover reveal p-7" style="--reveal-delay:60ms">
-          <span class="icon-tile"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg></span>
-          <h3 class="mt-5 text-[19px] font-bold text-neyap-ink">Vendas</h3>
-          <ul class="mt-4 space-y-2.5 text-[14.5px] leading-relaxed text-neyap-muted"><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Funil de vendas em quadro Kanban</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Tarefas, itens e campos próprios em cada negociação</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Motivo de perda registrado em cada atendimento perdido</span></li></ul>
-        </div>
-        <div id="ia" class="card card-hover reveal p-7" style="--reveal-delay:120ms">
-          <span class="icon-tile"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 5 14h6l-1 7 8-11h-6l1-7Z"/></svg></span>
-          <h3 class="mt-5 text-[19px] font-bold text-neyap-ink">Automação</h3>
-          <ul class="mt-4 space-y-2.5 text-[14.5px] leading-relaxed text-neyap-muted"><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Chatbot visual, com IA quando você quiser</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Cadências de mensagens</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Mensagens agendadas</span></li></ul>
-        </div>
-        <div class="card card-hover reveal p-7" style="--reveal-delay:180ms">
-          <span class="icon-tile"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"/></svg></span>
-          <h3 class="mt-5 text-[19px] font-bold text-neyap-ink">WhatsApp oficial</h3>
-          <ul class="mt-4 space-y-2.5 text-[14.5px] leading-relaxed text-neyap-muted"><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Instalação da API oficial da Meta</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Modelos de mensagem aprovados</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Campanhas com limite por hora e validação da lista de contatos</span></li></ul>
-        </div>
-        <div id="integracoes" class="card card-hover reveal p-7" style="--reveal-delay:240ms">
-          <span class="icon-tile"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H6a3 3 0 0 0 0 6h3m6-6h3a3 3 0 0 1 0 6h-3M8 10h8"/></svg></span>
-          <h3 class="mt-5 text-[19px] font-bold text-neyap-ink">Integração</h3>
-          <ul class="mt-4 space-y-2.5 text-[14.5px] leading-relaxed text-neyap-muted"><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>API aberta para ligar o Neyap ao seu sistema</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Webhooks para avisar outros sistemas</span></li><li class="flex gap-2.5"><svg class="mt-0.5 h-4 w-4 shrink-0 text-neyap-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Ligações pelo próprio Neyap</span></li></ul>
-        </div>
-        </div>
+        <p class="reveal mt-14 max-w-2xl font-display text-[22px] font-bold leading-snug sm:text-[26px]">Agora a loja sabe onde perde venda e quem precisa de retorno hoje.</p>
       </div>
     </section>
 
-    <!-- PROVA -->
-    <section class="bg-neyap-surface py-20">
+    <!-- RECURSOS: grade assimétrica -->
+    <section id="recursos" class="bg-white py-24 md:py-32">
       <div class="container-xl">
-        <div class="reveal mx-auto max-w-3xl text-center">
-          <span class="eyebrow justify-center">Na prática</span>
-          <p class="mt-4 text-[24px] font-bold leading-snug text-neyap-ink sm:text-[30px]">Em 3 semanas, uma loja de autopeças registrou 770 atendimentos, 91 vendas e 280 clientes que pararam de responder.</p>
+        <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div class="reveal lg:col-span-7">
+            <span class="eyebrow">Recursos</span>
+            <h2 class="mt-4 text-[34px] font-extrabold leading-tight sm:text-[44px]">Tudo o que a equipe usa no dia a dia.</h2>
+          </div>
+          <p class="reveal text-[17px] leading-relaxed text-neyap-muted lg:col-span-5">Atendimento, vendas, automação e WhatsApp oficial no mesmo sistema. A equipe atende, o dono acompanha.</p>
+        </div>
+
+        <div class="mt-14 grid gap-5 lg:grid-cols-6">
+          <article class="reveal lift overflow-hidden rounded-[22px] bg-neyap-ink text-white lg:col-span-3 lg:row-span-2">
+            <div class="zoom-img relative aspect-[16/10]">
+              <img src="/img/fotos/home-lojista-whatsapp.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Lojista sorridente respondendo mensagens no celular dentro da loja" class="absolute inset-0 h-full w-full object-cover" />
+            </div>
+            <div class="p-8">
+              <h3 class="text-[24px] font-bold !text-white">Atendimento</h3>
+              <ul class="mt-5 space-y-3 text-[15px] leading-relaxed text-white/75">
+                <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#7fd0de]"></span>Caixa única com WhatsApp, Instagram, Facebook, e-mail e chat do site</li>
+                <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#7fd0de]"></span>Vários atendentes e distribuição automática dos atendimentos</li>
+                <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#7fd0de]"></span>Etiquetas, respostas prontas e transferência entre atendentes</li>
+                <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#7fd0de]"></span>Chat interno da equipe</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="reveal lift rounded-[22px] bg-petroleo p-8 text-white lg:col-span-3" style="--reveal-delay:60ms">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="text-[24px] font-bold !text-white">Vendas</h3>
+              <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-[#8fd3df]"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9m6 10V5m6 14v-7m4 7H2"/></svg></span>
+            </div>
+            <ul class="mt-5 space-y-3 text-[15px] leading-relaxed text-white/80">
+              <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-white"></span>Funil de vendas em quadro Kanban</li>
+              <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-white"></span>Tarefas, itens e campos próprios em cada negociação</li>
+              <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-white"></span>Motivo de perda registrado em cada atendimento perdido</li>
+            </ul>
+          </article>
+
+          <article id="ia" class="reveal lift rounded-[22px] border border-neyap-border bg-neyap-surface p-8 lg:col-span-3" style="--reveal-delay:120ms">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="text-[24px] font-bold">Automação</h3>
+              <span class="icon-tile"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 5 14h6l-1 7 8-11h-6l1-7Z"/></svg></span>
+            </div>
+            <ul class="mt-5 space-y-3 text-[15px] leading-relaxed text-neyap-body">
+              <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-neyap-brand"></span>Chatbot visual, com IA quando você quiser</li>
+              <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-neyap-brand"></span>Cadências de mensagens</li>
+              <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-neyap-brand"></span>Mensagens agendadas</li>
+            </ul>
+          </article>
+
+          <article class="reveal lift relative overflow-hidden rounded-[22px] bg-neyap-brand-tint p-8 lg:col-span-4" style="--reveal-delay:60ms">
+            <h3 class="relative text-[24px] font-bold">WhatsApp oficial</h3>
+            <ul class="relative mt-5 grid gap-3 text-[15px] leading-relaxed text-neyap-body sm:grid-cols-3">
+              <li class="rounded-xl bg-white p-4">Instalação da API oficial da Meta</li>
+              <li class="rounded-xl bg-white p-4">Modelos de mensagem aprovados</li>
+              <li class="rounded-xl bg-white p-4">Campanhas com limite por hora e validação da lista de contatos</li>
+            </ul>
+          </article>
+
+          <article id="integracoes" class="reveal lift rounded-[22px] border border-neyap-border bg-white p-8 lg:col-span-2" style="--reveal-delay:120ms">
+            <h3 class="text-[24px] font-bold">Integração</h3>
+            <ul class="mt-5 space-y-3 text-[15px] leading-relaxed text-neyap-body">
+              <li>API aberta para ligar o Neyap ao seu sistema</li>
+              <li>Webhooks para avisar outros sistemas</li>
+              <li>Ligações pelo próprio Neyap</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- SEGMENTOS -->
-    <section id="segmentos" class="py-24 md:py-28">
-      <div class="container-xl">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <span class="eyebrow justify-center">Segmentos</span>
-          <h2 class="mt-4 text-[32px] font-extrabold leading-tight text-neyap-ink sm:text-[40px]">Para quem vende pelo WhatsApp.</h2>
-        </div>
-        <div class="mt-12 mx-auto max-w-md">
-          <a href="/autopecas/" class="card card-hover reveal block p-7">
-            <span class="icon-tile"><svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.6-.6-.6-2.6 2.6-2.2Z"/></svg></span>
-            <h3 class="mt-5 text-[19px] font-bold text-neyap-ink">Autopeças</h3>
-            <p class="mt-2 text-[14.5px] leading-relaxed text-neyap-muted">Orçamentos pelo WhatsApp sem se perder: veja quem pediu, quem comprou e quem sumiu.</p>
-            <span class="mt-4 inline-flex items-center gap-1 text-[14px] font-semibold text-neyap-brand-deep">Ver a página para autopeças <span aria-hidden="true">&rarr;</span></span>
-          </a>
+    <!-- SEGMENTOS: split de largura total, foto + campo escuro -->
+    <section id="segmentos" class="grid bg-neyap-ink lg:grid-cols-2">
+      <div class="zoom-img relative min-h-[320px] lg:min-h-[560px]">
+        <img src="/img/fotos/home-oficina-pneu.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Profissional de uniforme azul conferindo um pneu na oficina" class="absolute inset-0 h-full w-full object-cover" />
+      </div>
+      <div class="flex items-center px-6 py-16 md:px-14 lg:py-20 xl:px-20">
+        <div class="reveal max-w-lg">
+          <span class="eyebrow !text-[#8fd3df]">Segmentos</span>
+          <h2 class="mt-4 text-[32px] font-extrabold leading-tight !text-white sm:text-[42px]">Tem loja de autopeças? Existe uma página feita para você.</h2>
+          <p class="mt-5 text-[17px] leading-relaxed text-white/70">Orçamentos pelo WhatsApp sem se perder: veja quem pediu, quem comprou e quem sumiu.</p>
+          <a href="/autopecas/" class="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-bold text-neyap-brand-deep transition hover:-translate-y-0.5">Ver a página para autopeças <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </section>
 
-    <!-- PRECO -->
-    <section id="preco" class="bg-neyap-surface py-24 md:py-28">
-      <div class="container-xl">
-        <div class="reveal mx-auto max-w-2xl rounded-[24px] border border-neyap-border bg-white p-10 text-center">
-          <span class="eyebrow justify-center">Preço</span>
-          <p class="mt-4 text-[44px] font-extrabold leading-none text-neyap-ink">a partir de R$500<span class="text-[20px] font-semibold text-neyap-muted">/mês</span></p>
-          <p class="mx-auto mt-4 max-w-md text-[16px] leading-relaxed text-neyap-muted">O Neyap Insights está incluso em todos os planos. O valor final depende do tamanho da equipe. Fale no WhatsApp e receba a proposta.</p>
-          <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="btn-primary mt-7"><svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="currentColor"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.75L3 21l5.4-1.6A8.5 8.5 0 1 0 12 3Z"/></svg> Pedir proposta</a>
+    <!-- PRECO: número gigante -->
+    <section id="preco" class="bg-tinta py-24 md:py-28">
+      <div class="container-xl grid items-center gap-10 lg:grid-cols-12">
+        <div class="reveal lg:col-span-7">
+          <span class="eyebrow">Preço</span>
+          <p class="mt-5 font-display text-[22px] font-bold text-neyap-ink">a partir de</p>
+          <p class="num-gigante text-[92px] text-neyap-brand-deep sm:text-[150px] lg:text-[190px]">R$500<span class="ml-2 align-top text-[24px] font-semibold tracking-normal text-neyap-muted sm:text-[30px]">/mês</span></p>
+        </div>
+        <div class="reveal lg:col-span-5" style="--reveal-delay:100ms">
+          <p class="text-[18px] leading-relaxed text-neyap-body">O Neyap Insights está incluso em todos os planos. O valor final depende do tamanho da equipe. Fale no WhatsApp e receba a proposta.</p>
+          <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="btn-primary mt-8"><svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="currentColor"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.75L3 21l5.4-1.6A8.5 8.5 0 1 0 12 3Z"/></svg> Pedir proposta</a>
         </div>
       </div>
     </section>
 
-    <!-- BLOG -->
-    <section id="blog" class="py-24 md:py-28">
-      <div class="container-xl">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <span class="eyebrow justify-center">Do blog</span>
-          <h2 class="mt-4 text-[32px] font-extrabold leading-tight text-neyap-ink sm:text-[40px]">Para ler com calma.</h2>
-        </div>
-        <div class="mt-12 mx-auto grid max-w-3xl gap-5 md:grid-cols-2">
-          <a href="/blog/relatorio-de-vendas-whatsapp/" class="card card-hover reveal block p-7">
-            <h3 class="text-[18px] font-bold leading-snug text-neyap-ink">Relatório de vendas do WhatsApp: como montar</h3>
-            <p class="mt-2 text-[14.5px] text-neyap-muted">Como saber quanto o WhatsApp vendeu e quanto cada vendedor fechou.</p>
-            <span class="mt-4 inline-flex text-[14px] font-semibold text-neyap-brand-deep">Ler o artigo <span aria-hidden="true" class="ml-1">&rarr;</span></span>
-          </a>
-          <a href="/blog/whatsapp-oficial-para-empresa/" class="card card-hover reveal block p-7" style="--reveal-delay:80ms">
-            <h3 class="text-[18px] font-bold leading-snug text-neyap-ink">WhatsApp oficial para empresa: quando vale a pena</h3>
-            <p class="mt-2 text-[14.5px] text-neyap-muted">O que muda ao trocar para a API oficial da Meta.</p>
-            <span class="mt-4 inline-flex text-[14px] font-semibold text-neyap-brand-deep">Ler o artigo <span aria-hidden="true" class="ml-1">&rarr;</span></span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="bg-neyap-surface py-24 md:py-28">
-      <div class="container-xl max-w-3xl">
-        <div class="reveal text-center">
-          <span class="eyebrow justify-center">Perguntas frequentes</span>
-          <h2 class="mt-4 text-[32px] font-extrabold leading-tight text-neyap-ink sm:text-[40px]">Ainda com dúvidas?</h2>
-        </div>
-        <div class="mt-14 divide-y divide-neyap-border rounded-2xl border border-neyap-border bg-white">
+    <!-- FAQ + BLOG -->
+    <section id="faq" class="bg-white py-24 md:py-28">
+      <div class="container-xl grid gap-14 lg:grid-cols-12">
+        <div class="lg:col-span-5">
           <div class="reveal">
-            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+            <span class="eyebrow">Perguntas frequentes</span>
+            <h2 class="mt-4 text-[32px] font-extrabold leading-tight sm:text-[40px]">Ainda com dúvidas?</h2>
+          </div>
+          <div id="blog" class="mt-10 space-y-4">
+            <p class="reveal font-mono text-[12px] uppercase tracking-[0.14em] text-neyap-muted">Do blog</p>
+            <a href="/blog/relatorio-de-vendas-whatsapp/" class="reveal lift block rounded-[18px] bg-neyap-ink p-6 text-white">
+              <h3 class="text-[18px] font-bold leading-snug !text-white">Relatório de vendas do WhatsApp: como montar</h3>
+              <p class="mt-2 text-[14.5px] text-white/65">Como saber quanto o WhatsApp vendeu e quanto cada vendedor fechou.</p>
+              <span class="mt-4 inline-flex text-[14px] font-semibold text-[#8fd3df]">Ler o artigo <span aria-hidden="true" class="ml-1">&rarr;</span></span>
+            </a>
+            <a href="/blog/whatsapp-oficial-para-empresa/" class="reveal lift block rounded-[18px] bg-neyap-brand-tint p-6" style="--reveal-delay:80ms">
+              <h3 class="text-[18px] font-bold leading-snug">WhatsApp oficial para empresa: quando vale a pena</h3>
+              <p class="mt-2 text-[14.5px] text-neyap-body">O que muda ao trocar para a API oficial da Meta.</p>
+              <span class="mt-4 inline-flex text-[14px] font-semibold text-neyap-brand-deep">Ler o artigo <span aria-hidden="true" class="ml-1">&rarr;</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="divide-y divide-neyap-border self-start border-y border-neyap-border lg:col-span-7">
+          <div class="reveal">
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
               <span class="text-[15.5px] font-semibold text-neyap-ink">O que é o Neyap?</span>
               <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             </button>
-            <div class="faq-panel px-6"><div class="faq-inner pb-5 text-[14.5px] leading-relaxed text-neyap-muted">O Neyap é um CRM para WhatsApp. Ele reúne os atendimentos da equipe em uma caixa única, organiza as vendas em funil e mostra quanto cada vendedor vendeu e perdeu.</div></div>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">O Neyap é um CRM para WhatsApp. Ele reúne os atendimentos da equipe em uma caixa única, organiza as vendas em funil e mostra quanto cada vendedor vendeu e perdeu.</div></div>
           </div>
 
           <div class="reveal">
-            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
               <span class="text-[15.5px] font-semibold text-neyap-ink">O Neyap mostra quanto cada vendedor vendeu?</span>
               <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             </button>
-            <div class="faq-panel px-6"><div class="faq-inner pb-5 text-[14.5px] leading-relaxed text-neyap-muted">Sim. O Neyap Insights registra a venda, a perda e o motivo de cada atendimento. Você vê o resultado por vendedor e por loja, em telas de ranking, motivos de perda e listas.</div></div>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Sim. O Neyap Insights registra a venda, a perda e o motivo de cada atendimento. Você vê o resultado por vendedor e por loja, em telas de ranking, motivos de perda e listas.</div></div>
           </div>
 
           <div class="reveal">
-            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
               <span class="text-[15.5px] font-semibold text-neyap-ink">Posso usar o WhatsApp oficial da Meta?</span>
               <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             </button>
-            <div class="faq-panel px-6"><div class="faq-inner pb-5 text-[14.5px] leading-relaxed text-neyap-muted">Sim. O Neyap faz a instalação da API oficial da Meta, usa modelos de mensagem e roda campanhas com limite por hora e validação da lista de contatos.</div></div>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Sim. O Neyap faz a instalação da API oficial da Meta, usa modelos de mensagem e roda campanhas com limite por hora e validação da lista de contatos.</div></div>
           </div>
 
           <div class="reveal">
-            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
               <span class="text-[15.5px] font-semibold text-neyap-ink">Quais canais entram na caixa de atendimento?</span>
               <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             </button>
-            <div class="faq-panel px-6"><div class="faq-inner pb-5 text-[14.5px] leading-relaxed text-neyap-muted">WhatsApp, Instagram, Facebook, e-mail e chat do site. A equipe responde tudo no mesmo lugar, com distribuição automática entre os atendentes.</div></div>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">WhatsApp, Instagram, Facebook, e-mail e chat do site. A equipe responde tudo no mesmo lugar, com distribuição automática entre os atendentes.</div></div>
           </div>
 
           <div class="reveal">
-            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
               <span class="text-[15.5px] font-semibold text-neyap-ink">Quanto custa?</span>
               <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             </button>
-            <div class="faq-panel px-6"><div class="faq-inner pb-5 text-[14.5px] leading-relaxed text-neyap-muted">Os planos começam em R$500 por mês, com o Neyap Insights incluso. O valor final depende do tamanho da equipe. Fale no WhatsApp e receba a proposta.</div></div>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Os planos começam em R$500 por mês, com o Neyap Insights incluso. O valor final depende do tamanho da equipe. Fale no WhatsApp e receba a proposta.</div></div>
           </div>
 
           <div class="reveal">
-            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
               <span class="text-[15.5px] font-semibold text-neyap-ink">O Neyap conversa com outros sistemas?</span>
               <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             </button>
-            <div class="faq-panel px-6"><div class="faq-inner pb-5 text-[14.5px] leading-relaxed text-neyap-muted">Sim. Há API e webhooks para ligar o Neyap ao sistema da sua empresa, além de ligações feitas pelo próprio Neyap.</div></div>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Sim. Há API e webhooks para ligar o Neyap ao sistema da sua empresa, além de ligações feitas pelo próprio Neyap.</div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA FINAL -->
-    <section id="contato" class="relative overflow-hidden py-24 md:py-32">
-      <div class="container-xl">
-        <div class="reveal-scale relative overflow-hidden rounded-[28px] bg-mesh-cta px-8 py-16 text-center sm:px-16 sm:py-20">
-          <div class="animate-blob pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl"></div>
-          <h2 class="relative text-[30px] font-extrabold leading-tight text-white sm:text-[42px]">Descubra o que o seu WhatsApp vendeu.</h2>
-          <p class="relative mx-auto mt-4 max-w-lg text-[17px] text-white/85">Fale com a nossa equipe e veja o Neyap Insights com os dados da sua operação.</p>
-          <div class="relative mt-9 flex justify-center">
-            <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4.5 text-[17px] font-bold text-neyap-brand-deep shadow-[0_20px_45px_-15px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_28px_55px_-15px_rgba(0,0,0,0.45)]">
-              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.75L3 21l5.4-1.6A8.5 8.5 0 1 0 12 3Z"/></svg>
-              Falar no WhatsApp
-            </a>
-          </div>
+    <!-- CTA FINAL: campo de cor inteiro -->
+    <section id="contato" class="relative overflow-hidden bg-mesh-cta py-24 md:py-28">
+      <div class="container-xl relative grid items-center gap-10 lg:grid-cols-12">
+        <div class="reveal lg:col-span-8">
+          <h2 class="text-[36px] font-extrabold leading-[1.05] !text-white sm:text-[54px]">Descubra o que o seu WhatsApp vendeu.</h2>
+          <p class="mt-5 max-w-xl text-[18px] text-white/85">Fale com a nossa equipe e veja o Neyap Insights com os dados da sua operação.</p>
+        </div>
+        <div class="reveal lg:col-span-4 lg:text-right" style="--reveal-delay:100ms">
+          <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4.5 text-[17px] font-bold text-neyap-brand-deep shadow-[0_20px_45px_-15px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:-translate-y-1">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.75L3 21l5.4-1.6A8.5 8.5 0 1 0 12 3Z"/></svg>
+            Falar no WhatsApp
+          </a>
         </div>
       </div>
     </section>
   </main>
+
 
   <!-- @include partials/footer.html -->
 

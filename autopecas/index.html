@@ -68,73 +68,104 @@
 
   <div class="ap">
   <main>
+    <!-- HERO: foto de largura total, texto sobre degradê escuro, tela do Insights saindo da foto -->
     <section class="hero" id="inicio">
+      <div class="hero-foto">
+        <img src="/img/fotos/ap-mecanico-celular-960.webp" srcset="/img/fotos/ap-mecanico-celular-960.webp 960w, /img/fotos/ap-mecanico-celular.webp 1920w" sizes="100vw" width="1920" height="1280" fetchpriority="high" decoding="async" alt="Profissional de macacão azul na oficina, lendo uma mensagem no celular" />
+      </div>
       <div class="wrap hero-grid">
         <div class="hero-txt">
           <p class="selo">Neyap com Insights, para autopeças</p>
           <h1>WhatsApp de vendas para loja de autopeças</h1>
           <p class="apoio">Quanto o seu WhatsApp vendeu hoje? E quanto perdeu?</p>
-          <p class="lead">O Neyap organiza o WhatsApp da loja e mostra a venda, a perda e o motivo de cada atendimento, por vendedor.</p>
+          <p class="lead lead-claro">O Neyap organiza o WhatsApp da loja e mostra a venda, a perda e o motivo de cada atendimento, por vendedor.</p>
           <div class="hero-cta">
             <a class="btn" href="#contato" data-interesse="Diagnóstico grátis">Quero o diagnóstico grátis</a>
-            <a class="link-seta" href="#como">Ver como funciona</a>
+            <a class="link-seta link-claro" href="#como">Ver como funciona</a>
           </div>
           <ul class="hero-pontos">
             <li>Atende o DF e Goiás</li>
             <li>A partir de R$500/mês</li>
           </ul>
         </div>
-        <div class="hero-img">
-          <figure class="tela">
-            <img src="/img/insights/ins-kpis.webp" alt="Painel do Insights com atendimentos, vendas ganhas, vendas perdidas e clientes que não responderam (dados de exemplo)" width="2296" height="664" fetchpriority="high" />
-          </figure>
-          <p class="nota-ex">Tela com dados de exemplo.</p>
-        </div>
+      </div>
+      <div class="wrap hero-tela-wrap">
+        <figure class="browser hero-tela">
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Insights da loja</span></div>
+          <img src="/img/insights/ins-kpis-dir.webp" alt="Painel do Insights com vendas perdidas, clientes que não responderam, taxa de conversão e tempo da primeira resposta (dados de exemplo)" width="1146" height="664" decoding="async" />
+        </figure>
       </div>
     </section>
 
-    <section class="sec" id="dor">
-      <div class="wrap">
-        <p class="eyebrow">O problema do balcão</p>
-        <h2>O WhatsApp vende, mas ninguém enxerga o que ele perde.</h2>
-        <div class="dor-grid">
+    <!-- DOR: foto do balcão + card escuro, números grandes -->
+    <section class="sec dor-sec" id="dor">
+      <div class="wrap dor-grid">
+        <div class="dor-foto">
+          <div class="dor-foto-img">
+            <img src="/img/fotos/ap-entrega-peca.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Mecânico entregando uma caixa de peças a um cliente" />
+          </div>
+          <div class="dor-cartao">
+            <p class="dor-cartao-k">Toda semana, no balcão</p>
+            <p class="dor-cartao-t">Chegou a cotação, o cliente sumiu. Ninguém lembra de quem era.</p>
+          </div>
+        </div>
+        <div class="dor-lista">
+          <p class="eyebrow">O problema do balcão</p>
+          <h2>O WhatsApp vende, mas ninguém enxerga o que ele perde.</h2>
           <article class="dor">
             <span class="dor-n">01</span>
-            <h3>O cliente pede orçamento e some</h3>
-            <p>Chegou a cotação, o cliente sumiu. Sem registro, ninguém lembra de quem era, nem de voltar a falar com ele.</p>
+            <div>
+              <h3>O cliente pede orçamento e some</h3>
+              <p>Chegou a cotação, o cliente sumiu. Sem registro, ninguém lembra de quem era, nem de voltar a falar com ele.</p>
+            </div>
           </article>
           <article class="dor">
             <span class="dor-n">02</span>
-            <h3>O vendedor perde a venda e ninguém sabe por quê</h3>
-            <p>Foi preço? Faltou a peça? Foi para o concorrente? Sem o motivo, a loja repete o mesmo erro toda semana.</p>
+            <div>
+              <h3>O vendedor perde a venda e ninguém sabe por quê</h3>
+              <p>Foi preço? Faltou a peça? Foi para o concorrente? Sem o motivo, a loja repete o mesmo erro toda semana.</p>
+            </div>
           </article>
           <article class="dor">
             <span class="dor-n">03</span>
-            <h3>O dono não sabe quem vende mais</h3>
-            <p>Cada vendedor tem o seu WhatsApp e a sua conversa. Comparar o resultado de cada um vira palpite.</p>
+            <div>
+              <h3>O dono não sabe quem vende mais</h3>
+              <p>Cada vendedor tem o seu WhatsApp e a sua conversa. Comparar o resultado de cada um vira palpite.</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- PROVA: números gigantes sobre a foto do estoque -->
     <section class="prova" id="prova">
-      <div class="wrap">
-        <p class="eyebrow eyebrow-claro">Resultado real</p>
-        <h2>Em 3 semanas, uma loja de autopeças registrou:</h2>
+      <div class="prova-foto">
+        <img src="/img/fotos/ap-estoque-pecas.webp" width="1920" height="1280" loading="lazy" decoding="async" alt="Funcionário no corredor do estoque de peças, entre prateleiras com caixas" />
+      </div>
+      <div class="wrap prova-grid">
+        <div class="prova-txt">
+          <p class="eyebrow eyebrow-claro">Resultado real</p>
+          <h2>Em 3 semanas, uma loja de autopeças registrou:</h2>
+          <p class="prova-fecho">Agora ela sabe onde está perdendo venda e pode agir.</p>
+        </div>
         <div class="num-grid">
           <div class="num"><strong data-count="770">770</strong><span>atendimentos</span></div>
-          <div class="num"><strong data-count="91">91</strong><span>vendas</span></div>
-          <div class="num"><strong data-count="280">280</strong><span>clientes que pararam de responder</span></div>
+          <div class="num num-destaque"><strong data-count="91">91</strong><span>vendas</span></div>
+          <div class="num num-alerta"><strong data-count="280">280</strong><span>clientes que pararam de responder</span></div>
           <div class="num"><strong data-count="156">156</strong><span>pedidos de peça em falta</span></div>
         </div>
-        <p class="prova-fecho">Agora ela sabe onde está perdendo venda e pode agir.</p>
       </div>
     </section>
 
-    <section class="sec" id="como">
+    <!-- COMO FUNCIONA -->
+    <section class="sec como" id="como">
       <div class="wrap">
-        <p class="eyebrow">Como funciona</p>
-        <h2>Três passos. O vendedor continua vendendo pelo WhatsApp.</h2>
+        <div class="como-topo">
+          <div>
+            <p class="eyebrow">Como funciona</p>
+            <h2>Três passos. O vendedor continua vendendo pelo WhatsApp.</h2>
+          </div>
+        </div>
         <ol class="passos">
           <li>
             <span class="passo-n">1</span>
@@ -155,9 +186,10 @@
       </div>
     </section>
 
-    <section class="sec sec-cinza" id="insights">
+    <!-- INSIGHTS: abas sobre petróleo profundo -->
+    <section class="sec ins-sec" id="insights">
       <div class="wrap">
-        <p class="eyebrow">O que o Insights mostra</p>
+        <p class="eyebrow eyebrow-claro">O que o Insights mostra</p>
         <h2>O resultado da loja, do vendedor e do cliente, em uma tela.</h2>
         <div class="ins-grid">
           <div class="ins-abas" role="tablist" aria-label="Telas do Insights">
@@ -179,48 +211,55 @@
             </button>
           </div>
           <div class="ins-paineis">
-            <figure class="painel" id="p-vend" role="tabpanel" aria-labelledby="t-vend"><img class="largo" src="/img/insights/ins-ranking.webp" alt="Ranking de vendedores no Insights (dados de exemplo)" width="2296" height="960" loading="lazy" /></figure>
-            <figure class="painel" id="p-resumo" role="tabpanel" aria-labelledby="t-resumo" hidden><img class="largo" src="/img/insights/ins-kpis.webp" alt="Indicadores de atendimento no Insights (dados de exemplo)" width="2296" height="664" loading="lazy" /></figure>
-            <figure class="painel" id="p-motivo" role="tabpanel" aria-labelledby="t-motivo" hidden><img src="/img/insights/ins-motivos.webp" alt="Motivos das perdas no Insights (dados de exemplo)" width="1136" height="560" loading="lazy" /></figure>
-            <figure class="painel" id="p-lista" role="tabpanel" aria-labelledby="t-lista" hidden><img class="largo" src="/img/insights/ins-listas.webp" alt="Conversas que pedem ação no Insights (dados de exemplo)" width="2296" height="980" loading="lazy" /></figure>
+            <figure class="painel browser" id="p-vend" role="tabpanel" aria-labelledby="t-vend"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Ranking de vendedores</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-ranking.webp" alt="Ranking de vendedores no Insights (dados de exemplo)" width="2296" height="960" loading="lazy" /></div><p class="rolo-dica" aria-hidden="true">Arraste para o lado</p></figure>
+            <figure class="painel browser" id="p-resumo" role="tabpanel" aria-labelledby="t-resumo" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Resumo do período</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-kpis.webp" alt="Indicadores de atendimento no Insights (dados de exemplo)" width="2296" height="664" loading="lazy" /></div></figure>
+            <figure class="painel browser" id="p-motivo" role="tabpanel" aria-labelledby="t-motivo" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Motivos das perdas</span></div><div class="painel-rolo"><img src="/img/insights/ins-motivos.webp" alt="Motivos das perdas no Insights (dados de exemplo)" width="1136" height="560" loading="lazy" /></div></figure>
+            <figure class="painel browser" id="p-lista" role="tabpanel" aria-labelledby="t-lista" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Conversas que pedem ação</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-listas.webp" alt="Conversas que pedem ação no Insights (dados de exemplo)" width="2296" height="980" loading="lazy" /></div><p class="rolo-dica" aria-hidden="true">Arraste para o lado</p></figure>
+            <div class="ins-nums">
+              <div><strong>47%</strong><span>das perdas do exemplo foram por preço alto</span></div>
+              <div><strong>5</strong><span>vendas perdidas porque a loja não tinha a peça</span></div>
+              <div><strong>13 dias</strong><span>parada, a conversa mais antiga sem retorno</span></div>
+            </div>
             <p class="nota-ex">Telas com dados de exemplo.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- WHATSAPP OFICIAL: campo escuro + foto -->
     <section class="oficial" id="oficial">
-      <div class="wrap oficial-grid">
-        <div>
+      <div class="oficial-txt">
+        <div class="oficial-in">
           <p class="eyebrow eyebrow-claro">WhatsApp oficial</p>
           <h2>Seu WhatsApp foi bloqueado?</h2>
           <p class="lead lead-claro">Instalamos o WhatsApp oficial da Meta no seu atendimento. A equipe continua atendendo na mesma caixa do Neyap.</p>
+          <ul class="oficial-lista">
+            <li>Conta oficial, configurada pela nossa equipe</li>
+            <li>Atendimento no Neyap, com histórico</li>
+            <li>Menos risco de bloqueio do número</li>
+          </ul>
           <a class="btn btn-claro" href="#contato" data-interesse="WhatsApp oficial">Quero o WhatsApp oficial</a>
         </div>
-        <ul class="oficial-lista">
-          <li>Conta oficial, configurada pela nossa equipe</li>
-          <li>Atendimento no Neyap, com histórico</li>
-          <li>Menos risco de bloqueio do número</li>
-        </ul>
+      </div>
+      <div class="oficial-foto">
+        <img src="/img/fotos/ap-estoque-tablet.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Funcionário do estoque conferindo pedidos em um tablet entre as prateleiras" />
       </div>
     </section>
 
-    <section class="leia" id="leia-tambem">
-      <div class="wrap">
-        <h2>Leia também</h2>
-        <ul class="leia-lista">
-          <li><a href="/blog/cliente-pediu-orcamento-e-sumiu/">Cliente pediu orçamento e sumiu</a></li>
-          <li><a href="/blog/relatorio-de-vendas-por-vendedor-whatsapp/">Relatório de vendas por vendedor no WhatsApp</a></li>
-          <li><a href="/">Conheça o Neyap</a></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="sec sec-cinza" id="duvidas">
+    <!-- DÚVIDAS + LEIA TAMBÉM -->
+    <section class="sec sec-tinta" id="duvidas">
       <div class="wrap faq-wrap">
         <div>
           <p class="eyebrow">Perguntas frequentes</p>
           <h2>O que o lojista pergunta antes de começar.</h2>
+          <div class="leia" id="leia-tambem">
+            <p class="leia-k">Leia também</p>
+            <ul class="leia-lista">
+              <li><a href="/blog/cliente-pediu-orcamento-e-sumiu/">Cliente pediu orçamento e sumiu</a></li>
+              <li><a href="/blog/relatorio-de-vendas-por-vendedor-whatsapp/">Relatório de vendas por vendedor no WhatsApp</a></li>
+              <li><a href="/">Conheça o Neyap</a></li>
+            </ul>
+          </div>
         </div>
         <div class="faq">
           <details>
@@ -285,6 +324,7 @@
       </div>
     </section>
   </main>
+
   </div>
 
   <!-- @include partials/footer.html -->
