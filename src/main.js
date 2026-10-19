@@ -108,11 +108,12 @@ const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 /* ---- Medição com consentimento (LGPD) ------------------------------------
-   PENDENTE: preencher os IDs quando a conta de anúncios da Vyzo existir.
-   Sem ID preenchido, nada é carregado e o banner não aparece. */
+   Google Ads: tag AW-18524104629 desde 2026-10-19. Rótulo de conversão vazio
+   = evento não enviado ao Google. Sem ID preenchido, nada é carregado. */
 const META_PIXEL_ID = '2172709736997376';
-const GOOGLE_TAG_ID = ''; // ex.: AW-XXXXXXXXX ou G-XXXXXXX
-const GOOGLE_LEAD_SEND_TO = ''; // ex.: AW-XXXXXXXXX/rotulo
+const GOOGLE_TAG_ID = 'AW-18524104629';
+// Rótulo de cada ação de conversão do Google Ads, ex.: 'AW-18524104629/abcDEF123'
+const GOOGLE_CONVERSIONS = { Lead: '', Contact: '' };
 
 const CONSENT_KEY = 'neyap-consent';
 const readConsent = () => { try { return localStorage.getItem(CONSENT_KEY); } catch { return null; } };
@@ -142,7 +143,8 @@ function loadTrackers() {
 window.neyapTrack = (evento, dados = {}) => {
   if (readConsent() !== 'sim') return;
   if (window.fbq) window.fbq('track', evento, dados);
-  if (window.gtag && GOOGLE_LEAD_SEND_TO && evento === 'Lead') window.gtag('event', 'conversion', { send_to: GOOGLE_LEAD_SEND_TO });
+  const sendTo = GOOGLE_CONVERSIONS[evento];
+  if (window.gtag && sendTo) window.gtag('event', 'conversion', { send_to: sendTo });
 };
 
 // Contact: clique em qualquer link de WhatsApp (delegação, cobre links gerados por JS)
