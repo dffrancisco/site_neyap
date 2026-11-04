@@ -1,8 +1,6 @@
 import './autopecas.css';
 
-// Numero unico do WhatsApp comercial do Neyap.
-const WHATSAPP = '556120994303';
-// PENDENTE: webhook n8n do funil Vyzo
+// Webhook n8n do funil 7 "Site Neyap" (workflow LTfK5yyqHxC2HrsD)
 const WEBHOOK_URL = 'https://n8n.vyzar.com.br/webhook/neyap-site-lead';
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'];
 
@@ -64,12 +62,9 @@ const form = document.getElementById('form');
 const nomeEl = document.getElementById('nome');
 const zap = document.getElementById('zap');
 
-document.querySelectorAll('.ap [data-interesse]').forEach((b) => {
-  b.addEventListener('click', () => {
-    const v = b.getAttribute('data-interesse');
-    form.querySelectorAll('input[name="interesse"]').forEach((r) => { r.checked = r.value === v; });
-    setTimeout(() => nomeEl.focus({ preventScroll: true }), reduz ? 0 : 500);
-  });
+// Botões que levam ao formulário: foco no Nome depois da rolagem.
+document.querySelectorAll('.ap a[href="#form"]').forEach((b) => {
+  b.addEventListener('click', () => { setTimeout(() => nomeEl.focus({ preventScroll: true }), reduz ? 0 : 500); });
 });
 
 zap.addEventListener('input', () => {
@@ -81,48 +76,77 @@ zap.addEventListener('input', () => {
   zap.value = s;
 });
 
+const lojaEl = document.getElementById('loja');
+
 function erro(campo, mostrar) {
   const el = document.getElementById('e-' + campo.id);
+  const ajuda = document.getElementById('h-' + campo.id);
   el.hidden = !mostrar;
   campo.setAttribute('aria-invalid', mostrar ? 'true' : 'false');
-  if (mostrar) campo.setAttribute('aria-describedby', el.id); else campo.removeAttribute('aria-describedby');
+  const ids = [mostrar ? el.id : '', ajuda ? ajuda.id : ''].filter(Boolean).join(' ');
+  if (ids) campo.setAttribute('aria-describedby', ids); else campo.removeAttribute('aria-describedby');
 }
+erro(lojaEl, false);
 
 form.addEventListener('submit', (ev) => {
   ev.preventDefault();
   const n = nomeEl.value.trim();
+  const loja = lojaEl.value.trim();
   const d = zap.value.replace(/\D/g, '');
   const okNome = n.length >= 2;
+  const okLoja = loja.length >= 3;
   const okZap = d.length >= 10 && d.length <= 11 && parseInt(d.slice(0, 2), 10) >= 11;
   erro(nomeEl, !okNome);
+  erro(lojaEl, !okLoja);
   erro(zap, !okZap);
   if (!okNome) { nomeEl.focus(); return; }
+  if (!okLoja) { lojaEl.focus(); return; }
   if (!okZap) { zap.focus(); return; }
 
-  const interesse = form.querySelector('input[name="interesse"]:checked').value;
-  let msg = 'Olá, sou ' + n + '. Tenho interesse em: ' + interesse + '. Meu WhatsApp: ' + zap.value + '.';
-  const ref = [utms.utm_source, utms.utm_medium, utms.utm_campaign].filter(Boolean).join('/');
-  if (ref) msg += '\nref: ' + ref;
-  const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
+  // A LP converte só pelo formulário (Kallebe, 2026-11-04): sem WhatsApp como saída.
+  // Por isso o envio espera a resposta do webhook. Se falhar, o visitante vê o erro e tenta de novo.
+  const interesse = 'Apresentação (20 min)';
+  const botao = document.getElementById('enviar');
+  const erroEnvio = document.getElementById('e-envio');
+  erroEnvio.hidden = true;
+  botao.disabled = true;
+  const textoBotao = botao.textContent;
+  botao.textContent = 'Enviando...';
 
-  try { window.neyapTrack?.('Lead', { interesse }); } catch (e) { /* sem rastreio */ }
-
-  if (WEBHOOK_URL) {
-    try {
-      fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome: n, whatsapp: zap.value, interesse, pagina: window.location.href, utms, ...fbIds() }),
-        keepalive: true,
-      }).catch(() => {});
-    } catch (e) { /* nao bloqueia */ }
-  }
-
-  form.hidden = true;
-  const ok = document.getElementById('ok');
-  document.getElementById('ok-link').href = url;
-  ok.hidden = false;
-  ok.focus();
-  window.open(url, '_blank', 'noopener');
+  const ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+  const limite = ctrl ? setTimeout(() => ctrl.abort(), 15000) : null;
+  fetch(WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nome: n, loja, whatsapp: zap.value, interesse, pagina: window.location.href, utms, ...fbIds() }),
+    signal: ctrl ? ctrl.signal : undefined,
+  }).then((r) => {
+    if (!r.ok) throw new Error('webhook ' + r.status);
+    // O n8n responde 200 com corpo vazio quando o fluxo quebra antes de gravar o lead.
+    // Sucesso só com {"ok": true}, que o nó "Responder OK" manda depois do card criado.
+    return r.json();
+  }).then((j) => {
+    if (!j || j.ok !== true) throw new Error('lead nao confirmado');
+    try { window.neyapTrack?.('Lead', { interesse }); } catch (e) { /* sem rastreio */ }
+    form.hidden = true;
+    const ok = document.getElementById('ok');
+    document.getElementById('ok-nome').textContent = n.split(' ')[0];
+    document.getElementById('ok-zap').textContent = zap.value;
+    ok.hidden = false;
+    ok.focus();
+  }).catch(() => {
+    erroEnvio.hidden = false;
+  }).finally(() => {
+    if (limite) clearTimeout(limite);
+    botao.disabled = false;
+    botao.textContent = textoBotao;
+  });
 });
-[nomeEl, zap].forEach((c) => c.addEventListener('input', () => erro(c, false)));
+[nomeEl, lojaEl, zap].forEach((c) => c.addEventListener('input', () => erro(c, false)));
+
+// Tela de sucesso: "O número está errado? Envie de novo" volta ao formulário com o WhatsApp em foco.
+document.getElementById('ok-refazer').addEventListener('click', () => {
+  document.getElementById('ok').hidden = true;
+  form.hidden = false;
+  zap.focus();
+});

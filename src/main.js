@@ -113,7 +113,9 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 const META_PIXEL_ID = '2172709736997376';
 const GOOGLE_TAG_ID = 'AW-18524104629';
 // Rótulo de cada ação de conversão do Google Ads, ex.: 'AW-18524104629/abcDEF123'
-const GOOGLE_CONVERSIONS = { Lead: '', Contact: '' };
+// Lead: ação 7889834389 "NEYAP Lead formulario autopecas" (2026-11-04). Contact fica vazio de propósito:
+// a conversão é só o formulário (Kallebe, 2026-11-04), clique no WhatsApp não conta.
+const GOOGLE_CONVERSIONS = { Lead: 'AW-18524104629/ceeqCJWjlbIdELXP_YBF', Contact: '' };
 
 const CONSENT_KEY = 'neyap-consent';
 const readConsent = () => { try { return localStorage.getItem(CONSENT_KEY); } catch { return null; } };
@@ -164,10 +166,12 @@ if (META_PIXEL_ID || GOOGLE_TAG_ID) {
     const bar = document.createElement('div');
     bar.setAttribute('role', 'dialog');
     bar.setAttribute('aria-label', 'Cookies');
-    bar.className = 'fixed inset-x-3 bottom-3 z-[60] mx-auto max-w-xl rounded-2xl border border-neyap-border bg-white p-4 text-[14px] text-neyap-body shadow-xl';
-    bar.innerHTML = 'Usamos cookies do Meta e do Google para medir nossos anúncios. <a href="/privacidade/" class="underline">Saiba mais</a>.'
-      + '<div class="mt-3 flex gap-2"><button data-c="sim" class="rounded-full bg-neyap-brand px-4 py-2 font-semibold text-white">Aceitar</button>'
-      + '<button data-c="nao" class="rounded-full border border-neyap-border px-4 py-2">Recusar</button></div>';
+    // Banner baixo (revisão de conversão 2026-11-04): no celular ele não pode cobrir o botão do topo.
+    // Aceitar e Recusar continuam com o mesmo tamanho.
+    bar.className = 'fixed inset-x-2 bottom-2 z-[60] mx-auto flex max-w-xl flex-wrap items-center gap-x-3 gap-y-2 rounded-xl border border-neyap-border bg-white px-3 py-2.5 text-[13px] leading-snug text-neyap-body shadow-xl sm:inset-x-3 sm:bottom-3 sm:px-4 sm:py-3 sm:text-[14px]';
+    bar.innerHTML = '<span class="min-w-0 flex-1 basis-[220px]">Usamos cookies do Meta e do Google para medir anúncios. <a href="/privacidade/" class="underline">Saiba mais</a>.</span>'
+      + '<span class="flex shrink-0 gap-2"><button data-c="sim" class="rounded-full bg-neyap-brand px-4 py-1.5 font-semibold text-white">Aceitar</button>'
+      + '<button data-c="nao" class="rounded-full border border-neyap-border px-4 py-1.5">Recusar</button></span>';
     bar.addEventListener('click', (e) => {
       const v = e.target?.dataset?.c;
       if (!v) return;

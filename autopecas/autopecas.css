@@ -208,3 +208,66 @@
 }
 .ap .oficial-foto, .ap .dor-foto-img, .ap .hero-foto, .ap .prova-foto { overflow: hidden; }
 .ap .num strong [data-m-count] { font: inherit; color: inherit; max-width: none; line-height: inherit; }
+
+/* ---- Clientes: lojas que usam o Neyap (2026-11-04) ------------------------ */
+.ap .clientes { background: #f3f5f6; padding: 72px 0 0; text-align: center; }
+.ap .clientes-k { font: 600 12px/1.4 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mut); margin: 0 0 22px; }
+.ap .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%); }
+.ap .marquee-trilho { display: flex; width: max-content; animation: clientes-rola 48s linear infinite; }
+.ap .marquee:hover .marquee-trilho { animation-play-state: paused; }
+.ap .marquee-grupo { list-style: none; margin: 0; padding: 6px 72px 10px 0; display: flex; align-items: center; gap: 72px; }
+.ap .marquee-grupo li { flex: none; display: flex; align-items: center; }
+.ap .marquee-grupo img { display: block; width: auto; height: 52px; opacity: .85; }
+.ap .marquee-grupo .cl-real { height: 76px; }
+.ap .marquee-grupo .cl-kp { height: 44px; }
+.ap .marquee-grupo .cl-tg { height: 60px; }
+.ap .marquee-grupo .cl-so { height: 60px; }
+.ap .marquee-grupo .cl-fc { height: 70px; }
+@keyframes clientes-rola { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 600px) {
+  .ap .marquee-trilho { animation-duration: 34s; }
+  .ap .marquee-grupo { gap: 44px; padding-right: 44px; }
+  .ap .marquee-grupo .cl-real { height: 56px; }
+  .ap .marquee-grupo .cl-kp { height: 32px; }
+  .ap .marquee-grupo .cl-tg { height: 44px; }
+  .ap .marquee-grupo .cl-so { height: 44px; }
+  .ap .marquee-grupo .cl-fc { height: 52px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ap .marquee { -webkit-mask-image: none; mask-image: none; }
+  .ap .marquee-trilho { animation: none; width: auto; justify-content: center; }
+  .ap .marquee-grupo { flex-wrap: wrap; justify-content: center; padding: 6px 20px 10px; gap: 28px 48px; }
+  .ap .marquee .dup { display: none; }
+}
+.ap .clientes + .dor-sec .dor-grid { padding-top: 72px; }
+
+/* ---- Envio do formulário (sem WhatsApp como saída) ------------------------ */
+.ap .btn[disabled] { opacity: .7; cursor: wait; transform: none; }
+.ap .erro-envio { margin-top: 12px; }
+
+/* ---- Revisão de conversão (2026-11-04, NEYAP/analises/2026-11-04-revisao-lp-conversao) ---- */
+.ap .hero-oferta { margin: 22px 0 0; max-width: 34em; padding-left: 14px; border-left: 3px solid var(--claro); font-size: 15.5px; line-height: 1.5; color: rgba(255,255,255,.88); }
+@media (max-width: 599px) { .ap .hero .selo { display: none; } .ap .hero { padding-top: 104px; } .ap .hero-oferta { font-size: 14.5px; } }
+.ap .prova-cta { grid-column: 1 / -1; }
+.ap .como-ponte { margin-top: 18px; }
+.ap .como-fecho { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; }
+.ap .como-fecho p { margin: 0; max-width: 34em; color: var(--body); font-size: 17px; }
+.ap .ins-linha { margin-top: 18px; max-width: 40em; }
+.ap .preco-passo { justify-content: center; gap: 18px; }
+.ap .preco-passo-t { margin: 0; font: 700 clamp(20px, 2.2vw, 26px)/1.3 var(--font-display); color: var(--ink); max-width: 22em; }
+.ap .preco-passo .btn { align-self: flex-start; }
+.ap .form-para { margin: 0 0 18px; font: 600 14px/1.4 var(--font-display); color: var(--cx); }
+.ap .ajuda { margin: 6px 0 0; font-size: 13px; color: var(--mut); }
+.ap .ok b { color: var(--ink); }
+.ap .ok-errado { font-size: 14px; margin-bottom: 0 !important; }
+.ap .link-btn { background: none; border: 0; padding: 0; font: inherit; color: var(--cd); text-decoration: underline; cursor: pointer; }
+.ap #form { scroll-margin-top: 96px; }
+.ap .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ap .chip { min-width: 0; }
+.ap .chip span { white-space: nowrap; text-align: center; padding-left: 10px; padding-right: 10px; }
+@media (max-width: 899px) {
+  .ap .contato { padding: 64px 0 80px; }
+  .ap .dor-foto { display: none; }
+}
+.ap .chip span { height: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
+@media (max-width: 400px) { .ap .chip span { white-space: normal; padding: 10px 8px; font-size: 14.5px; line-height: 1.2; } }

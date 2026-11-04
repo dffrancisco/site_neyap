@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Atendimento no WhatsApp para loja de autopeças | Neyap</title>
-  <meta name="description" content="Veja quanto o WhatsApp da sua loja de autopeças vende e perde, por vendedor e com o motivo de cada perda. Planos a partir de R$500/mês." />
+  <meta name="description" content="Veja quanto o WhatsApp da sua loja de autopeças vende e perde, por vendedor e com o motivo de cada perda. Planos a partir de R$280/mês." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#267d8f" />
   <link rel="canonical" href="https://neyap.com.br/autopecas/" />
@@ -39,7 +39,7 @@
     "url": "https://neyap.com.br/autopecas/",
     "offers": {
       "@type": "Offer",
-      "price": "500",
+      "price": "280",
       "priceCurrency": "BRL",
       "availability": "https://schema.org/InStock"
     },
@@ -65,7 +65,7 @@
   <script type="module" src="./app.js"></script>
 </head>
 <body class="bg-white text-neyap-body antialiased">
-  <!-- @include partials/header.html -->
+  <!-- @include partials/header-lp.html -->
 
   <div class="ap">
   <main>
@@ -76,24 +76,59 @@
       </div>
       <div class="wrap hero-grid">
         <div class="hero-txt">
-          <p class="selo" data-m-hero="eyebrow">Neyap com Insights, para autopeças</p>
-          <h1 data-m-hero="titulo">WhatsApp de vendas para loja de autopeças</h1>
-          <p class="apoio" data-m-hero="texto">Quanto o seu WhatsApp vendeu hoje? E quanto perdeu?</p>
-          <p class="lead lead-claro" data-m-hero="texto">O Neyap organiza o WhatsApp da loja e mostra a venda, a perda e o motivo de cada atendimento, por vendedor.</p>
-          <div class="hero-cta" data-m-hero="botoes">
-            <a class="btn" href="#contato" data-interesse="Diagnóstico grátis">Quero o diagnóstico grátis</a>
-            <a class="link-seta link-claro" href="#como">Ver como funciona</a>
+          <p class="selo">Neyap com Insights, para autopeças</p>
+          <h1>WhatsApp de vendas para loja de autopeças</h1>
+          <p class="apoio">Quanto o seu WhatsApp vendeu hoje? E quanto perdeu?</p>
+          <p class="lead lead-claro">O Neyap mostra a venda, a perda e o motivo de cada atendimento, por vendedor.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#form">Agendar uma apresentação</a>
+            <a class="link-seta link-claro" href="#apresentacao">Como funciona a apresentação</a>
           </div>
-          <ul class="hero-pontos" data-m-hero="nota">
-            <li>A partir de R$500/mês</li>
+          <p class="hero-oferta">Em 20 minutos, a gente mostra o Neyap funcionando: o WhatsApp da equipe numa caixa só e a venda, a perda e o motivo de cada atendimento, por vendedor. Sem custo e sem compromisso.</p>
+          <ul class="hero-pontos">
+            <li>A partir de R$280/mês</li>
           </ul>
         </div>
       </div>
       <div class="wrap hero-tela-wrap">
         <figure class="browser hero-tela" data-m-hero="tela">
-          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Insights da loja</span></div>
+          <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Insights da loja (dados de exemplo)</span></div>
           <img src="/img/insights/ins-kpis-dir.webp" alt="Painel do Insights com vendas perdidas, clientes que não responderam, taxa de conversão e tempo da primeira resposta (dados de exemplo)" width="1146" height="664" decoding="async" />
         </figure>
+      </div>
+    </section>
+
+    <!-- CLIENTES: lojas que usam o Neyap (Kallebe, 2026-11-04). Logos oficiais em preto e branco, originais em NEYAP/assets/clientes/.
+         Carrossel infinito só com CSS: o trilho tem 2 grupos iguais e anda -50%. Com movimento reduzido, fica parado e centralizado. -->
+    <section class="clientes" aria-labelledby="clientes-k">
+      <p class="clientes-k" id="clientes-k">Lojas de autopeças que usam o Neyap</p>
+      <div class="marquee">
+        <div class="marquee-trilho">
+        <ul class="marquee-grupo">
+          <li><img class="cl-real" src="/img/clientes/real-pb.webp" alt="Real Shop Car" width="243" height="160" loading="lazy" decoding="async" /></li>
+          <li><img class="cl-kp" src="/img/clientes/karpecas-pb.webp" alt="Karpeças Produtos Automotivos" width="541" height="160" loading="lazy" decoding="async" /></li>
+          <li><img class="cl-tg" src="/img/clientes/tagua-pb.webp" alt="Tagua Peças" width="473" height="200" loading="lazy" decoding="async" /></li>
+          <li><img class="cl-so" src="/img/clientes/soinjecao-pb.webp" alt="Só Injeção Distribuidora" width="327" height="160" loading="lazy" decoding="async" /></li>
+          <li><img class="cl-fc" src="/img/clientes/fuscao-pb.webp" alt="Fuscão Acessórios e Latarias em Geral" width="398" height="200" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-real" src="/img/clientes/real-pb.webp" alt="" width="243" height="160" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-kp" src="/img/clientes/karpecas-pb.webp" alt="" width="541" height="160" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-tg" src="/img/clientes/tagua-pb.webp" alt="" width="473" height="200" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-so" src="/img/clientes/soinjecao-pb.webp" alt="" width="327" height="160" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-fc" src="/img/clientes/fuscao-pb.webp" alt="" width="398" height="200" loading="lazy" decoding="async" /></li>
+        </ul>
+        <ul class="marquee-grupo dup" aria-hidden="true">
+          <li class="dup" aria-hidden="true"><img class="cl-real" src="/img/clientes/real-pb.webp" alt="" width="243" height="160" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-kp" src="/img/clientes/karpecas-pb.webp" alt="" width="541" height="160" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-tg" src="/img/clientes/tagua-pb.webp" alt="" width="473" height="200" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-so" src="/img/clientes/soinjecao-pb.webp" alt="" width="327" height="160" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-fc" src="/img/clientes/fuscao-pb.webp" alt="" width="398" height="200" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-real" src="/img/clientes/real-pb.webp" alt="" width="243" height="160" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-kp" src="/img/clientes/karpecas-pb.webp" alt="" width="541" height="160" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-tg" src="/img/clientes/tagua-pb.webp" alt="" width="473" height="200" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-so" src="/img/clientes/soinjecao-pb.webp" alt="" width="327" height="160" loading="lazy" decoding="async" /></li>
+          <li class="dup" aria-hidden="true"><img class="cl-fc" src="/img/clientes/fuscao-pb.webp" alt="" width="398" height="200" loading="lazy" decoding="async" /></li>
+        </ul>
+        </div>
       </div>
     </section>
 
@@ -144,9 +179,9 @@
       </div>
       <div class="wrap prova-grid">
         <div class="prova-txt">
-          <p class="eyebrow eyebrow-claro">Resultado real</p>
-          <h2>Em 3 semanas, uma loja de autopeças registrou:</h2>
-          <p class="prova-fecho">Agora ela sabe onde está perdendo venda e pode agir.</p>
+          <p class="eyebrow eyebrow-claro">Case Karpeças, 4 lojas, 24/09 a 15/10/2026</p>
+          <h2>Em 3 semanas, o painel mostrou para onde a venda da Karpeças ia.</h2>
+          <p class="prova-fecho">De cada 10 atendimentos, cerca de 1 virou venda, quase 4 terminaram com o cliente calado e 2 eram de peça em falta. Esses números aparecem quando cada atendimento fecha com venda ou motivo.</p>
         </div>
         <div class="num-grid">
           <div data-m-reveal class="num"><strong><span data-m-count="770">770</span></strong><span>atendimentos</span></div>
@@ -154,35 +189,41 @@
           <div data-m-reveal class="num num-alerta"><strong><span data-m-count="280">280</span></strong><span>clientes que pararam de responder</span></div>
           <div data-m-reveal class="num"><strong><span data-m-count="156">156</span></strong><span>pedidos de peça em falta</span></div>
         </div>
+        <div class="prova-cta"><a class="btn btn-claro" href="#form">Quero ver isso na minha loja</a></div>
       </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
-    <section class="sec como" id="como">
+    <!-- APRESENTAÇÃO: como funciona (oferta da LP desde 2026-11-04) -->
+    <section class="sec como" id="apresentacao">
       <div class="wrap">
         <div class="como-topo">
           <div>
-            <p class="eyebrow">Como funciona</p>
-            <h2>Três passos. O vendedor continua vendendo pelo WhatsApp.</h2>
+            <p class="eyebrow">Apresentação</p>
+            <h2>Como funciona a apresentação</h2>
+            <p class="lead como-ponte">20 minutos para ver se o Neyap serve para a sua loja.</p>
           </div>
         </div>
         <ol class="passos">
           <li data-m-reveal>
             <span class="passo-n">1</span>
-            <h3>Instalamos o Neyap no WhatsApp da loja</h3>
-            <p>Os números da loja passam a atender dentro de uma caixa só, com histórico e responsável por conversa.</p>
+            <h3>Você deixa o nome e o WhatsApp</h3>
+            <p>A gente chama você em até 1 hora, em horário comercial, para marcar o melhor horário.</p>
           </li>
           <li data-m-reveal>
             <span class="passo-n">2</span>
-            <h3>O vendedor marca o resultado</h3>
-            <p>Ao fechar o atendimento, ele marca venda ou o motivo da perda. São dois toques.</p>
+            <h3>Mostramos o Neyap funcionando</h3>
+            <p>O atendimento da equipe numa caixa só e o Insights com a venda, a perda e o motivo de cada atendimento, por vendedor.</p>
           </li>
           <li data-m-reveal>
             <span class="passo-n">3</span>
-            <h3>O dono vê tudo no Insights</h3>
-            <p>Venda, perda e motivo, por vendedor e por loja, sem planilha e sem perguntar a ninguém.</p>
+            <h3>Você decide com calma</h3>
+            <p>Você sai sabendo o preço para a sua loja e como é a instalação. Sem compromisso.</p>
           </li>
         </ol>
+        <div class="como-fecho">
+          <p>Sem custo e sem compromisso. A apresentação leva 20 minutos.</p>
+          <a class="btn" href="#form">Agendar uma apresentação</a>
+        </div>
       </div>
     </section>
 
@@ -191,6 +232,7 @@
       <div class="wrap">
         <p class="eyebrow eyebrow-claro">O que o Insights mostra</p>
         <h2>O resultado da loja, do vendedor e do cliente, em uma tela.</h2>
+        <p class="lead lead-claro ins-linha">O vendedor continua no WhatsApp. Ao fechar o atendimento, ele marca venda ou o motivo da perda. Você vê tudo no Insights.</p>
         <div class="ins-grid">
           <div class="ins-abas" role="tablist" aria-label="Telas do Insights">
             <button data-m-reveal type="button" role="tab" aria-selected="true" aria-controls="p-vend" id="t-vend" class="aba">
@@ -215,34 +257,9 @@
             <figure data-m-tela class="painel browser" id="p-resumo" role="tabpanel" aria-labelledby="t-resumo" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Resumo do período</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-kpis.webp" alt="Indicadores de atendimento no Insights (dados de exemplo)" width="2296" height="664" loading="lazy" /></div></figure>
             <figure data-m-tela class="painel browser" id="p-motivo" role="tabpanel" aria-labelledby="t-motivo" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Motivos das perdas</span></div><div class="painel-rolo"><img src="/img/insights/ins-motivos.webp" alt="Motivos das perdas no Insights (dados de exemplo)" width="1136" height="560" loading="lazy" /></div></figure>
             <figure data-m-tela class="painel browser" id="p-lista" role="tabpanel" aria-labelledby="t-lista" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Conversas que pedem ação</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-listas.webp" alt="Conversas que pedem ação no Insights (dados de exemplo)" width="2296" height="980" loading="lazy" /></div><p class="rolo-dica" aria-hidden="true">Arraste para o lado</p></figure>
-            <div class="ins-nums" data-m-tela>
-              <div><strong>47%</strong><span>das perdas do exemplo foram por preço alto</span></div>
-              <div><strong>5</strong><span>vendas perdidas porque a loja não tinha a peça</span></div>
-              <div><strong>13 dias</strong><span>parada, a conversa mais antiga sem retorno</span></div>
-            </div>
             <p class="nota-ex">Telas com dados de exemplo.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- WHATSAPP OFICIAL: campo escuro + foto -->
-    <section class="oficial" id="oficial">
-      <div class="oficial-txt">
-        <div class="oficial-in">
-          <p class="eyebrow eyebrow-claro">WhatsApp oficial</p>
-          <h2>Seu WhatsApp foi bloqueado?</h2>
-          <p class="lead lead-claro">Instalamos o WhatsApp oficial da Meta no seu atendimento. A equipe continua atendendo na mesma caixa do Neyap.</p>
-          <ul class="oficial-lista">
-            <li data-m-reveal>Conta oficial, configurada pela nossa equipe</li>
-            <li data-m-reveal>Atendimento no Neyap, com histórico</li>
-            <li data-m-reveal>Menos risco de bloqueio do número</li>
-          </ul>
-          <a class="btn btn-claro" href="#contato" data-interesse="WhatsApp oficial">Quero o WhatsApp oficial</a>
-        </div>
-      </div>
-      <div class="oficial-foto">
-        <img data-m-parallax="6" src="/img/fotos/loja-maos-peca.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Vendedor e cliente com as mãos em um retrovisor sobre o balcão" />
       </div>
     </section>
 
@@ -252,16 +269,16 @@
         <div>
           <p class="eyebrow">Perguntas frequentes</p>
           <h2>O que o lojista pergunta antes de começar.</h2>
-          <div class="leia" id="leia-tambem">
-            <p class="leia-k">Leia também</p>
-            <ul class="leia-lista">
-              <li data-m-reveal><a href="/blog/cliente-pediu-orcamento-e-sumiu/">Cliente pediu orçamento e sumiu</a></li>
-              <li data-m-reveal><a href="/blog/relatorio-de-vendas-por-vendedor-whatsapp/">Relatório de vendas por vendedor no WhatsApp</a></li>
-              <li data-m-reveal><a href="/">Conheça o Neyap</a></li>
-            </ul>
-          </div>
         </div>
         <div class="faq" data-m-reveal>
+          <details>
+            <summary>A apresentação tem custo?</summary>
+            <div class="resp"><p>Não. São 20 minutos, sem custo e sem compromisso.</p></div>
+          </details>
+          <details>
+            <summary>Preciso instalar alguma coisa para ver?</summary>
+            <div class="resp"><p>Não. A gente mostra o Neyap funcionando com dados de exemplo de uma loja de autopeças.</p></div>
+          </details>
           <details>
             <summary>Preciso trocar de número?</summary>
             <div class="resp"><p>Não. O Neyap entra no número que a loja já usa. Os clientes continuam falando com o mesmo contato.</p></div>
@@ -272,11 +289,15 @@
           </details>
           <details>
             <summary>Quanto custa?</summary>
-            <div class="resp"><p>O Neyap com o Insights começa em R$500/mês. O valor final depende do número de lojas e atendentes. Adicionais: WhatsApp oficial da Meta por R$800 por número, em cobrança única; Perfil no Google a partir de R$300/mês por loja; tráfego pago no Google ou no Meta a partir de R$600/mês, mais a verba paga direto à plataforma. O diagnóstico é grátis.</p></div>
+            <div class="resp"><p>O Neyap com o Insights começa em R$280/mês, com 1 loja e até 3 atendentes. Loja ou atendente a mais muda o valor. A apresentação é grátis.</p></div>
+          </details>
+          <details>
+            <summary>Dá para usar o WhatsApp oficial da Meta?</summary>
+            <div class="resp"><p>Sim. Se a loja quiser, instalamos o WhatsApp oficial no atendimento do Neyap, por R$800 por número, em cobrança única. As mensagens são pagas direto à Meta.</p></div>
           </details>
           <details>
             <summary>Quanto tempo leva para instalar?</summary>
-            <div class="resp"><p>Combinamos o prazo no diagnóstico, conforme o número de lojas e vendedores. A equipe da loja continua atendendo durante a instalação.</p></div>
+            <div class="resp"><p>Combinamos o prazo na apresentação, conforme o número de lojas e vendedores. A equipe da loja continua atendendo durante a instalação.</p></div>
           </details>
         </div>
       </div>
@@ -290,18 +311,14 @@
           <div class="preco-in">
             <p class="eyebrow eyebrow-claro">Preço</p>
             <p class="preco-de">Neyap com Insights, a partir de</p>
-            <p class="preco-valor"><span data-m-count="500" data-prefix="R$">R$500</span><small>/mês</small></p>
-            <p class="preco-nota">O valor final depende do número de lojas e atendentes.</p>
+            <p class="preco-valor"><span data-m-count="280" data-prefix="R$">R$280</span><small>/mês</small></p>
+            <p class="preco-nota">Inclui 1 loja, até 3 atendentes e o painel Insights. Loja ou atendente a mais muda o valor.</p>
           </div>
         </div>
-        <div class="preco-extras">
-          <p class="preco-k" data-m-extra>Adicionais, se a loja quiser</p>
-          <ul>
-            <li data-m-extra><b>WhatsApp oficial da Meta</b><span>R$800 por número, cobrança única</span></li>
-            <li data-m-extra><b>Tráfego pago no Google ou no Meta</b><span>a partir de R$600/mês + verba</span></li>
-            <li data-m-extra><b>Perfil no Google</b><span>a partir de R$300/mês por loja</span></li>
-          </ul>
-          <p class="preco-rodape" data-m-extra>A verba de anúncio é paga direto ao Google e ao Meta. As mensagens do WhatsApp oficial são pagas direto à Meta.</p>
+        <div class="preco-extras preco-passo">
+          <p class="preco-k" data-m-extra>Antes de contratar</p>
+          <p class="preco-passo-t" data-m-extra>Comece por uma apresentação de 20 minutos. Você só decide depois de ver o Neyap funcionando.</p>
+          <a class="btn" href="#form" data-m-extra>Agendar uma apresentação</a>
         </div>
       </div>
     </section>
@@ -309,9 +326,9 @@
     <section class="contato" id="contato">
       <div class="wrap contato-grid">
         <div class="contato-txt">
-          <p class="eyebrow eyebrow-claro">Diagnóstico grátis</p>
-          <h2>Veja onde o WhatsApp da sua loja perde venda.</h2>
-          <p class="lead lead-claro">Deixe o seu nome e o WhatsApp. Falamos com você para combinar o diagnóstico.</p>
+          <p class="eyebrow eyebrow-claro">Apresentação de 20 minutos</p>
+          <h2>Veja o Neyap funcionando na sua loja.</h2>
+          <p class="lead lead-claro">Deixe o seu nome e o WhatsApp. A gente chama você em até 1 hora, em horário comercial, para marcar o melhor horário. Sem custo e sem compromisso.</p>
         </div>
         <div class="cartao">
           <form class="form" id="form" novalidate>
@@ -321,24 +338,24 @@
               <p class="erro" id="e-nome" hidden>Informe o seu nome.</p>
             </div>
             <div class="campo">
+              <label for="loja">Nome da loja e cidade</label>
+              <input id="loja" name="loja" type="text" autocomplete="organization" placeholder="Ex.: Auto Peças Silva, Taguatinga" required />
+              <p class="ajuda" id="h-loja">Para a gente preparar a apresentação.</p>
+              <p class="erro" id="e-loja" hidden>Informe a loja e a cidade.</p>
+            </div>
+            <div class="campo">
               <label for="zap">WhatsApp</label>
               <input id="zap" name="zap" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(DDD) 99999-9999" required />
               <p class="erro" id="e-zap" hidden>Informe o WhatsApp com DDD.</p>
             </div>
-            <fieldset class="campo">
-              <legend>Interesse</legend>
-              <div class="chips">
-                <label class="chip"><input type="radio" name="interesse" value="Diagnóstico grátis" checked /><span>Diagnóstico grátis</span></label>
-                <label class="chip"><input type="radio" name="interesse" value="WhatsApp oficial" /><span>WhatsApp oficial</span></label>
-              </div>
-            </fieldset>
-            <button class="btn btn-bloco" type="submit">Enviar e falar no WhatsApp</button>
+            <button class="btn btn-bloco" id="enviar" type="submit">Agendar apresentação</button>
+            <p class="erro erro-envio" id="e-envio" role="alert" hidden>Não conseguimos enviar agora. Confira a sua internet e tente de novo.</p>
             <p class="form-nota">Ao enviar, você concorda com a nossa <a href="/privacidade/">Política de Privacidade</a>. Usamos seus dados só para falar com você sobre o Neyap.</p>
           </form>
           <div class="ok" id="ok" hidden tabindex="-1">
-            <h3>Recebemos o seu pedido.</h3>
-            <p>Se o WhatsApp não abriu, toque no botão para falar com a gente agora.</p>
-            <a class="btn btn-bloco" id="ok-link" href="#" target="_blank" rel="noopener">Abrir o WhatsApp</a>
+            <h3>Recebemos, <span id="ok-nome"></span>.</h3>
+            <p>Vamos chamar você no WhatsApp <b id="ok-zap"></b> em até 1 hora, em horário comercial, para marcar a apresentação. A mensagem vem do número <b>(61) 2099-4303</b>. Salve o contato para ver a mensagem.</p>
+            <p class="ok-errado">O número está errado? <button type="button" class="link-btn" id="ok-refazer">Envie de novo</button></p>
           </div>
         </div>
       </div>
@@ -347,6 +364,6 @@
 
   </div>
 
-  <!-- @include partials/footer.html -->
+  <!-- @include partials/footer-lp.html -->
 </body>
 </html>
