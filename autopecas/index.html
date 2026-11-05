@@ -72,7 +72,7 @@
     <!-- HERO: foto de largura total, texto sobre degradê escuro, tela do Insights saindo da foto -->
     <section class="hero" id="inicio">
       <div class="hero-foto">
-        <img src="/img/fotos/loja-ampla-balcao-960.webp" srcset="/img/fotos/loja-ampla-balcao-960.webp 960w, /img/fotos/loja-ampla-balcao.webp 1920w" data-m-parallax="7" sizes="100vw" width="1920" height="1280" fetchpriority="high" decoding="async" alt="Balcão de uma loja de autopeças com a parede de peças ao fundo" />
+        <img src="/img/fotos/loja-balcao-computador-960.webp" srcset="/img/fotos/loja-balcao-computador-960.webp 960w, /img/fotos/loja-balcao-computador.webp 1920w" data-m-parallax="7" sizes="100vw" width="1920" height="1280" fetchpriority="high" decoding="async" alt="Vendedor digitando no computador do balcão de uma loja de autopeças" />
       </div>
       <div class="wrap hero-grid">
         <div class="hero-txt">
@@ -137,7 +137,7 @@
       <div class="wrap dor-grid">
         <div data-m-reveal class="dor-foto">
           <div class="dor-foto-img">
-            <img data-m-parallax="5" src="/img/fotos/loja-entrega-retrovisor.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Vendedor entregando um retrovisor a uma cliente no balcão" />
+            <img data-m-parallax="5" src="/img/fotos/loja-entrega-retrovisor-original.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Vendedor entregando um retrovisor a uma cliente no balcão" />
           </div>
           <div class="dor-cartao">
             <p class="dor-cartao-k">Toda semana, no balcão</p>
@@ -179,8 +179,8 @@
       </div>
       <div class="wrap prova-grid">
         <div class="prova-txt">
-          <p class="eyebrow eyebrow-claro">Case Karpeças, 4 lojas, 24/09 a 15/10/2026</p>
-          <h2>Em 3 semanas, o painel mostrou para onde a venda da Karpeças ia.</h2>
+          <p class="eyebrow eyebrow-claro">Case de cliente, 4 lojas</p>
+          <h2>Em 3 semanas, o painel mostrou para onde a venda da loja ia.</h2>
           <p class="prova-fecho">De cada 10 atendimentos, cerca de 1 virou venda, quase 4 terminaram com o cliente calado e 2 eram de peça em falta. Esses números aparecem quando cada atendimento fecha com venda ou motivo.</p>
         </div>
         <div class="num-grid">
@@ -212,7 +212,7 @@
           <li data-m-reveal>
             <span class="passo-n">2</span>
             <h3>Mostramos o Neyap funcionando</h3>
-            <p>O atendimento da equipe numa caixa só e o Insights com a venda, a perda e o motivo de cada atendimento, por vendedor.</p>
+            <p>Por chamada de vídeo: o atendimento da equipe numa caixa só e o Insights com a venda, a perda e o motivo de cada atendimento, por vendedor.</p>
           </li>
           <li data-m-reveal>
             <span class="passo-n">3</span>
@@ -235,13 +235,13 @@
         <p class="lead lead-claro ins-linha">O vendedor continua no WhatsApp. Ao fechar o atendimento, ele marca venda ou o motivo da perda. Você vê tudo no Insights.</p>
         <div class="ins-grid">
           <div class="ins-abas" role="tablist" aria-label="Telas do Insights">
-            <button data-m-reveal type="button" role="tab" aria-selected="true" aria-controls="p-vend" id="t-vend" class="aba">
-              <b>Atendimentos por vendedor</b>
-              <span>Quantos atendimentos, vendas, perdas e clientes sem resposta cada vendedor teve.</span>
-            </button>
-            <button data-m-reveal type="button" role="tab" aria-selected="false" aria-controls="p-resumo" id="t-resumo" class="aba" tabindex="-1">
+            <button data-m-reveal type="button" role="tab" aria-selected="true" aria-controls="p-resumo" id="t-resumo" class="aba">
               <b>Vendas, perdas e tempo de resposta</b>
               <span>Quanto a loja vendeu, perdeu, e em quanto tempo responde o primeiro contato.</span>
+            </button>
+            <button data-m-reveal type="button" role="tab" aria-selected="false" aria-controls="p-vend" id="t-vend" class="aba" tabindex="-1">
+              <b>Atendimentos por vendedor</b>
+              <span>Quantos atendimentos, vendas, perdas e clientes sem resposta cada vendedor teve.</span>
             </button>
             <button data-m-reveal type="button" role="tab" aria-selected="false" aria-controls="p-motivo" id="t-motivo" class="aba" tabindex="-1">
               <b>Perdas com motivo</b>
@@ -253,8 +253,8 @@
             </button>
           </div>
           <div class="ins-paineis" data-m-telas>
-            <figure data-m-tela class="painel browser" id="p-vend" role="tabpanel" aria-labelledby="t-vend"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Ranking de vendedores</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-ranking.webp" alt="Ranking de vendedores no Insights (dados de exemplo)" width="2296" height="960" loading="lazy" /></div><p class="rolo-dica" aria-hidden="true">Arraste para o lado</p></figure>
-            <figure data-m-tela class="painel browser" id="p-resumo" role="tabpanel" aria-labelledby="t-resumo" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Resumo do período</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-kpis.webp" alt="Indicadores de atendimento no Insights (dados de exemplo)" width="2296" height="664" loading="lazy" /></div></figure>
+            <figure data-m-tela class="painel browser" id="p-resumo" role="tabpanel" aria-labelledby="t-resumo"><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Resumo do período</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-kpis.webp" alt="Indicadores de atendimento no Insights (dados de exemplo)" width="2296" height="664" loading="lazy" /></div></figure>
+            <figure data-m-tela class="painel browser" id="p-vend" role="tabpanel" aria-labelledby="t-vend" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Ranking de vendedores</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-ranking.webp" alt="Ranking de vendedores no Insights (dados de exemplo)" width="2296" height="960" loading="lazy" /></div><p class="rolo-dica" aria-hidden="true">Arraste para o lado</p></figure>
             <figure data-m-tela class="painel browser" id="p-motivo" role="tabpanel" aria-labelledby="t-motivo" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Motivos das perdas</span></div><div class="painel-rolo"><img src="/img/insights/ins-motivos.webp" alt="Motivos das perdas no Insights (dados de exemplo)" width="1136" height="560" loading="lazy" /></div></figure>
             <figure data-m-tela class="painel browser" id="p-lista" role="tabpanel" aria-labelledby="t-lista" hidden><div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Conversas que pedem ação</span></div><div class="painel-rolo"><img class="largo" src="/img/insights/ins-listas.webp" alt="Conversas que pedem ação no Insights (dados de exemplo)" width="2296" height="980" loading="lazy" /></div><p class="rolo-dica" aria-hidden="true">Arraste para o lado</p></figure>
             <p class="nota-ex">Telas com dados de exemplo.</p>
@@ -276,6 +276,14 @@
             <div class="resp"><p>Não. São 20 minutos, sem custo e sem compromisso.</p></div>
           </details>
           <details>
+            <summary>O Neyap substitui o sistema da loja?</summary>
+            <div class="resp"><p>Não. O Neyap é um CRM para o WhatsApp de vendas. Ele não emite nota nem controla estoque, e funciona junto do sistema que a loja já usa.</p></div>
+          </details>
+          <details>
+            <summary>Vocês atendem loja de outra cidade?</summary>
+            <div class="resp"><p>Sim, em todo o Brasil. A apresentação é por chamada de vídeo e a instalação é feita à distância. Em Brasília, também dá para fazer na loja.</p></div>
+          </details>
+          <details>
             <summary>Preciso instalar alguma coisa para ver?</summary>
             <div class="resp"><p>Não. A gente mostra o Neyap funcionando com dados de exemplo de uma loja de autopeças.</p></div>
           </details>
@@ -293,7 +301,7 @@
           </details>
           <details>
             <summary>Dá para usar o WhatsApp oficial da Meta?</summary>
-            <div class="resp"><p>Sim. Se a loja quiser, instalamos o WhatsApp oficial no atendimento do Neyap, por R$800 por número, em cobrança única. As mensagens são pagas direto à Meta.</p></div>
+            <div class="resp"><p>Sim. O Neyap já é preparado para receber o número oficial do WhatsApp, da Meta.</p></div>
           </details>
           <details>
             <summary>Quanto tempo leva para instalar?</summary>
