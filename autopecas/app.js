@@ -77,6 +77,7 @@ zap.addEventListener('input', () => {
 });
 
 const lojaEl = document.getElementById('loja');
+const cidadeEl = document.getElementById('cidade');
 
 function erro(campo, mostrar) {
   const el = document.getElementById('e-' + campo.id);
@@ -92,15 +93,19 @@ form.addEventListener('submit', (ev) => {
   ev.preventDefault();
   const n = nomeEl.value.trim();
   const loja = lojaEl.value.trim();
+  const cidade = cidadeEl.value.trim();
   const d = zap.value.replace(/\D/g, '');
   const okNome = n.length >= 2;
-  const okLoja = loja.length >= 3;
+  const okLoja = loja.length >= 2;
+  const okCidade = cidade.length >= 2;
   const okZap = d.length >= 10 && d.length <= 11 && parseInt(d.slice(0, 2), 10) >= 11;
   erro(nomeEl, !okNome);
   erro(lojaEl, !okLoja);
+  erro(cidadeEl, !okCidade);
   erro(zap, !okZap);
   if (!okNome) { nomeEl.focus(); return; }
   if (!okLoja) { lojaEl.focus(); return; }
+  if (!okCidade) { cidadeEl.focus(); return; }
   if (!okZap) { zap.focus(); return; }
 
   // A LP converte só pelo formulário (Kallebe, 2026-11-04): sem WhatsApp como saída.
@@ -118,7 +123,7 @@ form.addEventListener('submit', (ev) => {
   fetch(WEBHOOK_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nome: n, loja, whatsapp: zap.value, interesse, pagina: window.location.href, utms, ...fbIds() }),
+    body: JSON.stringify({ nome: n, loja, cidade, whatsapp: zap.value, interesse, pagina: window.location.href, utms, ...fbIds() }),
     signal: ctrl ? ctrl.signal : undefined,
   }).then((r) => {
     if (!r.ok) throw new Error('webhook ' + r.status);
@@ -142,7 +147,7 @@ form.addEventListener('submit', (ev) => {
     botao.textContent = textoBotao;
   });
 });
-[nomeEl, lojaEl, zap].forEach((c) => c.addEventListener('input', () => erro(c, false)));
+[nomeEl, lojaEl, cidadeEl, zap].forEach((c) => c.addEventListener('input', () => erro(c, false)));
 
 // Tela de sucesso: "O número está errado? Envie de novo" volta ao formulário com o WhatsApp em foco.
 document.getElementById('ok-refazer').addEventListener('click', () => {
