@@ -370,3 +370,48 @@
   background: linear-gradient(100deg, transparent 0%, rgba(255,255,255,0.16) 50%, transparent 100%);
   visibility: hidden;
 }
+
+/* ---- Aviso de cookies (2026-11-06) ------------------------------------------
+   Tamanho pela altura da tela: o aviso nunca cobre o botão "Agendar uma apresentação"
+   do topo da /autopecas/ (o botão termina em 477 px no celular e em 571 px no PC).
+   Cor e borda vêm das classes Tailwind em src/main.js; tamanho e posição ficam aqui. */
+.ck-bar { position: fixed; left: 8px; right: 8px; bottom: 8px; z-index: 60; margin-inline: auto; max-width: 36rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 12px 16px; font-size: 14px; line-height: 1.4; }
+.ck-texto { flex: 1 1 240px; min-width: 0; }
+.ck-titulo { display: none; font-weight: 800; }
+.ck-botoes { display: flex; width: 100%; align-items: center; gap: 8px; }
+.ck-sim { flex: 1.4 1 0; padding: 10px 16px; font-size: 15px; font-weight: 700; white-space: nowrap; }
+.ck-nao { flex: 1 1 0; padding: 8px; font-size: 13px; font-weight: 500; white-space: nowrap; }
+
+/* Celular e tablet com 700 px ou mais de altura útil */
+@media (max-width: 1023px) and (min-height: 700px) {
+  .ck-bar { gap: 12px 16px; padding: 16px 18px; font-size: 16px; }
+  .ck-sim { padding: 14px 16px; font-size: 17px; }
+  .ck-nao { padding: 11px 8px; font-size: 14px; }
+}
+/* Celular e tablet com 780 px ou mais: título em cima */
+@media (max-width: 1023px) and (min-height: 780px) {
+  .ck-bar { padding: 18px 20px; }
+  .ck-titulo { display: block; margin-bottom: 4px; font-size: 18px; }
+}
+/* PC */
+@media (min-width: 1024px) {
+  .ck-bar { left: 12px; right: 12px; bottom: 20px; max-width: 64rem; flex-wrap: nowrap; gap: 16px 24px; padding: 20px 28px; font-size: 16px; }
+  .ck-titulo { display: inline; }
+  .ck-titulo::after { content: '. '; }
+  .ck-botoes { width: auto; flex-shrink: 0; gap: 12px; }
+  .ck-sim { flex: none; width: 230px; padding: 14px; font-size: 17px; }
+  .ck-nao { flex: none; width: 160px; padding: 8px; font-size: 14px; }
+}
+/* PC com 800 px ou mais de altura útil (ex.: 1440x900, 1536x864, 1920x1080) */
+@media (min-width: 1024px) and (min-height: 800px) {
+  .ck-bar { max-width: 72rem; gap: 16px 32px; padding: 28px 36px; font-size: 18px; }
+  .ck-titulo { display: block; margin-bottom: 6px; font-size: 22px; }
+  .ck-titulo::after { content: none; }
+  .ck-sim { width: 270px; padding: 18px; font-size: 19px; }
+  .ck-nao { width: 180px; padding: 11px; font-size: 15px; }
+}
+
+/* Rolagem lateral no celular (2026-11-06): cartões da home entram deslizando 16 px pela direita
+   na animação e alargavam a página. clip corta sem criar barra de rolagem. */
+main { overflow-x: clip; }

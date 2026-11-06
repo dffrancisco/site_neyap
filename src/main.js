@@ -200,11 +200,14 @@ if (META_PIXEL_ID || GOOGLE_TAG_ID || GA4_ID) {
     bar.setAttribute('role', 'dialog');
     bar.setAttribute('aria-label', 'Cookies');
     // Banner baixo (revisão de conversão 2026-11-04): no celular ele não pode cobrir o botão do topo.
-    // Aceitar e Recusar continuam com o mesmo tamanho.
-    bar.className = 'fixed inset-x-2 bottom-2 z-[60] mx-auto flex max-w-xl flex-wrap items-center gap-x-3 gap-y-2 rounded-xl border border-neyap-border bg-white px-3 py-2.5 text-[13px] leading-snug text-neyap-body shadow-xl sm:inset-x-3 sm:bottom-3 sm:px-4 sm:py-3 sm:text-[14px]';
-    bar.innerHTML = '<span class="min-w-0 flex-1 basis-[220px]">Usamos cookies do Meta e do Google para medir visitas e anúncios. <a href="/privacidade/" class="underline">Saiba mais</a>.</span>'
-      + '<span class="flex shrink-0 gap-2"><button data-c="sim" class="rounded-full bg-neyap-brand px-4 py-1.5 font-semibold text-white">Aceitar</button>'
-      + '<button data-c="nao" class="rounded-full border border-neyap-border px-4 py-1.5">Recusar</button></span>';
+    // 2026-11-06: "Aceitar todos" e "Só os essenciais" (= recusar), do mesmo tamanho, como pede o guia de
+    // cookies da ANPD (recusa fácil de ver no primeiro aviso). Texto com o motivo e aviso um pouco mais visível.
+    // 2026-11-06: "Aceitar todos" maior que "Só os essenciais" (decisão do Kallebe, ressalva da ANPD registrada).
+    // Cor e borda aqui; tamanho e posição em src/style.css (.ck-*), por altura de tela, sem cobrir o botão do topo.
+    bar.className = 'ck-bar rounded-2xl border-2 border-neyap-brand/40 bg-white text-neyap-body shadow-2xl';
+    bar.innerHTML = '<span class="ck-texto"><strong class="ck-titulo text-neyap-ink">Cookies e privacidade</strong>Usamos cookies para saber quais anúncios funcionam e melhorar o site. Não vendemos seus dados. <a href="/privacidade/" class="underline">Saiba mais</a>.</span>'
+      + '<span class="ck-botoes"><button data-c="sim" class="ck-sim rounded-full bg-neyap-brand text-white shadow-md">Aceitar todos</button>'
+      + '<button data-c="nao" class="ck-nao rounded-full border border-neyap-border text-neyap-ink">Só os essenciais</button></span>';
     bar.addEventListener('click', (e) => {
       const v = e.target?.dataset?.c;
       if (!v) return;
