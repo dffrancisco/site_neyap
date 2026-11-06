@@ -143,6 +143,7 @@ function loadTrackers() {
     window.gtag('js', new Date());
     googleIds.forEach((id) => window.gtag('config', id));
   }
+  enviarSecoes();
 }
 
 // Chamado pelas páginas no envio de formulário: window.neyapTrack('Lead', {...})
@@ -165,6 +166,31 @@ document.addEventListener('click', (e) => {
     try { window.neyapTrack?.('Contact'); } catch { /* sem rastreio */ }
   }
 }, true);
+
+// Seções vistas (2026-11-06): evento secao_vista no GA4 quando o topo da seção passa da metade da tela.
+// Fica só na memória até o aceite. Com o aceite, envia as seções já vistas e as próximas.
+const secoesVistas = [];
+const secoesEnviadas = new Set();
+function enviarSecoes() {
+  if (!window.gtag || !GA4_ID || readConsent() !== 'sim') return;
+  secoesVistas.forEach((s) => {
+    if (secoesEnviadas.has(s.id)) return;
+    secoesEnviadas.add(s.id);
+    window.gtag('event', 'secao_vista', { secao: s.id, secao_ordem: s.ordem, send_to: GA4_ID });
+  });
+}
+const secoesPagina = Array.from(document.querySelectorAll('main section[id]'));
+if (GA4_ID && secoesPagina.length && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entradas) => {
+    entradas.forEach((e) => {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      secoesVistas.push({ id: e.target.id, ordem: secoesPagina.indexOf(e.target) + 1 });
+    });
+    enviarSecoes();
+  }, { rootMargin: '0px 0px -50% 0px' });
+  secoesPagina.forEach((s) => io.observe(s));
+}
 
 if (META_PIXEL_ID || GOOGLE_TAG_ID || GA4_ID) {
   const c = readConsent();
