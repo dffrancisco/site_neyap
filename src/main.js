@@ -109,9 +109,12 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 /* ---- Medição com consentimento (LGPD) ------------------------------------
    Google Ads: tag AW-18524104629 desde 2026-10-19. Rótulo de conversão vazio
-   = evento não enviado ao Google. Sem ID preenchido, nada é carregado. */
+   = evento não enviado ao Google. Sem ID preenchido, nada é carregado.
+   GA4: GA4_ID desde 2026-11-06, mesmo gtag.js e mesmo consentimento. */
 const META_PIXEL_ID = '2172709736997376';
 const GOOGLE_TAG_ID = 'AW-18524104629';
+// GA4 do site Neyap (ID de medição G-...). Vazio = GA4 não carrega.
+const GA4_ID = 'G-3R888MF5W9';
 // Rótulo de cada ação de conversão do Google Ads, ex.: 'AW-18524104629/abcDEF123'
 // Lead: ação 7889834389 "NEYAP Lead formulario autopecas" (2026-11-04). Contact fica vazio de propósito:
 // a conversão é só o formulário (Kallebe, 2026-11-04), clique no WhatsApp não conta.
@@ -129,15 +132,16 @@ function loadTrackers() {
     window.fbq('init', META_PIXEL_ID);
     window.fbq('track', 'PageView');
   }
-  if (GOOGLE_TAG_ID && !window.gtag) {
+  const googleIds = [GOOGLE_TAG_ID, GA4_ID].filter(Boolean);
+  if (googleIds.length && !window.gtag) {
     const s = document.createElement('script');
     s.async = true;
-    s.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${googleIds[0]}`;
     document.head.appendChild(s);
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
-    window.gtag('config', GOOGLE_TAG_ID);
+    googleIds.forEach((id) => window.gtag('config', id));
   }
 }
 
@@ -147,6 +151,9 @@ window.neyapTrack = (evento, dados = {}) => {
   if (window.fbq) window.fbq('track', evento, dados);
   const sendTo = GOOGLE_CONVERSIONS[evento];
   if (window.gtag && sendTo) window.gtag('event', 'conversion', { send_to: sendTo });
+  // GA4: generate_lead (evento recomendado) no formulário, contact_whatsapp no clique no WhatsApp.
+  const ga4Evento = { Lead: 'generate_lead', Contact: 'contact_whatsapp' }[evento];
+  if (window.gtag && GA4_ID && ga4Evento) window.gtag('event', ga4Evento, { ...dados, send_to: GA4_ID });
 };
 
 // Contact: clique em qualquer link de WhatsApp (delegação, cobre links gerados por JS)
@@ -159,7 +166,7 @@ document.addEventListener('click', (e) => {
   }
 }, true);
 
-if (META_PIXEL_ID || GOOGLE_TAG_ID) {
+if (META_PIXEL_ID || GOOGLE_TAG_ID || GA4_ID) {
   const c = readConsent();
   if (c === 'sim') loadTrackers();
   else if (c !== 'nao') {
@@ -169,7 +176,7 @@ if (META_PIXEL_ID || GOOGLE_TAG_ID) {
     // Banner baixo (revisão de conversão 2026-11-04): no celular ele não pode cobrir o botão do topo.
     // Aceitar e Recusar continuam com o mesmo tamanho.
     bar.className = 'fixed inset-x-2 bottom-2 z-[60] mx-auto flex max-w-xl flex-wrap items-center gap-x-3 gap-y-2 rounded-xl border border-neyap-border bg-white px-3 py-2.5 text-[13px] leading-snug text-neyap-body shadow-xl sm:inset-x-3 sm:bottom-3 sm:px-4 sm:py-3 sm:text-[14px]';
-    bar.innerHTML = '<span class="min-w-0 flex-1 basis-[220px]">Usamos cookies do Meta e do Google para medir anúncios. <a href="/privacidade/" class="underline">Saiba mais</a>.</span>'
+    bar.innerHTML = '<span class="min-w-0 flex-1 basis-[220px]">Usamos cookies do Meta e do Google para medir visitas e anúncios. <a href="/privacidade/" class="underline">Saiba mais</a>.</span>'
       + '<span class="flex shrink-0 gap-2"><button data-c="sim" class="rounded-full bg-neyap-brand px-4 py-1.5 font-semibold text-white">Aceitar</button>'
       + '<button data-c="nao" class="rounded-full border border-neyap-border px-4 py-1.5">Recusar</button></span>';
     bar.addEventListener('click', (e) => {
