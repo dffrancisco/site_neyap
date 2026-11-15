@@ -219,7 +219,6 @@
 .ap .marquee-grupo li { flex: none; display: flex; align-items: center; }
 .ap .marquee-grupo img { display: block; width: auto; height: 52px; opacity: .85; }
 .ap .marquee-grupo .cl-real { height: 76px; }
-.ap .marquee-grupo .cl-kp { height: 44px; }
 .ap .marquee-grupo .cl-tg { height: 60px; }
 .ap .marquee-grupo .cl-so { height: 60px; }
 .ap .marquee-grupo .cl-fc { height: 70px; }
@@ -228,7 +227,6 @@
   .ap .marquee-trilho { animation-duration: 34s; }
   .ap .marquee-grupo { gap: 44px; padding-right: 44px; }
   .ap .marquee-grupo .cl-real { height: 56px; }
-  .ap .marquee-grupo .cl-kp { height: 32px; }
   .ap .marquee-grupo .cl-tg { height: 44px; }
   .ap .marquee-grupo .cl-so { height: 44px; }
   .ap .marquee-grupo .cl-fc { height: 52px; }
