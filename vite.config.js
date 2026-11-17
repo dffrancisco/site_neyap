@@ -14,9 +14,9 @@ const includes = () => ({
   },
 });
 
-// Toda pasta com index.html vira uma página (/, /autopecas/, /privacidade/, /blog/<slug>/)
+// Toda pasta com index.html vira uma página (/, /autopecas/, /crm-whatsapp/, /privacidade/, /blog/<slug>/)
 const pages = { main: resolve(__dirname, 'index.html') };
-for (const dir of ['autopecas', 'privacidade', 'blog']) {
+for (const dir of ['autopecas', 'crm-whatsapp', 'privacidade', 'blog']) {
   const base = resolve(__dirname, dir);
   if (existsSync(resolve(base, 'index.html'))) pages[dir] = resolve(base, 'index.html');
   if (dir === 'blog' && existsSync(base)) {

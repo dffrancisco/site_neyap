@@ -1,9 +1,15 @@
-/* Modal "Agendar demonstração": funciona em todas as páginas (botões com data-demo-open). */
+/* Modal "Ver demonstração": funciona em todas as páginas (botões com data-demo-open).
+   2026-11-17 (home v3): pede a quantidade de vendedores no lugar do segmento e não abre mais o WhatsApp sozinho.
+   A equipe chama o lead no mesmo dia. VIDEO_URL e INSIGHTS_DEMO_URL vazios = blocos escondidos na tela de sucesso. */
 const WHATSAPP = '556120994303';
 // PENDENTE: webhook n8n do funil Vyzo
 const WEBHOOK_URL = 'https://n8n.vyzar.com.br/webhook/neyap-site-lead';
 const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'];
-const SEGMENTOS = ['Autopeças', 'Lojas e varejo', 'Distribuidora ou atacado', 'Empresa de serviço', 'Outro'];
+const VENDEDORES = ['1 a 3', '4 a 8', '9 ou mais'];
+// Vídeo de 2 min do sistema (embed do YouTube, ex.: https://www.youtube-nocookie.com/embed/ID). Vazio = sem vídeo.
+const VIDEO_URL = '';
+// Insights de exemplo, só leitura e sem login. Vazio = sem botão.
+const INSIGHTS_DEMO_URL = '';
 
 function lerUtms() {
   const out = {};
@@ -48,8 +54,8 @@ root.innerHTML = `
       <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
     <form id="demo-form" novalidate>
-      <h2 id="demo-titulo" class="pr-10 text-[24px] font-extrabold leading-tight text-neyap-ink">Agendar demonstração</h2>
-      <p class="mt-2 text-[14.5px] leading-relaxed text-neyap-muted">Conte quem é você e falamos pelo WhatsApp para combinar o horário.</p>
+      <h2 id="demo-titulo" class="pr-10 text-[24px] font-extrabold leading-tight text-neyap-ink">Ver demonstração</h2>
+      <p class="mt-2 text-[14.5px] leading-relaxed text-neyap-muted">A equipe mostra o Neyap e o Insights com uma loja de exemplo. Chamamos você no WhatsApp no mesmo dia útil.</p>
       <div class="mt-5">
         <label for="demo-nome" class="${rotulo}">Nome</label>
         <input id="demo-nome" name="nome" type="text" autocomplete="name" required class="${campo}">
@@ -64,17 +70,20 @@ root.innerHTML = `
         <label for="demo-empresa" class="${rotulo}">Empresa <span class="font-normal text-neyap-muted">(opcional)</span></label>
         <input id="demo-empresa" name="empresa" type="text" autocomplete="organization" class="${campo}">
       </div>
-      <div class="mt-4">
-        <label for="demo-segmento" class="${rotulo}">Segmento</label>
-        <select id="demo-segmento" name="segmento" class="${campo}">${SEGMENTOS.map((s) => `<option value="${s}">${s}</option>`).join('')}</select>
-      </div>
-      <button type="submit" class="btn-primary mt-6 w-full">Agendar demonstração</button>
+      <fieldset class="mt-4">
+        <legend class="${rotulo}">Quantos vendedores atendem no WhatsApp?</legend>
+        <div class="mt-2 grid grid-cols-3 gap-2">${VENDEDORES.map((v, i) => `<label class="demo-chip"><input type="radio" name="vendedores" value="${v}"${i === 0 ? ' checked' : ''}><span>${v}</span></label>`).join('')}</div>
+      </fieldset>
+      <button type="submit" class="btn-primary mt-6 w-full">Quero ver a demonstração</button>
       <p class="mt-3 text-[12.5px] leading-relaxed text-neyap-muted">Ao enviar, você concorda com a nossa <a href="/privacidade/" class="underline hover:text-neyap-brand-deep">Política de Privacidade</a>. Usamos seus dados só para falar com você sobre o Neyap.</p>
     </form>
     <div id="demo-ok" hidden tabindex="-1" class="outline-none">
       <h2 class="pr-10 text-[24px] font-extrabold leading-tight text-neyap-ink">Recebemos seu pedido</h2>
-      <p class="mt-3 text-[15px] leading-relaxed text-neyap-body">Abrimos o WhatsApp com a sua mensagem. Se ele não abriu, toque no botão abaixo.</p>
-      <a id="demo-ok-link" href="#" target="_blank" rel="noopener" class="btn-primary mt-6 w-full">Abrir o WhatsApp</a>
+      <p class="mt-3 text-[15px] leading-relaxed text-neyap-body">A equipe chama você no WhatsApp no mesmo dia útil, em horário comercial, para mostrar o Neyap.</p>
+      ${VIDEO_URL ? `<div class="mt-5 aspect-video overflow-hidden rounded-xl bg-neyap-ink"><iframe src="${VIDEO_URL}" title="Demonstração do Neyap em 2 minutos" class="h-full w-full" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>` : ''}
+      ${INSIGHTS_DEMO_URL ? `<a href="${INSIGHTS_DEMO_URL}" target="_blank" rel="noopener" class="btn-primary mt-5 w-full">Abrir o Insights de exemplo</a>` : ''}
+      <p class="mt-6 text-[14px] text-neyap-muted">Prefere falar agora?</p>
+      <a id="demo-ok-link" href="#" target="_blank" rel="noopener" class="btn-ghost mt-2 w-full">Abrir o WhatsApp</a>
     </div>
   </div>`;
 document.body.appendChild(root);
@@ -85,11 +94,10 @@ const ok = root.querySelector('#demo-ok');
 const nomeEl = root.querySelector('#demo-nome');
 const zapEl = root.querySelector('#demo-zap');
 const empresaEl = root.querySelector('#demo-empresa');
-const segEl = root.querySelector('#demo-segmento');
 let ultimoBotao = null;
 
 function focaveis() {
-  return Array.from(dialog.querySelectorAll('button, a[href], input, select, [tabindex="0"]')).filter((el) => !el.closest('[hidden]'));
+  return Array.from(dialog.querySelectorAll('button, a[href], input, select, iframe, [tabindex="0"]')).filter((el) => !el.closest('[hidden]'));
 }
 function abrir(botao) {
   ultimoBotao = botao;
@@ -162,20 +170,20 @@ form.addEventListener('submit', (ev) => {
   if (!okZap) { zapEl.focus(); return; }
 
   const empresa = empresaEl.value.trim();
-  const segmento = segEl.value;
-  let msg = 'Olá, quero agendar uma demonstração do Neyap. Nome: ' + nome + '. Empresa: ' + (empresa || 'não informada') + '. Segmento: ' + segmento + '.';
+  const vendedores = (form.querySelector('input[name="vendedores"]:checked') || {}).value || '';
+  let msg = 'Olá, quero ver a demonstração do Neyap. Nome: ' + nome + '. Empresa: ' + (empresa || 'não informada') + '. Vendedores: ' + vendedores + '.';
   const ref = [utms.utm_source, utms.utm_medium, utms.utm_campaign].filter(Boolean).join('/');
   if (ref) msg += '\nref: ' + ref;
   const url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg);
 
-  try { window.neyapTrack?.('Lead', { interesse: 'demonstracao', segmento }); } catch (e) { /* sem rastreio */ }
+  try { window.neyapTrack?.('Lead', { interesse: 'demonstracao', vendedores }); } catch (e) { /* sem rastreio */ }
 
   if (WEBHOOK_URL) {
     try {
       fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, whatsapp: zapEl.value, empresa, segmento, interesse: 'demonstracao', pagina: window.location.href, utms, ...fbIds() }),
+        body: JSON.stringify({ nome, whatsapp: zapEl.value, empresa, vendedores, segmento: 'Vendedores: ' + vendedores, interesse: 'demonstracao', pagina: window.location.href, utms, ...fbIds() }),
         keepalive: true,
       }).catch(() => {});
     } catch (e) { /* nao bloqueia */ }
@@ -185,5 +193,4 @@ form.addEventListener('submit', (ev) => {
   root.querySelector('#demo-ok-link').href = url;
   ok.hidden = false;
   ok.focus();
-  window.open(url, '_blank', 'noopener');
 });

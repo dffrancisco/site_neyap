@@ -415,3 +415,66 @@
 /* Rolagem lateral no celular (2026-11-06): cartões da home entram deslizando 16 px pela direita
    na animação e alargavam a página. clip corta sem criar barra de rolagem. */
 main { overflow-x: clip; }
+
+/* ---- Home v3 (2026-11-17): confiança --------------------------------------
+   Tela do produto sem barra de navegador desenhada (regra da skill landing-page).
+   Topo sem animação de entrada: título, texto e tela aparecem no primeiro quadro. */
+:root {
+  --tela-raio: 16px;
+  --tela-sombra: 0 50px 100px -40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08);
+  --linha-clara: rgba(255,255,255,0.14);
+}
+.tela {
+  margin: 0;
+  border-radius: var(--tela-raio);
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--tela-sombra);
+}
+.tela img { display: block; width: 100%; height: auto; }
+.tela-legenda {
+  margin-top: 14px;
+  font: 500 12.5px/1.5 var(--font-mono);
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.6);
+}
+.prova-item { border-top: 1px solid var(--color-neyap-border); padding-top: 18px; }
+.prova-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(30px, 4.2vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--color-neyap-ink);
+}
+.plano-card { display: flex; flex-direction: column; border-radius: 24px; padding: 32px; background: #fff; border: 1px solid var(--color-neyap-border); }
+.plano-card.destaque { background: var(--color-neyap-ink); border-color: var(--color-neyap-ink); color: #fff; }
+.plano-card.destaque h3 { color: #fff; }
+.plano-lista li { display: flex; gap: 12px; }
+.plano-lista li::before { content: ""; flex: none; width: 7px; height: 7px; margin-top: 9px; border-radius: 99px; background: var(--color-neyap-brand); }
+.plano-card.destaque .plano-lista li::before { background: #7fd0de; }
+.comp { width: 100%; border-collapse: collapse; font-size: 15px; }
+.comp th, .comp td { padding: 16px 14px; text-align: left; border-bottom: 1px solid var(--color-neyap-border); vertical-align: top; }
+.comp thead th { font: 600 12px/1.3 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neyap-muted); }
+.comp tbody th { font-weight: 700; color: var(--color-neyap-ink); }
+.comp .nos { background: var(--color-neyap-brand-tint); }
+.comp .nos th, .comp .nos td { color: var(--color-neyap-brand-deep); font-weight: 700; }
+/* Celular: cada linha da tabela vira um cartão, sem rolagem lateral */
+@media (max-width: 639px) {
+  .comp thead { display: none; }
+  .comp tr { display: block; padding: 16px 16px; border-bottom: 1px solid var(--color-neyap-border); }
+  .comp th, .comp td { display: block; padding: 2px 0; border: 0; }
+  .comp tbody th { font-size: 16.5px; margin-bottom: 6px; }
+  .comp td::before { content: attr(data-rotulo) ": "; font-weight: 500; color: var(--color-neyap-muted); }
+  .comp .nos td::before { color: var(--color-neyap-brand-deep); font-weight: 500; }
+}
+.demo-chip { position: relative; display: block; cursor: pointer; }
+.demo-chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.demo-chip span {
+  display: block; text-align: center; padding: 11px 6px; border-radius: 12px;
+  border: 1px solid var(--color-neyap-border); font-size: 14.5px; font-weight: 600; color: var(--color-neyap-ink);
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+.demo-chip input:checked + span { background: var(--color-neyap-brand); border-color: var(--color-neyap-brand); color: #fff; }
+.demo-chip input:focus-visible + span { outline: 2px solid var(--color-neyap-brand); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .demo-chip span { transition: none; } }

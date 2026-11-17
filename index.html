@@ -53,7 +53,8 @@
     "publisher": { "@type": "Organization", "name": "Vyzo Tecnologia", "url": "https://neyap.com.br" }
   }
   </script>
-  <script>!function(d){try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('mo');setTimeout(function(){if(!window.__mo)d.classList.remove('mo')},3000)}}catch(e){}}(document.documentElement)</script>
+  <link rel="preload" as="image" href="/img/insights/ins-ranking.webp" media="(min-width: 768px)" />
+  <link rel="preload" as="image" href="/img/insights/ins-kpis-esq.webp" media="(max-width: 767px)" />
   <script type="module" src="/src/main.js"></script>
 </head>
 <body class="bg-white text-neyap-body antialiased">
@@ -63,44 +64,49 @@
   <!-- @include partials/header.html -->
 
   <main id="conteudo">
-    <!-- HERO: produto no centro, telas reais do Insights sobre petróleo profundo -->
-    <section id="inicio" class="relative overflow-hidden bg-hero pt-32 pb-20 md:pt-40 lg:pb-28">
-      <div class="container-xl relative grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
-        <div>
-          <span data-m-hero="eyebrow" class="eyebrow !text-[#8fd3df]">CRM para WhatsApp</span>
-          <h1 data-m-hero="titulo" class="mt-5 text-[40px] font-extrabold leading-[1.04] tracking-tight !text-white sm:text-[54px] lg:text-[60px]">
+    <!-- HERO (v3, 2026-11-17): sem animação de entrada. Texto em cima e 1 tela grande e real do Insights, sem moldura de navegador. -->
+    <section id="inicio" class="relative overflow-hidden bg-hero pt-32 pb-16 md:pt-40 md:pb-20">
+      <div class="container-xl relative">
+        <div class="max-w-[820px]">
+          <span class="eyebrow !text-[#8fd3df]">CRM para WhatsApp com relatório por vendedor</span>
+          <h1 class="mt-5 text-[38px] font-extrabold leading-[1.05] tracking-tight !text-white sm:text-[54px] lg:text-[62px]">
             Veja quanto o WhatsApp da sua empresa vendeu. <span class="text-[#7fd0de]">E quanto perdeu.</span>
           </h1>
-          <p data-m-hero="texto" class="mt-6 max-w-xl text-[18px] leading-relaxed text-white/75">
-            O cliente pediu preço, a equipe respondeu e ninguém sabe o que aconteceu depois. O Neyap reúne o atendimento da equipe num só lugar, organiza as vendas em funil e, com o Insights, mostra venda, perda e motivo de cada atendimento, por vendedor.
+          <p class="mt-6 max-w-[640px] text-[18px] leading-relaxed text-white/75">
+            O Neyap reúne o WhatsApp da equipe num só lugar, organiza as vendas em funil e mostra a venda, a perda e o motivo de cada atendimento, por vendedor.
           </p>
-          <div data-m-hero="botoes" class="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="btn-primary">
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <button type="button" data-demo-open class="btn-primary">Ver demonstração</button>
+            <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="btn-ghost-dark">
               <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="currentColor"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.75L3 21l5.4-1.6A8.5 8.5 0 1 0 12 3Z"/></svg>
               Falar no WhatsApp
             </a>
-            <a href="#preco" class="btn-ghost-dark">Ver preços</a>
           </div>
-          <p data-m-hero="nota" class="mt-6 text-[13.5px] text-white/55">Para lojas, distribuidoras e empresas de serviço. A partir de R$280/mês, com o Insights incluso.</p>
+          <p class="mt-6 text-[14px] text-white/60">A partir de R$280/mês, com o Insights incluso. Implantação feita pela nossa equipe.</p>
         </div>
 
-        <div class="relative mx-auto aspect-square w-full max-w-[600px] lg:max-w-none">
-          <figure data-m-hero="tela" class="browser absolute right-0 top-0 w-[90%]">
-            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Ranking por vendedor</span></div>
-            <img src="/img/insights/ins-ranking.webp" width="2296" height="960" fetchpriority="high" decoding="async" alt="Ranking de vendedores no Neyap Insights, com vendas e perdas de cada um (dados de exemplo)" />
-          </figure>
-          <div data-m-hero="tela" class="absolute left-0 top-[30%] w-[42%] overflow-hidden rounded-[20px] shadow-[0_40px_70px_-30px_rgba(0,0,0,0.7)] ring-4 ring-[#0b2a31]">
-            <img src="/img/fotos/atendente-sorriso.webp" width="960" height="1200" decoding="async" alt="Atendente sorrindo durante o atendimento" class="block aspect-[4/5] w-full object-cover" />
+        <figure class="mt-14 md:mt-16">
+          <div class="tela">
+            <picture>
+              <source media="(min-width: 768px)" srcset="/img/insights/ins-ranking.webp" width="2296" height="960" />
+              <img src="/img/insights/ins-kpis-esq.webp" width="1148" height="664" fetchpriority="high" decoding="async" alt="Neyap Insights com atendimentos, vendas ganhas e perdidas, conversão e valor vendido de cada vendedor (dados de exemplo)" />
+            </picture>
           </div>
-          <figure data-m-hero="tela" class="browser absolute bottom-0 right-0 w-[66%]">
-            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Resumo do mês</span></div>
-            <img src="/img/insights/ins-kpis-esq.webp" width="1148" height="664" decoding="async" alt="Neyap Insights com atendimentos, vendas ganhas, não resolvidas e valor vendido (dados de exemplo)" />
-          </figure>
-          <div data-m-hero="tela" class="absolute right-[3%] top-[44%] hidden rounded-2xl sm:block bg-[#0b1e23]/90 px-4 py-3 text-white shadow-xl backdrop-blur">
-            <p class="font-display text-[22px] font-extrabold leading-none text-[#7fd0de] sm:text-[26px]">28,6%</p>
-            <p class="mt-1 text-[11.5px] text-white/70 sm:text-[12px]">conversão do melhor vendedor</p>
-          </div>
+          <figcaption class="tela-legenda">Neyap Insights. Tela real do sistema, com dados de exemplo.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PROVA: totais reais de todas as contas do Neyap (puxados em 17/11/2026, sem nome de empresa) -->
+    <section id="numeros" aria-label="O Neyap em números" class="bg-white py-14 md:py-16">
+      <div class="container-xl">
+        <div class="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+          <div class="prova-item"><p class="prova-num">+190 mil</p><p class="mt-2 text-[15px] text-neyap-body">conversas atendidas no Neyap</p></div>
+          <div class="prova-item"><p class="prova-num">+3,5 mi</p><p class="mt-2 text-[15px] text-neyap-body">mensagens trocadas com clientes</p></div>
+          <div class="prova-item"><p class="prova-num">2025</p><p class="mt-2 text-[15px] text-neyap-body">em operação desde fevereiro</p></div>
+          <div class="prova-item"><p class="prova-num">Equipe</p><p class="mt-2 text-[15px] text-neyap-body">que faz a implantação com você</p></div>
         </div>
+        <p class="mt-8 text-[12.5px] text-neyap-muted">Totais de todas as contas do Neyap em 17/11/2026.</p>
       </div>
     </section>
 
@@ -141,8 +147,7 @@
         </div>
 
         <div data-m-telas class="mt-14 grid gap-8 lg:grid-cols-12 lg:gap-10">
-          <figure data-m-tela class="browser self-start lg:col-span-7">
-            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Perdas e tempo de resposta</span></div>
+          <figure data-m-tela class="tela self-start lg:col-span-7">
             <img src="/img/insights/ins-kpis-dir.webp" width="1146" height="664" loading="lazy" decoding="async" alt="Vendas perdidas, clientes que não responderam, taxa de conversão e tempo da primeira resposta no Neyap Insights (dados de exemplo)" />
           </figure>
           <div class="grid gap-px self-start overflow-hidden rounded-[18px] bg-white/15 sm:grid-cols-3 lg:col-span-5 lg:grid-cols-1">
@@ -153,12 +158,10 @@
         </div>
 
         <div data-m-telas class="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-12 lg:gap-10">
-          <figure data-m-tela class="browser self-start lg:col-span-5">
-            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Por que o cliente não comprou</span></div>
+          <figure data-m-tela class="tela self-start lg:col-span-5">
             <img src="/img/insights/ins-motivos.webp" width="1136" height="560" loading="lazy" decoding="async" alt="Motivos de perda dos atendimentos no Neyap Insights" />
           </figure>
-          <figure data-m-tela class="browser lg:col-span-7">
-            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Listas para agir</span></div>
+          <figure data-m-tela class="tela lg:col-span-7">
             <div class="painel-rolo"><img src="/img/insights/ins-listas.webp" width="2296" height="980" loading="lazy" decoding="async" alt="Listas de atendimentos do Neyap Insights, com clientes que pararam de responder" /></div><p class="rolo-dica" aria-hidden="true">Arraste para o lado</p>
           </figure>
         </div>
@@ -292,72 +295,94 @@
       </div>
     </section>
 
-    <!-- PREÇO: plano + adicionais -->
-    <section id="preco" data-m-preco class="bg-tinta py-24 md:py-32">
+    <!-- PREÇO (v3): 3 faixas por tamanho de equipe. Serviços de agência saíram da home (Kallebe, 17/11). -->
+    <section id="preco" class="bg-tinta py-24 md:py-32">
       <div class="container-xl">
         <div class="grid gap-6 lg:grid-cols-12 lg:items-end">
           <div data-m-reveal class="lg:col-span-7">
             <span class="eyebrow">Preços</span>
-            <h2 class="mt-4 text-[34px] font-extrabold leading-tight sm:text-[46px]">Um plano com o Insights incluso. Os adicionais, você escolhe.</h2>
+            <h2 class="mt-4 text-[34px] font-extrabold leading-tight sm:text-[46px]">Preço pelo tamanho da equipe. O Insights vem em todos.</h2>
           </div>
-          <p data-m-reveal class="text-[17px] leading-relaxed text-neyap-body lg:col-span-5">Comece pelo Neyap. Some o WhatsApp oficial, o Perfil no Google ou o tráfego pago quando fizer sentido para a sua empresa.</p>
+          <p data-m-reveal class="text-[17px] leading-relaxed text-neyap-body lg:col-span-5">Sem cobrança por mensagem. Você escolhe a faixa pelo número de vendedores que atendem no WhatsApp.</p>
         </div>
 
-        <div class="mt-14 grid gap-6 lg:grid-cols-12 lg:gap-8">
-          <article data-m-plano class="preco-plano rounded-[26px] bg-hero p-8 text-white shadow-[0_40px_80px_-40px_rgba(11,42,49,0.9)] sm:p-10 lg:col-span-5">
-            <span data-m-brilho class="preco-brilho" aria-hidden="true"></span>
-            <div class="relative z-[2]">
-              <p class="font-mono text-[12px] uppercase tracking-[0.16em] text-[#8fd3df]">Plano Neyap</p>
-              <p class="mt-6 font-display text-[18px] font-bold text-white/80">a partir de</p>
-              <p class="num-gigante whitespace-nowrap text-[64px] text-white sm:text-[96px] lg:text-[84px] xl:text-[96px]"><span data-m-count="280" data-prefix="R$">R$280</span><span class="ml-1 align-top text-[18px] font-semibold tracking-normal text-white/60 sm:text-[24px]">/mês</span></p>
-              <p class="mt-2 text-[15px] text-white/70">Com o Neyap Insights incluso. O valor final depende do tamanho da equipe.</p>
-              <ul class="mt-8 space-y-3 text-[15.5px] leading-relaxed text-white/85">
-                <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#7fd0de]"></span>Atendimento com vários atendentes no mesmo WhatsApp</li>
-                <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#7fd0de]"></span>Funil de vendas com motivo de perda</li>
-                <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#7fd0de]"></span>Insights: venda e perda por vendedor e por loja</li>
-                <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#7fd0de]"></span>Automações: chatbot, cadências e mensagens agendadas</li>
-              </ul>
-              <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="mt-9 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-white px-7 py-4 text-[16px] font-bold text-neyap-brand-deep shadow-[0_20px_45px_-15px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:-translate-y-1">
-                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.75L3 21l5.4-1.6A8.5 8.5 0 1 0 12 3Z"/></svg>
-                Pedir proposta no WhatsApp
-              </a>
-            </div>
+        <div class="mt-14 grid gap-5 md:grid-cols-3">
+          <article data-m-reveal class="plano-card">
+            <h3 class="text-[20px] font-bold">Até 3 vendedores</h3>
+            <p class="mt-1 text-[14.5px] text-neyap-muted">1 loja e 1 número de WhatsApp</p>
+            <p class="mt-7 mb-8 num-gigante text-[54px] text-neyap-ink">R$280<span class="ml-1 text-[17px] font-semibold tracking-normal text-neyap-muted">/mês</span></p>
+            <button type="button" data-demo-open class="btn-ghost mt-auto w-full">Ver demonstração</button>
           </article>
+          <article data-m-reveal class="plano-card destaque">
+            <h3 class="text-[20px] font-bold">Até 8 vendedores</h3>
+            <p class="mt-1 text-[14.5px] text-white/60">1 loja e 1 número de WhatsApp</p>
+            <p class="mt-7 mb-8 num-gigante text-[54px] text-white">R$397<span class="ml-1 text-[17px] font-semibold tracking-normal text-white/60">/mês</span></p>
+            <button type="button" data-demo-open class="btn-primary mt-auto w-full">Ver demonstração</button>
+          </article>
+          <article data-m-reveal class="plano-card">
+            <h3 class="text-[20px] font-bold">Acima de 8 vendedores</h3>
+            <p class="mt-1 text-[14.5px] text-neyap-muted">Várias lojas, filiais ou números</p>
+            <p class="mt-7 mb-8 num-gigante text-[44px] leading-[1.1] text-neyap-ink">Sob consulta</p>
+            <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="btn-ghost mt-auto w-full">Falar com a equipe</a>
+          </article>
+        </div>
 
-          <div class="grid gap-4 sm:grid-cols-2 lg:col-span-7">
-            <article data-m-extra class="flex flex-col rounded-[22px] bg-white p-7 shadow-[0_24px_50px_-36px_rgba(21,76,88,0.6)]">
-              <h3 class="text-[19px] font-bold">WhatsApp oficial da Meta</h3>
-              <p class="mt-4 font-display text-[34px] font-extrabold leading-none tracking-tight text-neyap-brand-deep">R$800</p>
-              <p class="mt-1 text-[14px] font-semibold text-neyap-ink">por número, cobrança única</p>
-              <p class="mt-3 text-[14.5px] leading-relaxed text-neyap-body">Instalação e configuração da API oficial. As mensagens são pagas direto à Meta, no cartão da empresa.</p>
-            </article>
-            <article data-m-extra class="flex flex-col rounded-[22px] bg-white p-7 shadow-[0_24px_50px_-36px_rgba(21,76,88,0.6)]">
-              <h3 class="text-[19px] font-bold">Perfil no Google</h3>
-              <p class="mt-4 text-[13px] text-neyap-muted">a partir de</p>
-              <p class="font-display text-[34px] font-extrabold leading-none tracking-tight text-neyap-brand-deep">R$300<span class="text-[16px] font-semibold text-neyap-muted">/mês</span></p>
-              <p class="mt-1 text-[14px] font-semibold text-neyap-ink">por loja</p>
-              <p class="mt-3 text-[14.5px] leading-relaxed text-neyap-body">Otimização do perfil, publicações e respostas às avaliações.</p>
-            </article>
-            <article data-m-extra class="flex flex-col rounded-[22px] bg-white p-7 shadow-[0_24px_50px_-36px_rgba(21,76,88,0.6)]">
-              <h3 class="text-[19px] font-bold">Tráfego pago no Google</h3>
-              <p class="mt-4 text-[13px] text-neyap-muted">a partir de</p>
-              <p class="font-display text-[34px] font-extrabold leading-none tracking-tight text-neyap-brand-deep">R$600<span class="text-[16px] font-semibold text-neyap-muted">/mês</span></p>
-              <p class="mt-1 text-[14px] font-semibold text-neyap-ink">+ verba de anúncio</p>
-              <p class="mt-3 text-[14.5px] leading-relaxed text-neyap-body">Anúncios na pesquisa e no Maps, na região da sua empresa.</p>
-            </article>
-            <article data-m-extra class="flex flex-col rounded-[22px] bg-white p-7 shadow-[0_24px_50px_-36px_rgba(21,76,88,0.6)]">
-              <h3 class="text-[19px] font-bold">Tráfego pago no Meta</h3>
-              <p class="mt-4 text-[13px] text-neyap-muted">a partir de</p>
-              <p class="font-display text-[34px] font-extrabold leading-none tracking-tight text-neyap-brand-deep">R$600<span class="text-[16px] font-semibold text-neyap-muted">/mês</span></p>
-              <p class="mt-1 text-[14px] font-semibold text-neyap-ink">+ verba de anúncio</p>
-              <p class="mt-3 text-[14.5px] leading-relaxed text-neyap-body">Anúncios no Instagram e no Facebook, com ofertas e remarketing.</p>
-            </article>
-            <div data-m-extra class="flex flex-col gap-1 rounded-[22px] bg-neyap-ink p-6 text-[14.5px] leading-relaxed text-white/80 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-              <p>A verba de anúncio é paga direto ao Google e ao Meta.</p>
-              <p class="font-semibold text-[#8fd3df]">Pacotes com desconto: fale com a gente.</p>
-            </div>
+        <div data-m-reveal class="mt-5 grid gap-8 rounded-[24px] bg-white p-8 md:grid-cols-[1.3fr_1fr] md:gap-12">
+          <div>
+            <h3 class="text-[18px] font-bold">Incluso em todas as faixas</h3>
+            <ul class="plano-lista mt-4 grid gap-3 text-[15px] leading-relaxed text-neyap-body sm:grid-cols-2">
+              <li>Vários vendedores no mesmo WhatsApp</li>
+              <li>Funil de vendas com motivo de perda</li>
+              <li>Insights: venda e perda por vendedor</li>
+              <li>Chatbot, cadências e mensagens agendadas</li>
+              <li>Implantação feita pela nossa equipe</li>
+              <li>Suporte por WhatsApp com a equipe</li>
+            </ul>
+          </div>
+          <div class="space-y-4 text-[14.5px] leading-relaxed text-neyap-body md:border-l md:border-neyap-border md:pl-10">
+            <p><strong class="text-neyap-ink">Loja ou número a mais:</strong> R$200/mês cada.</p>
+            <p><strong class="text-neyap-ink">WhatsApp oficial da Meta:</strong> instalação por R$800 por número, cobrança única. As mensagens da API oficial são pagas direto à Meta.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- COMPARAÇÃO (v3): preço publicado de 2 concorrentes para 3 vendedores, com fonte e data -->
+    <section id="comparacao" class="bg-white py-24 md:py-28">
+      <div class="container-xl">
+        <div data-m-reveal class="max-w-3xl">
+          <span class="eyebrow">Comparação</span>
+          <h2 class="mt-4 text-[32px] font-extrabold leading-tight sm:text-[40px]">Quanto custa atender com 3 vendedores.</h2>
+        </div>
+        <div data-m-reveal class="comp-rolo mt-10">
+          <table class="comp">
+            <thead><tr><th scope="col">Sistema e plano</th><th scope="col">Preço por mês</th><th scope="col">Relatório de venda por vendedor</th></tr></thead>
+            <tbody>
+              <tr class="nos"><th scope="row">Neyap, até 3 vendedores</th><td data-rotulo="Preço por mês">R$280</td><td data-rotulo="Relatório por vendedor">Incluso, com o motivo de cada perda</td></tr>
+              <tr><th scope="row">Kommo Avançado</th><td data-rotulo="Preço por mês">R$519</td><td data-rotulo="Relatório por vendedor">Só no plano Pro, que custa R$780 para 3 usuários</td></tr>
+              <tr><th scope="row">Umbler Talk Impulso</th><td data-rotulo="Preço por mês">R$449,70</td><td data-rotulo="Relatório por vendedor">Relatório por atendente</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-5 max-w-3xl text-[13px] leading-relaxed text-neyap-muted">Fonte: preços publicados nos sites do Kommo e da Umbler, consultados em 17/11/2026. Conta: preço por usuário vezes 3, com 1 número de WhatsApp. Custos da API oficial da Meta ficam de fora nos três.</p>
+      </div>
+    </section>
+
+    <!-- QUEM SOMOS (v3) -->
+    <section id="quem-somos" class="bg-neyap-ink py-24 text-white md:py-28">
+      <div class="container-xl grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div data-m-reveal class="lg:col-span-7">
+          <span class="eyebrow !text-[#8fd3df]">Quem somos</span>
+          <h2 class="mt-4 text-[32px] font-extrabold leading-tight !text-white sm:text-[42px]">Uma empresa de Brasília que desenvolve e implanta o Neyap.</h2>
+          <p class="mt-6 text-[17px] leading-relaxed text-white/75">O Neyap é um sistema da Vyzo Tecnologia. A mesma equipe que cuida do sistema faz a implantação: conecta o WhatsApp, monta o funil com os motivos de perda do seu negócio e treina os vendedores.</p>
+          <p class="mt-4 text-[17px] leading-relaxed text-white/75">Depois da implantação, o suporte continua pelo WhatsApp, com pessoas da equipe.</p>
+        </div>
+        <dl data-m-reveal class="grid content-start gap-px overflow-hidden rounded-[20px] bg-white/10 lg:col-span-5">
+          <div class="bg-neyap-ink p-6"><dt class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-white/45">Razão social</dt><dd class="mt-1.5 text-[15.5px] text-white">Vyzo Consultoria e Tecnologia da Informação LTDA</dd></div>
+          <div class="bg-neyap-ink p-6"><dt class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-white/45">CNPJ</dt><dd class="mt-1.5 text-[15.5px] text-white">55.700.950/0001-10</dd></div>
+          <div class="bg-neyap-ink p-6"><dt class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-white/45">Sede</dt><dd class="mt-1.5 text-[15.5px] text-white">Brasília, DF</dd></div>
+          <div class="bg-neyap-ink p-6"><dt class="font-mono text-[11.5px] uppercase tracking-[0.14em] text-white/45">Atendimento</dt><dd class="mt-1.5 text-[15.5px] text-white"><a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="underline decoration-white/30 underline-offset-4 hover:decoration-white">WhatsApp (61) 2099-4303</a></dd></div>
+        </dl>
       </div>
     </section>
 
@@ -421,7 +446,23 @@
               <span class="text-[15.5px] font-semibold text-neyap-ink">Quanto custa?</span>
               <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             </button>
-            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">O plano Neyap começa em R$280 por mês, com o Insights incluso. O valor final depende do tamanho da equipe. Adicionais: WhatsApp oficial da Meta por R$800 por número, em cobrança única (as mensagens são pagas direto à Meta); Perfil no Google a partir de R$300/mês por loja; tráfego pago no Google ou no Meta a partir de R$600/mês, mais a verba paga direto à plataforma. Pacotes com desconto sob consulta.</div></div>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Até 3 vendedores, R$280 por mês. Até 8 vendedores, R$397 por mês. Acima de 8 vendedores, sob consulta. Todas as faixas incluem o Insights e a implantação feita pela equipe, com 1 loja e 1 número de WhatsApp. Loja ou número a mais custa R$200 por mês cada.</div></div>
+          </div>
+
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">O Neyap cobra por mensagem?</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Não. O Neyap não cobra por mensagem enviada ou recebida. Se você usar a API oficial da Meta, a Meta cobra as mensagens dela direto no cartão da empresa.</div></div>
+          </div>
+
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">Quem faz a implantação?</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">A nossa equipe. Conectamos o WhatsApp, montamos o funil com os motivos de perda do seu negócio e treinamos os vendedores. Você não precisa configurar nada sozinho.</div></div>
           </div>
 
           <div data-m-reveal>
@@ -435,18 +476,16 @@
       </div>
     </section>
 
-    <!-- CTA FINAL: campo de cor inteiro -->
+    <!-- CTA FINAL -->
     <section id="contato" class="relative overflow-hidden bg-mesh-cta py-24 md:py-28">
       <div class="container-xl relative grid items-center gap-10 lg:grid-cols-12">
         <div data-m-reveal class="lg:col-span-8">
           <h2 class="text-[36px] font-extrabold leading-[1.05] !text-white sm:text-[54px]">Descubra o que o seu WhatsApp vendeu.</h2>
-          <p class="mt-5 max-w-xl text-[18px] text-white/85">Fale com a nossa equipe e veja o Neyap Insights com os dados da sua operação.</p>
+          <p class="mt-5 max-w-xl text-[18px] text-white/85">Veja o Neyap e o Insights funcionando com uma loja de exemplo. A equipe chama você no WhatsApp no mesmo dia útil.</p>
         </div>
-        <div data-m-reveal class="lg:col-span-4 lg:text-right">
-          <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4.5 text-[17px] font-bold text-neyap-brand-deep shadow-[0_20px_45px_-15px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:-translate-y-1">
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor"><path d="M12 3a8.5 8.5 0 0 0-7.35 12.75L3 21l5.4-1.6A8.5 8.5 0 1 0 12 3Z"/></svg>
-            Falar no WhatsApp
-          </a>
+        <div data-m-reveal class="flex flex-col gap-3 lg:col-span-4 lg:items-end">
+          <button type="button" data-demo-open class="inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-9 py-4 text-[17px] font-bold text-neyap-brand-deep shadow-[0_20px_45px_-15px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:-translate-y-1 motion-reduce:transition-none">Ver demonstração</button>
+          <a data-wa-cta href="https://wa.me/556120994303?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20Neyap" target="_blank" rel="noopener" class="text-center text-[15px] font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white">ou fale no WhatsApp</a>
         </div>
       </div>
     </section>
