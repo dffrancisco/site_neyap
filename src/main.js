@@ -110,7 +110,10 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 /* ---- Medição com consentimento (LGPD) ------------------------------------
    Google Ads: tag AW-18524104629 desde 2026-10-19. Rótulo de conversão vazio
    = evento não enviado ao Google. Sem ID preenchido, nada é carregado.
-   GA4: GA4_ID desde 2026-11-06, mesmo gtag.js e mesmo consentimento. */
+   GA4: GA4_ID desde 2026-11-06, mesmo gtag.js e mesmo consentimento.
+   Consent Mode v2 avançado (2026-11-17): o gtag.js carrega em toda visita com os 4 sinais em "denied".
+   Sem aceite, o Google recebe só aviso sem cookie (o Google Ads estima as conversões perdidas).
+   "Aceitar todos" muda os 4 sinais para "granted". O pixel do Meta continua só depois do aceite. */
 const META_PIXEL_ID = '2172709736997376';
 const GOOGLE_TAG_ID = 'AW-18524104629';
 // GA4 do site Neyap (ID de medição G-...). Vazio = GA4 não carrega.
@@ -124,7 +127,27 @@ const CONSENT_KEY = 'neyap-consent';
 const readConsent = () => { try { return localStorage.getItem(CONSENT_KEY); } catch { return null; } };
 const saveConsent = (v) => { try { localStorage.setItem(CONSENT_KEY, v); } catch { /* sem storage */ } };
 
+const GOOGLE_IDS = [GOOGLE_TAG_ID, GA4_ID].filter(Boolean);
+const SINAIS = ['ad_storage', 'ad_user_data', 'ad_personalization', 'analytics_storage'];
+const consentimento = (estado) => Object.fromEntries(SINAIS.map((k) => [k, estado]));
+
+// Google em toda visita. O "default" vai antes do gtag.js e antes do "config", como o Google exige.
+function iniciarGoogle() {
+  if (!GOOGLE_IDS.length || window.gtag) return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag('consent', 'default', { ...consentimento(readConsent() === 'sim' ? 'granted' : 'denied'), ads_data_redaction: true });
+  window.gtag('js', new Date());
+  GOOGLE_IDS.forEach((id) => window.gtag('config', id));
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_IDS[0]}`;
+  document.head.appendChild(s);
+}
+
+// Só depois do aceite: pixel do Meta e cookies do Google.
 function loadTrackers() {
+  if (window.gtag) window.gtag('consent', 'update', consentimento('granted'));
   if (META_PIXEL_ID && !window.fbq) {
     /* eslint-disable */
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -132,24 +155,12 @@ function loadTrackers() {
     window.fbq('init', META_PIXEL_ID);
     window.fbq('track', 'PageView');
   }
-  const googleIds = [GOOGLE_TAG_ID, GA4_ID].filter(Boolean);
-  if (googleIds.length && !window.gtag) {
-    const s = document.createElement('script');
-    s.async = true;
-    s.src = `https://www.googletagmanager.com/gtag/js?id=${googleIds[0]}`;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    googleIds.forEach((id) => window.gtag('config', id));
-  }
-  enviarSecoes();
 }
 
 // Chamado pelas páginas no envio de formulário: window.neyapTrack('Lead', {...})
+// Google: envia sempre; sem aceite, o próprio gtag manda só o aviso sem cookie. Meta: só com aceite.
 window.neyapTrack = (evento, dados = {}) => {
-  if (readConsent() !== 'sim') return;
-  if (window.fbq) window.fbq('track', evento, dados);
+  if (window.fbq && readConsent() === 'sim') window.fbq('track', evento, dados);
   const sendTo = GOOGLE_CONVERSIONS[evento];
   if (window.gtag && sendTo) window.gtag('event', 'conversion', { send_to: sendTo });
   // GA4: generate_lead (evento recomendado) no formulário, contact_whatsapp no clique no WhatsApp.
@@ -168,11 +179,11 @@ document.addEventListener('click', (e) => {
 }, true);
 
 // Seções vistas (2026-11-06): evento secao_vista no GA4 quando o topo da seção passa da metade da tela.
-// Fica só na memória até o aceite. Com o aceite, envia as seções já vistas e as próximas.
+// Vai ao Google em toda visita; sem aceite, como aviso sem cookie (Consent Mode).
 const secoesVistas = [];
 const secoesEnviadas = new Set();
 function enviarSecoes() {
-  if (!window.gtag || !GA4_ID || readConsent() !== 'sim') return;
+  if (!window.gtag || !GA4_ID) return;
   secoesVistas.forEach((s) => {
     if (secoesEnviadas.has(s.id)) return;
     secoesEnviadas.add(s.id);
@@ -193,6 +204,7 @@ if (GA4_ID && secoesPagina.length && 'IntersectionObserver' in window) {
 }
 
 if (META_PIXEL_ID || GOOGLE_TAG_ID || GA4_ID) {
+  iniciarGoogle();
   const c = readConsent();
   if (c === 'sim') loadTrackers();
   else if (c !== 'nao') {
