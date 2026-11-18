@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestão de tráfego com relatório até a venda | Neyap</title>
+  <meta name="description" content="Gestão de anúncios no Instagram, Facebook e Google com o Neyap no seu WhatsApp. Todo mês você vê quantas conversas do anúncio viraram venda e por que as outras não fecharam." />
+  <meta name="author" content="Neyap" />
+  <!-- Fora do índice até existir case de cliente (plano de 2026-11-17, fase 2). -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#267d8f" />
+  <link rel="canonical" href="https://neyap.com.br/gestao-de-trafego/" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Neyap" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://neyap.com.br/gestao-de-trafego/" />
+  <meta property="og:title" content="Gestão de tráfego com relatório até a venda | Neyap" />
+  <meta property="og:description" content="Anúncios no Instagram, Facebook e Google com o Neyap no seu WhatsApp. Todo mês você vê quanto do anúncio virou venda." />
+  <meta property="og:image" content="https://neyap.com.br/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/trafego.js"></script>
+</head>
+<body class="bg-white text-neyap-body antialiased">
+
+  <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-neyap-ink focus:px-4 focus:py-2 focus:text-white">Pular para o conteúdo</a>
+
+  <!-- @include partials/header-trafego.html -->
+
+  <main id="conteudo">
+    <!-- HERO: texto à esquerda, "extrato do mês" à direita (elemento-assinatura). O extrato nasce com os valores finais; o JS só anima a contagem se o movimento estiver liberado. -->
+    <section id="inicio" class="relative overflow-hidden bg-hero pt-32 pb-20 md:pt-40 md:pb-24">
+      <div class="container-xl relative grid gap-14 lg:grid-cols-12 lg:items-center lg:gap-10">
+        <div class="lg:col-span-7">
+          <span class="eyebrow !text-[#8fd3df]">Gestão de tráfego com o Neyap</span>
+          <h1 class="mt-5 font-extrabold tracking-tight !text-white">
+            <span class="etiqueta-wrap"><span class="etiqueta">Não anuncia, ou anuncia<br class="sm:hidden"> sem saber se vende?</span></span>
+            <span class="soco mt-5 block">Seu concorrente agradece.</span>
+          </h1>
+          <p class="mt-6 max-w-[600px] text-[18px] leading-relaxed text-white/75">
+            Quem procura o que você vende está comprando dele, porque ele aparece e a sua empresa não, ou porque a conversa que o seu anúncio trouxe não fechou. Nós cuidamos dos seus anúncios no Instagram, no Facebook e no Google, e o Neyap mostra no fim do mês quantas conversas viraram venda e por que as outras escaparam.
+          </p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="#proposta" data-proposta data-placement="hero" class="btn-primary">Quero uma proposta</a>
+            <a href="#planos" class="btn-ghost-dark">Ver os planos</a>
+          </div>
+          <p class="mt-6 text-[14px] text-white/60">A partir de R$1.000/mês. No contrato de 6 meses, o Neyap vai junto de graça.</p>
+        </div>
+
+        <div class="lg:col-span-5">
+          <figure class="extrato" data-extrato aria-labelledby="extrato-titulo">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p id="extrato-titulo" class="font-display text-[19px] font-bold text-neyap-ink">Relatório do mês</p>
+                <p class="mt-0.5 text-[13px] text-neyap-muted">Anúncio, WhatsApp e venda na mesma conta</p>
+              </div>
+              <span class="chip shrink-0">Exemplo</span>
+            </div>
+
+            <ol class="extrato-linhas">
+              <li class="extrato-linha">
+                <div>
+                  <p class="extrato-rotulo">Investido no anúncio</p>
+                  <p class="extrato-ajuda">Pago direto ao Meta e ao Google</p>
+                </div>
+                <p class="extrato-valor">R$&nbsp;<span data-conta="900">900</span></p>
+              </li>
+              <li class="extrato-linha">
+                <div>
+                  <p class="extrato-rotulo">Conversas no WhatsApp</p>
+                  <p class="extrato-ajuda">Cada pessoa que chamou pelo anúncio</p>
+                </div>
+                <p class="extrato-valor"><span data-conta="52">52</span></p>
+              </li>
+              <li class="extrato-linha extrato-destaque">
+                <div>
+                  <p class="extrato-rotulo">Viraram venda</p>
+                  <p class="extrato-ajuda">Marcadas pelo vendedor no Neyap</p>
+                </div>
+                <p class="extrato-valor"><span data-conta="11">11</span></p>
+              </li>
+              <li class="extrato-linha">
+                <div>
+                  <p class="extrato-rotulo">Não compraram</p>
+                  <p class="extrato-ajuda">Cada uma com o motivo registrado</p>
+                </div>
+                <p class="extrato-valor"><span data-conta="19">19</span></p>
+              </li>
+            </ol>
+
+            <div class="extrato-motivos">
+              <p class="extrato-rotulo">Por que não compraram</p>
+              <ul class="mt-3 space-y-2.5">
+                <li class="motivo"><span>Preço</span><span class="motivo-barra"><i style="--v: 47%"></i></span><b>9</b></li>
+                <li class="motivo"><span>Sem estoque</span><span class="motivo-barra"><i style="--v: 32%"></i></span><b>6</b></li>
+                <li class="motivo"><span>Prazo</span><span class="motivo-barra"><i style="--v: 21%"></i></span><b>4</b></li>
+              </ul>
+            </div>
+            <figcaption class="extrato-nota">Números de exemplo para mostrar como o relatório é montado. Não são resultado de cliente.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARAÇÃO: 2 colunas, linha a linha. Sem nome de concorrente. -->
+    <section id="comparacao" class="bg-white py-20 md:py-28">
+      <div class="container-xl">
+        <div class="max-w-[760px]" data-m-reveal>
+          <span class="eyebrow">O que muda no relatório</span>
+          <h2 class="mt-4 text-[32px] font-extrabold leading-[1.1] sm:text-[42px]">A maioria dos relatórios de tráfego para no clique.</h2>
+          <p class="mt-5 text-[17px] leading-relaxed text-neyap-body">Clique e conversa iniciada mostram que o anúncio apareceu, mas não mostram se alguém comprou. Para saber isso, o anúncio precisa estar ligado ao lugar onde a venda acontece, que é o WhatsApp da sua empresa.</p>
+        </div>
+
+        <div class="comp mt-12" role="table" aria-label="Comparação entre o relatório que mostra só o anúncio e o relatório com o Neyap">
+          <div class="comp-cab" role="row">
+            <span role="columnheader" class="sr-only">Pergunta</span>
+            <span role="columnheader" class="comp-col-a">Relatório que mostra só o anúncio</span>
+            <span role="columnheader" class="comp-col-b">Relatório com o Neyap</span>
+          </div>
+          <div class="comp-linha" role="row" data-m-reveal>
+            <span role="rowheader" class="comp-pergunta">Quanto foi investido</span>
+            <span role="cell" class="comp-a"><i class="sim" aria-hidden="true"></i>Mostra</span>
+            <span role="cell" class="comp-b"><i class="sim" aria-hidden="true"></i>Mostra</span>
+          </div>
+          <div class="comp-linha" role="row" data-m-reveal>
+            <span role="rowheader" class="comp-pergunta">Quantas pessoas viram e clicaram</span>
+            <span role="cell" class="comp-a"><i class="sim" aria-hidden="true"></i>Mostra</span>
+            <span role="cell" class="comp-b"><i class="sim" aria-hidden="true"></i>Mostra</span>
+          </div>
+          <div class="comp-linha" role="row" data-m-reveal>
+            <span role="rowheader" class="comp-pergunta">Quantas conversas chegaram no WhatsApp</span>
+            <span role="cell" class="comp-a"><i class="talvez" aria-hidden="true"></i>Às vezes, sem saber o que aconteceu depois</span>
+            <span role="cell" class="comp-b"><i class="sim" aria-hidden="true"></i>Todas, no Neyap</span>
+          </div>
+          <div class="comp-linha" role="row" data-m-reveal>
+            <span role="rowheader" class="comp-pergunta">Quantas viraram venda</span>
+            <span role="cell" class="comp-a"><i class="nao" aria-hidden="true"></i>Não sabe</span>
+            <span role="cell" class="comp-b"><i class="sim" aria-hidden="true"></i>Sabe, por vendedor</span>
+          </div>
+          <div class="comp-linha" role="row" data-m-reveal>
+            <span role="rowheader" class="comp-pergunta">Por que as outras não compraram</span>
+            <span role="cell" class="comp-a"><i class="nao" aria-hidden="true"></i>Não sabe</span>
+            <span role="cell" class="comp-b"><i class="sim" aria-hidden="true"></i>Sabe, com o motivo de cada perda</span>
+          </div>
+          <div class="comp-linha" role="row" data-m-reveal>
+            <span role="rowheader" class="comp-pergunta">Quanto foi vendido em reais</span>
+            <span role="cell" class="comp-a"><i class="nao" aria-hidden="true"></i>Não sabe</span>
+            <span role="cell" class="comp-b"><i class="sim" aria-hidden="true"></i>Sabe, somado no Insights</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO: a frase acende palavra por palavra conforme a rolagem. Sem JS ou com movimento reduzido, nasce toda acesa. -->
+    <section id="garantia" class="bg-petroleo py-24 md:py-32" aria-label="O que garantimos">
+      <div class="container-xl">
+        <p class="manifesto" data-manifesto>Ninguém sério promete venda. O que nós garantimos é que, todo mês, você vai saber quanto do dinheiro do anúncio voltou em venda e o que travou o resto.</p>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA: 4 etapas numa linha, ligadas pela linha de fluxo da marca. -->
+    <section id="como-funciona" class="bg-neyap-surface py-20 md:py-28">
+      <div class="container-xl">
+        <div class="max-w-[720px]" data-m-reveal>
+          <span class="eyebrow">Como funciona</span>
+          <h2 class="mt-4 text-[32px] font-extrabold leading-[1.1] sm:text-[42px]">Do primeiro anúncio ao relatório da venda.</h2>
+        </div>
+        <ol class="etapas mt-14">
+          <li class="etapa" data-m-reveal>
+            <span class="etapa-num">01</span>
+            <h3 class="etapa-titulo">Conversa de 20 minutos</h3>
+            <p class="etapa-texto">Entendemos o que você vende, para quem, em qual região e quanto pode investir por mês em anúncio.</p>
+          </li>
+          <li class="etapa" data-m-reveal>
+            <span class="etapa-num">02</span>
+            <h3 class="etapa-titulo">Neyap no seu WhatsApp</h3>
+            <p class="etapa-texto">Nossa equipe implanta o Neyap no número da empresa. Seus vendedores atendem por ele e marcam venda ou perda em cada conversa.</p>
+          </li>
+          <li class="etapa" data-m-reveal>
+            <span class="etapa-num">03</span>
+            <h3 class="etapa-titulo">Campanhas no ar</h3>
+            <p class="etapa-texto">Criamos 4 anúncios estáticos por mês e cuidamos das campanhas. A verba vai direto da sua empresa para o Meta e o Google.</p>
+          </li>
+          <li class="etapa" data-m-reveal>
+            <span class="etapa-num">04</span>
+            <h3 class="etapa-titulo">Relatório até a venda</h3>
+            <p class="etapa-texto">Todo mês você recebe o investido, as conversas, as vendas e os motivos de perda, junto com o que muda no mês seguinte.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PLANOS: 2 cartões, o completo com fundo escuro. Condições do contrato embaixo. Preços decididos pelo Kallebe em 2026-11-17. -->
+    <section id="planos" class="bg-white py-20 md:py-28">
+      <div class="container-xl">
+        <div class="max-w-[720px]" data-m-reveal>
+          <span class="eyebrow">Planos</span>
+          <h2 class="mt-4 text-[32px] font-extrabold leading-[1.1] sm:text-[42px]">Dois planos, e o Neyap vai junto nos dois.</h2>
+          <p class="mt-5 text-[17px] leading-relaxed text-neyap-body">O valor do plano é a gestão. A verba do anúncio é paga pela sua empresa direto ao Meta e ao Google.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+          <article class="plano" data-m-reveal>
+            <p class="plano-nome">Meta Ads</p>
+            <p class="plano-sub">Instagram e Facebook</p>
+            <p class="plano-preco"><span class="plano-moeda">R$</span>1.000<span class="plano-mes">/mês</span></p>
+            <ul class="plano-itens">
+              <li>Gestão das campanhas no Instagram e no Facebook</li>
+              <li>4 anúncios estáticos por mês</li>
+              <li>Relatório mensal até a venda</li>
+              <li>Neyap grátis até 3 vendedores no contrato de 6 meses</li>
+            </ul>
+            <p class="plano-verba">Verba à parte: mínimo de R$30 por dia no Meta.</p>
+            <a href="#proposta" data-proposta data-placement="plano-meta" data-plano="Meta Ads" class="btn-ghost mt-auto w-full">Quero o plano Meta</a>
+          </article>
+
+          <article class="plano plano-escuro" data-m-reveal>
+            <p class="plano-nome">Meta e Google Ads</p>
+            <p class="plano-sub">Instagram, Facebook e pesquisa no Google</p>
+            <p class="plano-preco"><span class="plano-moeda">R$</span>1.800<span class="plano-mes">/mês</span></p>
+            <ul class="plano-itens">
+              <li>Tudo do plano Meta</li>
+              <li>Campanha de pesquisa no Google, para quem já procura o que você vende</li>
+              <li>Relatório mensal até a venda, com os dois canais</li>
+              <li>Neyap grátis até 3 vendedores no contrato de 6 meses</li>
+            </ul>
+            <p class="plano-verba">Verba à parte: mínimo de R$30 por dia no Meta e R$20 por dia no Google.</p>
+            <a href="#proposta" data-proposta data-placement="plano-meta-google" data-plano="Meta e Google Ads" class="btn-primary mt-auto w-full">Quero o plano Meta e Google</a>
+          </article>
+        </div>
+
+        <dl class="condicoes mt-10" data-m-reveal>
+          <div>
+            <dt>Contrato de 6 meses</dt>
+            <dd>O Neyap sai grátis até 3 vendedores. Com até 8 vendedores, você paga só a diferença da faixa, R$117 por mês.</dd>
+          </div>
+          <div>
+            <dt>Sem fidelidade</dt>
+            <dd>O Neyap fica com 50% de desconto enquanto durar a gestão.</dd>
+          </div>
+          <div>
+            <dt>Se cancelar antes de 6 meses</dt>
+            <dd>Você paga o Neyap dos meses usados com 50% de desconto. Não tem multa extra.</dd>
+          </div>
+          <div>
+            <dt>Uma empresa por segmento em cada região</dt>
+            <dd>Não anunciamos para dois concorrentes do mesmo segmento na mesma região.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="duvidas" class="bg-neyap-surface py-20 md:py-28">
+      <div class="container-xl grid gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-4" data-m-reveal>
+          <span class="eyebrow">Dúvidas</span>
+          <h2 class="mt-4 text-[32px] font-extrabold leading-[1.1] sm:text-[40px]">Antes de pedir a proposta.</h2>
+        </div>
+        <div class="divide-y divide-neyap-border border-y border-neyap-border lg:col-span-8">
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">Nunca anunciei. Dá para começar com vocês?</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Dá. Na conversa de 20 minutos definimos região, público e verba. Você começa com o mínimo de R$30 por dia no Meta, e o primeiro mês já sai medido até a venda. Assim você descobre se anúncio vende para a sua empresa antes de investir mais.</div></div>
+          </div>
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">Preciso usar o Neyap para contratar a gestão?</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Sim. É o Neyap que liga o anúncio à venda, e sem ele o relatório volta a parar no clique. No contrato de 6 meses ele sai de graça até 3 vendedores.</div></div>
+          </div>
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">A verba do anúncio está incluída no preço?</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Não. O valor do plano paga a gestão. A verba é paga pela sua empresa direto ao Meta e ao Google, com mínimo de R$30 por dia no Meta e R$20 por dia no Google.</div></div>
+          </div>
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">Vocês garantem resultado?</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Não prometemos número de vendas, porque preço, estoque e atendimento também decidem a compra. O que garantimos é a medição: todo mês você sabe quanto do anúncio virou venda e o que travou o resto.</div></div>
+          </div>
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">Quem faz os anúncios?</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Nossa equipe. São 4 anúncios estáticos por mês, feitos para o seu produto e a sua região.</div></div>
+          </div>
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">Já tenho alguém cuidando dos meus anúncios.</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Tudo bem. O Neyap sozinho já mostra quanto do anúncio dessa pessoa virou venda. Se quiser comparar depois, a proposta de gestão continua de pé.</div></div>
+          </div>
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">Vocês atendem qualquer tipo de empresa?</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Atendemos empresa que vende pelo WhatsApp. Para não competir com o próprio cliente, trabalhamos com uma empresa por segmento em cada região.</div></div>
+          </div>
+          <div data-m-reveal>
+            <button class="faq-trigger flex w-full items-center justify-between gap-4 px-2 py-5 text-left" aria-expanded="false">
+              <span class="text-[15.5px] font-semibold text-neyap-ink">Posso cancelar?</span>
+              <svg class="faq-icon h-5 w-5 shrink-0 text-neyap-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-panel px-2"><div class="faq-inner text-[14.5px] leading-relaxed text-neyap-muted">Pode. No contrato de 6 meses, se cancelar antes, você paga o Neyap dos meses usados com 50% de desconto, sem multa extra. Sem fidelidade, o Neyap já sai com 50% de desconto todo mês.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO: inline, card branco sobre fundo escuro. Todo CTA da página rola até aqui. -->
+    <section id="proposta" class="relative overflow-hidden bg-noite py-20 md:py-28">
+      <div class="container-xl relative grid gap-12 lg:grid-cols-12 lg:items-start">
+        <div class="lg:col-span-5 lg:pt-4" data-m-reveal>
+          <span class="eyebrow !text-[#8fd3df]">Proposta</span>
+          <h2 class="mt-4 text-[34px] font-extrabold leading-[1.08] !text-white sm:text-[46px]">Quanto do seu anúncio virou venda no mês passado?</h2>
+          <p class="mt-5 text-[17px] leading-relaxed text-white/75">Se você não sabe responder, a proposta começa por aí. Preencha os dados e a equipe chama você no WhatsApp no mesmo dia útil, em horário comercial.</p>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="form-card">
+            <form id="trafego-form" novalidate>
+              <p class="font-display text-[22px] font-extrabold leading-tight text-neyap-ink">Pedir proposta</p>
+              <div class="form-grid mt-5">
+                <div>
+                  <label for="tf-nome" class="form-rotulo">Nome</label>
+                  <input id="tf-nome" name="nome" type="text" autocomplete="name" required class="form-campo">
+                  <p id="tf-e-nome" class="form-erro" hidden>Digite seu nome.</p>
+                </div>
+                <div>
+                  <label for="tf-zap" class="form-rotulo">WhatsApp</label>
+                  <input id="tf-zap" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(DDD) 99999-9999" required class="form-campo">
+                  <p id="tf-e-zap" class="form-erro" hidden>Digite um WhatsApp com DDD.</p>
+                </div>
+                <div>
+                  <label for="tf-empresa" class="form-rotulo">Empresa</label>
+                  <input id="tf-empresa" name="empresa" type="text" autocomplete="organization" required class="form-campo">
+                  <p id="tf-e-empresa" class="form-erro" hidden>Digite o nome da empresa.</p>
+                </div>
+                <div>
+                  <label for="tf-cidade" class="form-rotulo">Cidade</label>
+                  <input id="tf-cidade" name="cidade" type="text" autocomplete="address-level2" required class="form-campo">
+                  <p id="tf-e-cidade" class="form-erro" hidden>Digite a cidade.</p>
+                </div>
+                <div class="form-inteiro">
+                  <label for="tf-segmento" class="form-rotulo">O que a empresa vende?</label>
+                  <input id="tf-segmento" name="segmento" type="text" placeholder="Ex.: autopeças, móveis, estética" required class="form-campo">
+                  <p id="tf-e-segmento" class="form-erro" hidden>Conte o que a empresa vende.</p>
+                </div>
+              </div>
+
+              <fieldset class="mt-5">
+                <legend class="form-rotulo">Qual plano interessa?</legend>
+                <div class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
+                  <label class="demo-chip"><input type="radio" name="plano" value="Meta Ads"><span>Só Meta</span></label>
+                  <label class="demo-chip"><input type="radio" name="plano" value="Meta e Google Ads"><span>Meta e Google</span></label>
+                  <label class="demo-chip"><input type="radio" name="plano" value="Ainda não sei" checked><span>Ainda não sei</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="mt-4">
+                <legend class="form-rotulo">A empresa anuncia hoje?</legend>
+                <div class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
+                  <label class="demo-chip"><input type="radio" name="anuncia" value="Sim" checked><span>Sim</span></label>
+                  <label class="demo-chip"><input type="radio" name="anuncia" value="Não"><span>Não</span></label>
+                  <label class="demo-chip"><input type="radio" name="anuncia" value="Já anunciou e parou"><span>Já anunciei e parei</span></label>
+                </div>
+              </fieldset>
+
+              <!-- honeypot: pessoa não vê, robô preenche -->
+              <div class="hidden" aria-hidden="true"><label>Site <input type="text" name="site" tabindex="-1" autocomplete="off"></label></div>
+
+              <button type="submit" class="btn-primary mt-6 w-full">Quero uma proposta</button>
+              <p id="tf-falha" class="form-erro mt-3" hidden></p>
+              <p class="mt-3 text-[12.5px] leading-relaxed text-neyap-muted">Ao enviar, você concorda com a nossa <a href="/privacidade/" class="underline hover:text-neyap-brand-deep">Política de Privacidade</a>. Usamos seus dados só para falar com você sobre a proposta.</p>
+            </form>
+
+            <div id="tf-ok" hidden tabindex="-1" class="outline-none">
+              <p class="font-display text-[24px] font-extrabold leading-tight text-neyap-ink">Recebemos, <span id="tf-ok-nome"></span>.</p>
+              <p class="mt-3 text-[15px] leading-relaxed text-neyap-body">A equipe chama você no WhatsApp no mesmo dia útil, em horário comercial, para entender a empresa e montar a proposta.</p>
+              <p class="mt-6 text-[14px] text-neyap-muted">Quer adiantar?</p>
+              <a id="tf-ok-link" href="#" target="_blank" rel="noopener" class="btn-ghost mt-2 w-full">Falar agora no WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include partials/footer-trafego.html -->
+
+</body>
+</html>

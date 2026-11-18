@@ -121,7 +121,9 @@ const GA4_ID = 'G-3R888MF5W9';
 // Rótulo de cada ação de conversão do Google Ads, ex.: 'AW-18524104629/abcDEF123'
 // Lead: ação 7889834389 "NEYAP Lead formulario autopecas" (2026-11-04). Contact fica vazio de propósito:
 // a conversão é só o formulário (Kallebe, 2026-11-04), clique no WhatsApp não conta.
-const GOOGLE_CONVERSIONS = { Lead: 'AW-18524104629/ceeqCJWjlbIdELXP_YBF', Contact: '' };
+// LeadTrafego: ação 7907945504 "NEYAP Lead gestao de trafego" (2026-11-18), categoria "Pedir orçamento".
+// Fica fora da meta do CRM: o lance por "Pedir orçamento" está desligado na conta e nas campanhas atuais.
+const GOOGLE_CONVERSIONS = { Lead: 'AW-18524104629/ceeqCJWjlbIdELXP_YBF', Contact: '', LeadTrafego: 'AW-18524104629/KqK_CKDY5rodELXP_YBF' };
 
 const CONSENT_KEY = 'neyap-consent';
 const readConsent = () => { try { return localStorage.getItem(CONSENT_KEY); } catch { return null; } };
@@ -160,11 +162,12 @@ function loadTrackers() {
 // Chamado pelas páginas no envio de formulário: window.neyapTrack('Lead', {...})
 // Google: envia sempre; sem aceite, o próprio gtag manda só o aviso sem cookie. Meta: só com aceite.
 window.neyapTrack = (evento, dados = {}) => {
-  if (window.fbq && readConsent() === 'sim') window.fbq('track', evento, dados);
+  // Meta: Lead e Contact são eventos padrão. LeadTrafego vai como evento personalizado para não somar no Lead do CRM.
+  if (window.fbq && readConsent() === 'sim') window.fbq(['Lead', 'Contact'].includes(evento) ? 'track' : 'trackCustom', evento, dados);
   const sendTo = GOOGLE_CONVERSIONS[evento];
   if (window.gtag && sendTo) window.gtag('event', 'conversion', { send_to: sendTo });
   // GA4: generate_lead (evento recomendado) no formulário, contact_whatsapp no clique no WhatsApp.
-  const ga4Evento = { Lead: 'generate_lead', Contact: 'contact_whatsapp' }[evento];
+  const ga4Evento = { Lead: 'generate_lead', LeadTrafego: 'generate_lead', Contact: 'contact_whatsapp' }[evento];
   if (window.gtag && GA4_ID && ga4Evento) window.gtag('event', ga4Evento, { ...dados, send_to: GA4_ID });
 };
 
